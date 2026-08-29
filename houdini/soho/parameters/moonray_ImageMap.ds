@@ -475,10 +475,10 @@
         parmtag { "usdvaluetype" "vector3f" }
     }
     parm {
-        name    "xn__inputsgamma_control_06a"
-        label   "inputs:gamma"
+        name    "xn__inputssource_color_space_control_6sb"
+        label   "inputs:source_color_space"
         type    string
-        default { "none" }
+        default { "set" }
         menujoin {
             "set"           "![BUTTONS_set_or_create]Set or Create"
             "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
@@ -490,18 +490,16 @@
         parmtag { "sidefx::look" "icon" }
     }
     parm {
-        name    "xn__inputsgamma_zta"
-        label   "Gamma"
+        name    "xn__inputssource_color_space_5fb"
+        label   "Source Color Space"
         type    string
         default { "auto" }
-        help    "If this is set to 'on' or 'auto' and the 'texture' file is 8-bit, then a power of 2.2 will be applied to the RGB channels of the image."
-        disablewhen "{ xn__inputsgamma_control_06a == block } { xn__inputsgamma_control_06a == none }"
+        help    "OCIO source color space for the texture. Use auto to apply active OCIO file rules. Explicit values are resolved as color-space names, roles, or aliases from the active OCIO config."
+        disablewhen "{ xn__inputssource_color_space_control_6sb == block } { xn__inputssource_color_space_control_6sb == none }"
         menu {
-            "off"   "Off"
-            "on"    "On"
-            "auto"  "Auto"
+            [ "echo `pythonexprs(\"__import__('moonray_render_settings').ocio_texture_source_dialog_menu()\")`" ] [ ]
         }
-        parmtag { "usdvaluetype" "token" }
+        parmtag { "usdvaluetype" "string" }
     }
     parm {
         name    "xn__inputsoffset_control_n8a"

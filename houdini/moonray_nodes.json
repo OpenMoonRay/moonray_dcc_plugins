@@ -27186,25 +27186,21 @@
                 "bindable": true,
                 "help": "Amount to offset derivatives which controls mipmap selection.   This can be used to provide a cheap, albiet low quality, blur.  Note: Setting this value to -1.0 effectively disables mip mapping and the highest resolution will be used."
             },
-            "gamma": {
-                "moonray_name": "gamma",
-                "moonray_type": "Int",
+            "source_color_space": {
+                "moonray_name": "source_color_space",
+                "moonray_type": "String",
                 "default_value": [
-                    2
+                    "auto"
                 ],
-                "houdini_name": "gamma",
-                "houdini_label": "Gamma",
+                "houdini_name": "source_color_space",
+                "houdini_label": "Source Color Space",
                 "order": 8,
-                "help": "If this is set to 'on' or 'auto' and the 'texture' file is 8-bit, then a power of 2.2 will be applied to the RGB channels of the image.",
+                "help": "OCIO source color space for the texture. Use auto to apply active OCIO file rules. Explicit values are resolved as color-space names, roles, or aliases from the active OCIO config.",
                 "menu": [
-                    "off",
-                    "on",
                     "auto"
                 ],
                 "menu_values": [
-                    "0",
-                    "1",
-                    "2"
+                    "auto"
                 ]
             },
             "offset": {
@@ -27216,7 +27212,7 @@
                 ],
                 "houdini_name": "offset",
                 "houdini_label": "Offset",
-                "order": 9,
+                "order": 10,
                 "bindable": true,
                 "help": "A constant offset applied to the texture coordinates."
             },
@@ -27229,7 +27225,7 @@
                 ],
                 "houdini_name": "scale",
                 "houdini_label": "Scale",
-                "order": 10,
+                "order": 11,
                 "bindable": true,
                 "help": "A constant scale applied to the texture coordinates."
             },
@@ -27241,7 +27237,7 @@
                 ],
                 "houdini_name": "rotation_angle",
                 "houdini_label": "Rotation Angle",
-                "order": 11,
+                "order": 12,
                 "aliases": [
                     "rotation angle"
                 ],
@@ -27256,7 +27252,7 @@
                 ],
                 "houdini_name": "rotation_center",
                 "houdini_label": "Rotation Center",
-                "order": 12,
+                "order": 13,
                 "aliases": [
                     "rotation center"
                 ],
@@ -27270,7 +27266,7 @@
                 ],
                 "houdini_name": "saturation_enabled",
                 "houdini_label": "Saturation Enabled",
-                "order": 13,
+                "order": 14,
                 "aliases": [
                     "saturation enabled"
                 ],
@@ -27286,7 +27282,7 @@
                 ],
                 "houdini_name": "saturation",
                 "houdini_label": "Saturation",
-                "order": 14,
+                "order": 15,
                 "help": "Applies saturation per channel with 0.0 being grayscale and 1.0 being full saturation"
             },
             "contrast_enabled": {
@@ -27297,7 +27293,7 @@
                 ],
                 "houdini_name": "contrast_enabled",
                 "houdini_label": "Contrast Enabled",
-                "order": 15,
+                "order": 16,
                 "aliases": [
                     "contrast enabled"
                 ],
@@ -27313,7 +27309,7 @@
                 ],
                 "houdini_name": "contrast",
                 "houdini_label": "Contrast",
-                "order": 16,
+                "order": 17,
                 "help": "Applies contrast per channel in the style of Nuke where the pivot is at 0.18"
             },
             "gamma_enabled": {
@@ -27324,7 +27320,7 @@
                 ],
                 "houdini_name": "gamma_enabled",
                 "houdini_label": "Gamma Enabled",
-                "order": 17,
+                "order": 18,
                 "aliases": [
                     "gamma enabled"
                 ],
@@ -27340,7 +27336,7 @@
                 ],
                 "houdini_name": "gamma_adjust",
                 "houdini_label": "Gamma Adjust",
-                "order": 18,
+                "order": 19,
                 "aliases": [
                     "gamma adjust"
                 ],
@@ -27354,7 +27350,7 @@
                 ],
                 "houdini_name": "gain_offset_enabled",
                 "houdini_label": "Gain Offset Enabled",
-                "order": 19,
+                "order": 20,
                 "aliases": [
                     "gain offset enabled"
                 ],
@@ -27370,7 +27366,7 @@
                 ],
                 "houdini_name": "gain",
                 "houdini_label": "Gain",
-                "order": 20,
+                "order": 21,
                 "help": "Applies multiplier per channel."
             },
             "offset_adjust": {
@@ -27383,7 +27379,7 @@
                 ],
                 "houdini_name": "offset_adjust",
                 "houdini_label": "Offset Adjust",
-                "order": 21,
+                "order": 22,
                 "aliases": [
                     "offset adjust"
                 ],
@@ -27397,7 +27393,7 @@
                 ],
                 "houdini_name": "TMI_control_enabled",
                 "houdini_label": "TMI Control Enabled",
-                "order": 22,
+                "order": 23,
                 "aliases": [
                     "TME control enabled",
                     "TMI control enabled"
@@ -27414,7 +27410,7 @@
                 ],
                 "houdini_name": "TMI",
                 "houdini_label": "TMI",
-                "order": 23,
+                "order": 24,
                 "aliases": [
                     "TME"
                 ],
@@ -33083,27 +33079,6 @@
                 "houdini_label": "Custom Aspect Ratio",
                 "order": 8,
                 "help": "Custom aspect ratio for the projected texture"
-            },
-            "gamma": {
-                "moonray_name": "gamma",
-                "moonray_type": "Int",
-                "default_value": [
-                    2
-                ],
-                "houdini_name": "gamma",
-                "houdini_label": "Gamma",
-                "order": 9,
-                "help": "Controls application of gamma to images (off -0, on - 1, auto - 2).   Auto will apply gamma decoding to 8-bit images",
-                "menu": [
-                    "off",
-                    "on",
-                    "auto"
-                ],
-                "menu_values": [
-                    "0",
-                    "1",
-                    "2"
-                ]
             }
         },
         "folders_sorted": [],
@@ -34033,27 +34008,6 @@
                     "use reference space"
                 ],
                 "help": "Project onto reference positions ('ref_P') and normals ('ref_N')"
-            },
-            "gamma": {
-                "moonray_name": "gamma",
-                "moonray_type": "Int",
-                "default_value": [
-                    2
-                ],
-                "houdini_name": "gamma",
-                "houdini_label": "Gamma",
-                "order": 1,
-                "help": "Controls application of gamma to images (off -0, on - 1, auto - 2).   Auto will apply gamma decoding to 8-bit images",
-                "menu": [
-                    "off",
-                    "on",
-                    "auto"
-                ],
-                "menu_values": [
-                    "0",
-                    "1",
-                    "2"
-                ]
             },
             "debug_mode": {
                 "moonray_name": "debug_mode",
@@ -35260,27 +35214,6 @@
         "moonray_name": "ProjectTriplanarMap_v2",
         "moonray_type": "Map",
         "parms": {
-            "gamma": {
-                "moonray_name": "gamma",
-                "moonray_type": "Int",
-                "default_value": [
-                    2
-                ],
-                "houdini_name": "gamma",
-                "houdini_label": "Gamma",
-                "order": 0,
-                "help": "Controls application of gamma to images (off -0, on - 1, auto - 2).   Auto will apply gamma decoding to 8-bit images",
-                "menu": [
-                    "off",
-                    "on",
-                    "auto"
-                ],
-                "menu_values": [
-                    "0",
-                    "1",
-                    "2"
-                ]
-            },
             "number_of_textures": {
                 "moonray_name": "number_of_textures",
                 "moonray_type": "Int",

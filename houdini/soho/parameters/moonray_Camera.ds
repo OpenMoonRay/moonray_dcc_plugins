@@ -1,0 +1,186 @@
+#include "$HFS/houdini/soho/parameters/CommonMacros.ds"
+{
+    name    parameters
+    label   "Moonray"
+
+    group {
+        name    "folder"
+        label   "Motion Blur"
+
+        parm {
+            name    "xn__moonraymb_shutter_bias_control_ypb"
+            label   "moonray:mb_shutter_bias"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__moonraymb_shutter_bias_xcb"
+            label   "Mb Shutter Bias"
+            type    float
+            default { "0" }
+            help    "Biases the motion blur samples toward one end of the shutter interval."
+            disablewhen "{ xn__moonraymb_shutter_bias_control_ypb == block } { xn__moonraymb_shutter_bias_control_ypb == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+    }
+
+    group {
+        name    "folder2"
+        label   "Bokeh"
+
+        parm {
+            name    "xn__moonraybokeh_control_o8a"
+            label   "moonray:bokeh"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__moonraybokeh_nva"
+            label   "Bokeh"
+            type    toggle
+            default { "0" }
+            help    "Enable Bokeh. Requires DOF to be enabled."
+            disablewhen "{ xn__moonraybokeh_control_o8a == block } { xn__moonraybokeh_control_o8a == none }"
+            parmtag { "usdvaluetype" "bool" }
+        }
+        parm {
+            name    "xn__moonraybokeh_sides_control_gjb"
+            label   "moonray:bokeh_sides"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__moonraybokeh_sides_f5a"
+            label   "Bokeh Sides"
+            type    integer
+            default { "0" }
+            help    "Number of sides of the iris. Specifying less than 3 sides will default to a disk."
+            disablewhen "{ xn__moonraybokeh_sides_control_gjb == block } { xn__moonraybokeh_sides_control_gjb == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "int" }
+        }
+        parm {
+            name    "xn__moonraybokeh_image_control_gjb"
+            label   "moonray:bokeh_image"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__moonraybokeh_image_f5a"
+            label   "Bokeh Image"
+            type    string
+            default { "" }
+            help    "Path to image file to be used for the iris"
+            disablewhen "{ xn__moonraybokeh_image_control_gjb == block } { xn__moonraybokeh_image_control_gjb == none }"
+            parmtag { "usdvaluetype" "string" }
+        }
+        parm {
+            name    "xn__moonraybokeh_angle_control_gjb"
+            label   "moonray:bokeh_angle"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__moonraybokeh_angle_f5a"
+            label   "Bokeh Angle"
+            type    float
+            default { "0" }
+            help    "Angle of iris rotation"
+            disablewhen "{ xn__moonraybokeh_angle_control_gjb == block } { xn__moonraybokeh_angle_control_gjb == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+        parm {
+            name    "xn__moonraybokeh_weight_location_control_qzb"
+            label   "moonray:bokeh_weight_location"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__moonraybokeh_weight_location_pmb"
+            label   "Bokeh Weight Location"
+            type    float
+            default { "0" }
+            help    "Distance from the origin of Bokeh shape"
+            disablewhen "{ xn__moonraybokeh_weight_location_control_qzb == block } { xn__moonraybokeh_weight_location_control_qzb == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+        parm {
+            name    "xn__moonraybokeh_weight_strength_control_qzb"
+            label   "moonray:bokeh_weight_strength"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__moonraybokeh_weight_strength_pmb"
+            label   "Bokeh Weight Strength"
+            type    float
+            default { "0" }
+            help    "Controls the strength of weights as samples approach the weight location"
+            disablewhen "{ xn__moonraybokeh_weight_strength_control_qzb == block } { xn__moonraybokeh_weight_strength_control_qzb == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+    }
+}

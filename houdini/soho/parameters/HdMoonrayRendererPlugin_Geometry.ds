@@ -515,4 +515,237 @@
         }
     }
 
+    group {
+        name    "folder_mesh"
+        label   "Mesh Tessellation"
+
+        parm {
+            name    "xn__primvarsmoonrayis_subd_control_zpbh"
+            label   "primvars:moonray:is_subd"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayis_subd_ycbh"
+            label   "Is Subd"
+            type    toggle
+            default { "1" }
+            help    "If true, a SubdivisionMesh primitive will be created; otherwise a PolygonMesh primitive will be created."
+            disablewhen "{ xn__primvarsmoonrayis_subd_control_zpbh == block } { xn__primvarsmoonrayis_subd_control_zpbh == none }"
+            parmtag { "usdvaluetype" "bool" }
+        }
+
+        parm {
+            name    "xn__primvarsmoonraysubd_scheme_control_iwbh"
+            label   "primvars:moonray:subd_scheme"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonraysubd_scheme_hjbh"
+            label   "Subd Scheme"
+            type    string
+            default { "catclark" }
+            help    "MoonRay subdivision scheme. USD Loop subdivision is not supported by hdMoonray and is treated as Catmull-Clark."
+            disablewhen "{ xn__primvarsmoonraysubd_scheme_control_iwbh == block } { xn__primvarsmoonraysubd_scheme_control_iwbh == none }"
+            menu {
+                "bilinear"  "Bilinear"
+                "catclark"  "Catmull-Clark"
+            }
+            parmtag { "usdvaluetype" "token" }
+        }
+
+        parm {
+            name    "xn__primvarsmoonraysubd_boundary_control_rzbh"
+            label   "primvars:moonray:subd_boundary"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonraysubd_boundary_qmbh"
+            label   "Subd Boundary"
+            type    string
+            default { "edge and corner" }
+            help    "Boundary interpolation for subdivision meshes."
+            disablewhen "{ xn__primvarsmoonraysubd_boundary_control_rzbh == block } { xn__primvarsmoonraysubd_boundary_control_rzbh == none }"
+            menu {
+                "none"              "None"
+                "edge only"         "Edge Only"
+                "edge and corner"   "Edge And Corner"
+            }
+            parmtag { "usdvaluetype" "token" }
+        }
+
+        parm {
+            name    "xn__primvarsmoonraysubd_fvar_linear_control_n4bh"
+            label   "primvars:moonray:subd_fvar_linear"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonraysubd_fvar_linear_mrbh"
+            label   "Subd Fvar Linear"
+            type    string
+            default { "corners only" }
+            help    "Face-varying linear interpolation for subdivision meshes."
+            disablewhen "{ xn__primvarsmoonraysubd_fvar_linear_control_n4bh == block } { xn__primvarsmoonraysubd_fvar_linear_control_n4bh == none }"
+            menu {
+                "none"          "None"
+                "corners only"  "Corners Only"
+                "corners plus1" "Corners Plus1"
+                "corners plus2" "Corners Plus2"
+                "boundaries"    "Boundaries"
+                "all"           "All"
+            }
+            parmtag { "usdvaluetype" "token" }
+        }
+
+        parm {
+            name    "xn__primvarsmoonraymesh_resolution_control_02bh"
+            label   "primvars:moonray:mesh_resolution"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonraymesh_resolution_zpbh"
+            label   "Mesh Resolution"
+            type    float
+            default { "2.0" }
+            help    "Maximum resolution for mesh tessellation. With adaptive tessellation this caps the tessellation level."
+            disablewhen "{ xn__primvarsmoonraymesh_resolution_control_02bh == block } { xn__primvarsmoonraymesh_resolution_control_02bh == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+
+        parm {
+            name    "xn__primvarsmoonrayadaptive_error_control_e1bh"
+            label   "primvars:moonray:adaptive_error"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayadaptive_error_dobh"
+            label   "Adaptive Error"
+            type    float
+            default { "0.0" }
+            help    "Maximum allowable pixel error for adaptive subdivision tessellation. A value of 0 disables adaptive tessellation."
+            disablewhen "{ xn__primvarsmoonrayadaptive_error_control_e1bh == block } { xn__primvarsmoonrayadaptive_error_control_e1bh == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+
+        parm {
+            name    "xn__primvarsmoonraysmooth_normal_control_rzbh"
+            label   "primvars:moonray:smooth_normal"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonraysmooth_normal_qmbh"
+            label   "Smooth Normal"
+            type    toggle
+            default { "1" }
+            help    "Generate smooth shading normals on polygon meshes when the mesh does not provide shading normals."
+            disablewhen "{ xn__primvarsmoonraysmooth_normal_control_rzbh == block } { xn__primvarsmoonraysmooth_normal_control_rzbh == none }"
+            parmtag { "usdvaluetype" "bool" }
+        }
+    }
+
+    group {
+        name    "folder_motion"
+        label   "Motion Blur"
+
+        parm {
+            name    "xn__primvarsmoonraymotion_blur_type_control_n4bh"
+            label   "primvars:moonray:motion_blur_type"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonraymotion_blur_type_mrbh"
+            label   "Motion Blur Type"
+            type    string
+            default { "best" }
+            help    "Motion blur method for MoonRay mesh, curve, and point geometry when motion samples or velocity data are present."
+            disablewhen "{ xn__primvarsmoonraymotion_blur_type_control_n4bh == block } { xn__primvarsmoonraymotion_blur_type_control_n4bh == none }"
+            menu {
+                "best"          "Best"
+                "static"        "Static"
+                "velocity"      "Velocity"
+                "frame delta"   "Frame Delta"
+                "acceleration"  "Acceleration"
+                "hermite"       "Hermite"
+            }
+            parmtag { "usdvaluetype" "token" }
+        }
+    }
+
 }

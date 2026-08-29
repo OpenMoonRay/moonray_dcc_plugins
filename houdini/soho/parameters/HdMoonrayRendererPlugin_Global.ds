@@ -445,7 +445,7 @@
             name    "xn__moonraysceneVariablescene_scale_lrbn"
             label   "Scene Scale"
             type    float
-            default { "0.01" }
+            default { "1" }
             help    "(in meters): one unit in world space = 'scene scale' meters"
             disablewhen "{ xn__moonraysceneVariablescene_scale_control_m4bn == block } { xn__moonraysceneVariablescene_scale_control_m4bn == none }"
             range   { 0 10 }
@@ -1161,7 +1161,7 @@
             name    "xn__moonraysceneVariablesample_clamping_value_v7bn"
             label   "Sample Clamping Value"
             type    float
-            default { "10" }
+            default { "10.0" }
             help    "Clamp sample radiance values to this maximum value (the feature is disabled if the value is 0.0). Using this technique reduces fireflies, but is biased."
             disablewhen "{ xn__moonraysceneVariablesample_clamping_value_control_wlcn == block } { xn__moonraysceneVariablesample_clamping_value_control_wlcn == none }"
             range   { 0 10 }
@@ -2693,7 +2693,7 @@
         name    "xn__moonraysceneVariabletarget_adaptive_error_v7bn"
         label   "Target Adaptive Error"
         type    float
-        default { "10" }
+        default { "10.0" }
         help    "When adaptive sampling is turned on, this represents the desired quality of the output images. Lower values will give higher quality but take longer to render. Higher values will give lower quality but render quicker."
         disablewhen "{ xn__moonraysceneVariabletarget_adaptive_error_control_wlcn == block } { xn__moonraysceneVariabletarget_adaptive_error_control_wlcn == none }"
         range   { 0 10 }

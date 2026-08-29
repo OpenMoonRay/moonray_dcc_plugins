@@ -7,7 +7,7 @@
         label   "moonray:class"
         type    string
         invisible
-        default { "set" }
+        default { "none" }
         menujoin {
             "set"           "Set Or Create"
             "setexisting"   "Set if Exists"
@@ -20,21 +20,21 @@
         label   "class"
         type    string
         invisible
-        default { [ "\n        parm = hou.parm(\"lighttype\")\n        if parm:\n            value = parm.eval()\n            label = parm.menuLabels()[value]\n            if label == \"Geometry\":\n                label = \"Mesh\"\n            elif label == \"Rectangle\":\n                label = \"Rect\"\n            return label + \"Light\"\n        else:\n            parm = hou.parm(\"primtype\")\n            value = parm.eval()\n            if value == \"UsdLuxDomeLight\":\n                return \"EnvLight\"\n        " python ] }
+        default { [ "\n        parm = hou.parm(\"lighttype\")\n        if parm:\n            value = parm.eval()\n            label = parm.menuLabels()[value]\n            if label == \"Geometry\":\n                label = \"Mesh\"\n            elif label == \"Point\":\n                label = \"Sphere\"\n            elif label == \"Rectangle\":\n                label = \"Rect\"\n            return label + \"Light\"\n        else:\n            parm = hou.parm(\"primtype\")\n            value = parm.eval()\n            if value in (\"UsdLuxDomeLight\", \"UsdLuxDomeLight_1\", \"DomeLight_1\"):\n                return \"EnvLight\"\n        " python ] }
         disablewhen "{ xn__moonrayclass_control_o8a == block } { xn__moonrayclass_control_o8a == none }"
         parmtag { "usdvaluetype" "token" }
     }
     group {
         name    "folder"
         label   "Properties"
-        hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+        hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
 
         parm {
             name    "xn__moonrayon_control_s3a"
             label   "moonray:on"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -49,7 +49,7 @@
             default { "1" }
             help    "Whether the light is switched on."
             disablewhen "{ xn__moonrayon_control_s3a == block } { xn__moonrayon_control_s3a == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             parmtag { "usdvaluetype" "bool" }
         }
         parm {
@@ -57,7 +57,7 @@
             label   "moonray:mb"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -72,7 +72,7 @@
             default { "0" }
             help    "Whether motion-blur is active for this light. When set to true, the scene's illumination will correctly account for any blur() applied to the light's transformation matrix."
             disablewhen "{ xn__moonraymb_control_s3a == block } { xn__moonraymb_control_s3a == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             parmtag { "usdvaluetype" "bool" }
         }
         parm {
@@ -80,7 +80,7 @@
             label   "moonray:visible_in_camera"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -95,7 +95,7 @@
             default { "use default" }
             help    "Whether the light is directly visible in the scene's active camera. When set to \"use default\" it reads from the value of SceneVariable lights_visible_in_camera."
             disablewhen "{ xn__moonrayvisible_in_camera_control_7sb == block } { xn__moonrayvisible_in_camera_control_7sb == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menu {
                 "force off"     "Force Off"
                 "force on"      "Force On"
@@ -108,7 +108,7 @@
             label   "moonray:color"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -124,7 +124,7 @@
             default { "1" "1" "1" }
             help    "The light's RGB values.\nThese are combined multiplicatively with the intensity and other attributes in determining the light's 3-channel radiance."
             disablewhen "{ xn__moonraycolor_control_o8a == block } { xn__moonraycolor_control_o8a == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "color3f" }
         }
@@ -133,7 +133,7 @@
             label   "moonray:intensity"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -148,7 +148,7 @@
             default { "1" }
             help    "The light's intensity.\nThis is combined multiplicatively with the color and other attributes in determining the light's 3-channel radiance."
             disablewhen "{ xn__moonrayintensity_control_6fb == block } { xn__moonrayintensity_control_6fb == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "float" }
         }
@@ -157,7 +157,7 @@
             label   "moonray:exposure"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -172,7 +172,7 @@
             default { "0" }
             help    "The light's exposure value.\nThis value provides an alternative to the intensity value as a mechanism for controlling the light's overall brightness, and is inspired by the corresponding photographic term but is generalised to apply independently to each light. To calculate its effect, pow(2, exposure) is combined multiplicatively with the color and other attributes in determining the light's 3-channel radiance."
             disablewhen "{ xn__moonrayexposure_control_keb == block } { xn__moonrayexposure_control_keb == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "float" }
         }
@@ -181,7 +181,7 @@
             label   "moonray:max_shadow_distance"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -196,7 +196,7 @@
             default { "0" }
             help    "The distance from the light beyond which a light-receiving surface will no longer receive shadows cast from that light.\nNote that the distance is thresholded for each occlusion ray cast for this light, it is possible for a receiving point to lie at an intermediate distance such that some parts of the light are closer than the threshold distance and other parts beyond it, in which case the point will appearto be in partial shadow."
             disablewhen "{ xn__moonraymax_shadow_distance_control_hwb == block } { xn__moonraymax_shadow_distance_control_hwb == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "float" }
         }
@@ -205,7 +205,7 @@
             label   "moonray:presence_shadows"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -220,7 +220,7 @@
             default { "use default" }
             help    "Switch this attribute on for shadows cast from this light to correctly respect presence values. When off, surfaces with a material with presence less than 1.0 will cast opaque shadows from this light. This is an optimization - when the attribute is off, occlusion rays (fast) are used for testing for shadows. When it is on, regular rays (slower) are used, and the material's presence is evaluated to determine how much shadowing should occur. When set to \"use default\" it reads from the value of SceneVariable enable_presence_shadows."
             disablewhen "{ xn__moonraypresence_shadows_control_lrb == block } { xn__moonraypresence_shadows_control_lrb == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menu {
                 "force off"     "Force Off"
                 "force on"      "Force On"
@@ -233,7 +233,7 @@
             label   "moonray:ray_termination"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -248,7 +248,7 @@
             default { "0" }
             help    "Whether the light is used for ray termination color. Ray termination color is used for filling in falsely dark areas where ray paths have been terminated too early by the depth controls. Such a ray path immediately exits to any ray termination light(s) present in the light set being applied to the lobe, ignoring occlusion by scene geometry. Any light can either be a regular light or a ray termination light (but not both). Thus they can be freely assigned to light sets, which provides a mechanism for applying specific ray termination lights to specific materials, parts or objects. Ray termination color is only applied to non-hair transmission lobes."
             disablewhen "{ xn__moonrayray_termination_control_ypb == block } { xn__moonrayray_termination_control_ypb == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             parmtag { "usdvaluetype" "bool" }
         }
         parm {
@@ -256,7 +256,7 @@
             label   "moonray:texture_filter"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -271,7 +271,7 @@
             default { "nearest neighbor" }
             help    "The filtering mode to apply to the texture. Nearest neighbor is the cheapest filtering mode but produces a blocky result. Switch linear filtering on for a smoother result. Additionally, mip-mapping can be switched on with either nearest neighbor or linear filtering."
             disablewhen "{ xn__moonraytexture_filter_control_cob == block } { xn__moonraytexture_filter_control_cob == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menu {
                 "nearest neighbor"                  "Nearest Neighbor"
                 "bilinear"                          "Bilinear"
@@ -285,7 +285,7 @@
             label   "moonray:label"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -300,7 +300,7 @@
             default { "" }
             help    "Label used in light aov expressions."
             disablewhen "{ xn__moonraylabel_control_o8a == block } { xn__moonraylabel_control_o8a == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             parmtag { "usdvaluetype" "string" }
         }
         parm {
@@ -657,14 +657,14 @@
     group {
         name    "folder2"
         label   "Map"
-        hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+        hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
 
         parm {
             name    "xn__moonraytexture_control_xcb"
             label   "moonray:texture"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -679,7 +679,7 @@
             default { "" }
             help    "File name of the texture applied to the light. If set to the empty string, no texture is applied. Any file format supported by OpenImageIO can be used. The texture is used in 2 ways - for looking up the texture value at the intersection point when a ray hits the light, and for building a lookup-table-based auxilliary data structure used for distributing light samples over the texture."
             disablewhen "{ xn__moonraytexture_control_xcb == block } { xn__moonraytexture_control_xcb == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             parmtag { "usdvaluetype" "asset" }
         }
         parm {
@@ -687,7 +687,7 @@
             label   "moonray:saturation"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -703,7 +703,7 @@
             default { "1" "1" "1" }
             help    "Per-channel saturation used in color-correcting the light's texture, if one is present. This is achieved by applying the following formula for each channel:\n  output = lerp(luminance(inputRGB), input, saturation)."
             disablewhen "{ xn__moonraysaturation_control_thb == block } { xn__moonraysaturation_control_thb == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "color3f" }
         }
@@ -712,7 +712,7 @@
             label   "moonray:contrast"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -728,7 +728,7 @@
             default { "1" "1" "1" }
             help    "Per-channel contrast used in color-correcting the light's texture, if one is present. The operation mimics Nuke's ColorCorrect node's contrast function:\n  For input >  0, output = 0.18 * pow(inputCompnent/0.18, contrast).\n  For input <= 0, output = 0.18 * input * pow(1/0.18, contrast)."
             disablewhen "{ xn__moonraycontrast_control_keb == block } { xn__moonraycontrast_control_keb == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "color3f" }
         }
@@ -737,7 +737,7 @@
             label   "moonray:gamma"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -753,7 +753,7 @@
             default { "1" "1" "1" }
             help    "Per-channel gamma used in color-correcting the light's texture, if one is present. This is achieved by applying the following formula for each channel:\n  For input >  0, output = pow(input, gamma)\n  For input <= 0, output = input"
             disablewhen "{ xn__moonraygamma_control_o8a == block } { xn__moonraygamma_control_o8a == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "color3f" }
         }
@@ -762,7 +762,7 @@
             label   "moonray:gain"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -778,7 +778,7 @@
             default { "1" "1" "1" }
             help    "Per-channel gain used in tandem with a per-channel offset for color-correcting the light's texture, if one is present. This is achieved by applying the following formula for each channel:\n  output = input * gain + offset"
             disablewhen "{ xn__moonraygain_control_16a == block } { xn__moonraygain_control_16a == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "color3f" }
         }
@@ -787,7 +787,7 @@
             label   "moonray:offset"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -803,7 +803,7 @@
             default { "0" "0" "0" }
             help    "Per-channel offset used in tandem with a per-channel gain for color-correcting the light's texture, if one is present. This is achieved by applying the following formula for each channel:\n  output = input * gain + offset"
             disablewhen "{ xn__moonrayoffset_control_bbb == block } { xn__moonrayoffset_control_bbb == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "color3f" }
         }
@@ -812,7 +812,7 @@
             label   "moonray:temperature"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -828,7 +828,7 @@
             default { "0" "0" "0" }
             help    "Color temperature using Nuke-style T/M/I settings (T = temperature, M = magenta/green, I = intensity). This is achieved as follows:\nThe 3-channel temperature is interpreted as the vector (T,M,I). The followiong scale values are then applied to the RGB components:\n  outputR = inputR * (pow(2,I) + M/3 - T/2)\n  outputG = inputG * (pow(2,I) - 2*M/3\n  outputB = inputB * (pow(2,I) + M/3 + T/2)"
             disablewhen "{ xn__moonraytemperature_control_gjb == block } { xn__moonraytemperature_control_gjb == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "vector3f" }
         }
@@ -837,7 +837,7 @@
             label   "moonray:texture_rotation"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -852,7 +852,7 @@
             default { "0" }
             help    "Clockwise rotation angle in degrees."
             disablewhen "{ xn__moonraytexture_rotation_control_lrb == block } { xn__moonraytexture_rotation_control_lrb == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "float" }
         }
@@ -861,7 +861,7 @@
             label   "moonray:texture_translation"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -877,7 +877,7 @@
             default { "0" "0" }
             help    "Translation of the texture in (u,v)-space, in units of the texture size. For example, a translation of (0.25, 0.5) will translate the texture one-quarter of its width in the u-direction and one-half of its height in the v-direction."
             disablewhen "{ xn__moonraytexture_translation_control_hwb == block } { xn__moonraytexture_translation_control_hwb == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "float2" }
         }
@@ -886,7 +886,7 @@
             label   "moonray:texture_coverage"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -902,7 +902,7 @@
             default { "1" "1" }
             help    "Texture scales in the u and v-directions."
             disablewhen "{ xn__moonraytexture_coverage_control_lrb == block } { xn__moonraytexture_coverage_control_lrb == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "float2" }
         }
@@ -911,7 +911,7 @@
             label   "moonray:texture_reps_u"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -926,7 +926,7 @@
             default { "1" }
             help    "Number of times texture repeats in u over the scaled texture space."
             disablewhen "{ xn__moonraytexture_reps_u_control_cob == block } { xn__moonraytexture_reps_u_control_cob == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "float" }
         }
@@ -935,7 +935,7 @@
             label   "moonray:texture_reps_v"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -950,7 +950,7 @@
             default { "1" }
             help    "Number of times texture repeats in v over the scaled texture space."
             disablewhen "{ xn__moonraytexture_reps_v_control_cob == block } { xn__moonraytexture_reps_v_control_cob == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "float" }
         }
@@ -959,7 +959,7 @@
             label   "moonray:texture_mirror_u"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -974,7 +974,7 @@
             default { "0" }
             help    "Whether to mirror the texture in the u-direction. If set to false, the texture is repeated in the u-direction."
             disablewhen "{ xn__moonraytexture_mirror_u_control_lrb == block } { xn__moonraytexture_mirror_u_control_lrb == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             parmtag { "usdvaluetype" "bool" }
         }
         parm {
@@ -982,7 +982,7 @@
             label   "moonray:texture_mirror_v"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -997,7 +997,7 @@
             default { "0" }
             help    "Whether to mirror the texture in the v-direction. If set to false, the texture is repeated in the v-direction."
             disablewhen "{ xn__moonraytexture_mirror_v_control_lrb == block } { xn__moonraytexture_mirror_v_control_lrb == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             parmtag { "usdvaluetype" "bool" }
         }
         parm {
@@ -1005,7 +1005,7 @@
             label   "moonray:texture_border_color"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -1021,7 +1021,7 @@
             default { "1" "1" "1" }
             help    "RGB value used when a texture lookup occurs outside the texture."
             disablewhen "{ xn__moonraytexture_border_color_control_3xb == block } { xn__moonraytexture_border_color_control_3xb == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "color3f" }
         }
@@ -1030,7 +1030,7 @@
             label   "moonray:sample_upper_hemisphere_only"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxDomeLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -1045,199 +1045,32 @@
             default { "0" }
             help    "Set this to true if you want the EnvLight to illuminate from only the \"upper\" hemisphere, defined as the hemisphere centered around the light's positive local z-axis direction."
             disablewhen "{ xn__moonraysample_upper_hemisphere_only_control_4bc == block } { xn__moonraysample_upper_hemisphere_only_control_4bc == none }"
-            hidewhen "{ primtype != UsdLuxDomeLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 createprims == on }"
             parmtag { "usdvaluetype" "bool" }
         }
     }
-
-    group {
-        name    "folder3"
-        label   "Visibility Flags"
-        hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
-
-        parm {
-            name    "xn__moonrayvisible_diffuse_reflection_control_v7b"
-            label   "moonray:visible_diffuse_reflection"
-            type    string
-            default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
-            menujoin {
-                "set"           "Set Or Create"
-                "setexisting"   "Set if Exists"
-                "block"         "Block"
-                "none"          "Do Nothing"
-            }
-        }
-        parm {
-            name    "xn__moonrayvisible_diffuse_reflection_uub"
-            label   "Visible Diffuse Reflection"
-            type    toggle
-            default { "1" }
-            help    "Whether the light is visible in diffuse reflection."
-            disablewhen "{ xn__moonrayvisible_diffuse_reflection_control_v7b == block } { xn__moonrayvisible_diffuse_reflection_control_v7b == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
-            parmtag { "usdvaluetype" "bool" }
-        }
-        parm {
-            name    "xn__moonrayvisible_diffuse_transmission_control_4bc"
-            label   "moonray:visible_diffuse_transmission"
-            type    string
-            default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
-            menujoin {
-                "set"           "Set Or Create"
-                "setexisting"   "Set if Exists"
-                "block"         "Block"
-                "none"          "Do Nothing"
-            }
-        }
-        parm {
-            name    "xn__moonrayvisible_diffuse_transmission_3xb"
-            label   "Visible Diffuse Transmission"
-            type    toggle
-            default { "1" }
-            help    "Whether the light is visible in diffuse transmission."
-            disablewhen "{ xn__moonrayvisible_diffuse_transmission_control_4bc == block } { xn__moonrayvisible_diffuse_transmission_control_4bc == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
-            parmtag { "usdvaluetype" "bool" }
-        }
-        parm {
-            name    "xn__moonrayvisible_glossy_reflection_control_85b"
-            label   "moonray:visible_glossy_reflection"
-            type    string
-            default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
-            menujoin {
-                "set"           "Set Or Create"
-                "setexisting"   "Set if Exists"
-                "block"         "Block"
-                "none"          "Do Nothing"
-            }
-        }
-        parm {
-            name    "xn__moonrayvisible_glossy_reflection_7sb"
-            label   "Visible Glossy Reflection"
-            type    toggle
-            default { "1" }
-            help    "Whether the light is visible in glossy reflection."
-            disablewhen "{ xn__moonrayvisible_glossy_reflection_control_85b == block } { xn__moonrayvisible_glossy_reflection_control_85b == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
-            parmtag { "usdvaluetype" "bool" }
-        }
-        parm {
-            name    "xn__moonrayvisible_glossy_transmission_control_i9b"
-            label   "moonray:visible_glossy_transmission"
-            type    string
-            default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
-            menujoin {
-                "set"           "Set Or Create"
-                "setexisting"   "Set if Exists"
-                "block"         "Block"
-                "none"          "Do Nothing"
-            }
-        }
-        parm {
-            name    "xn__moonrayvisible_glossy_transmission_hwb"
-            label   "Visible Glossy Transmission"
-            type    toggle
-            default { "1" }
-            help    "Whether the light is visible in glossy transmission (refraction)."
-            disablewhen "{ xn__moonrayvisible_glossy_transmission_control_i9b == block } { xn__moonrayvisible_glossy_transmission_control_i9b == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
-            parmtag { "usdvaluetype" "bool" }
-        }
-        parm {
-            name    "xn__moonrayvisible_mirror_reflection_control_85b"
-            label   "moonray:visible_mirror_reflection"
-            type    string
-            default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
-            menujoin {
-                "set"           "Set Or Create"
-                "setexisting"   "Set if Exists"
-                "block"         "Block"
-                "none"          "Do Nothing"
-            }
-        }
-        parm {
-            name    "xn__moonrayvisible_mirror_reflection_7sb"
-            label   "Visible Mirror Reflection"
-            type    toggle
-            default { "1" }
-            help    "Whether the light is visible in miror reflection."
-            disablewhen "{ xn__moonrayvisible_mirror_reflection_control_85b == block } { xn__moonrayvisible_mirror_reflection_control_85b == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
-            parmtag { "usdvaluetype" "bool" }
-        }
-        parm {
-            name    "xn__moonrayvisible_mirror_transmission_control_i9b"
-            label   "moonray:visible_mirror_transmission"
-            type    string
-            default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
-            menujoin {
-                "set"           "Set Or Create"
-                "setexisting"   "Set if Exists"
-                "block"         "Block"
-                "none"          "Do Nothing"
-            }
-        }
-        parm {
-            name    "xn__moonrayvisible_mirror_transmission_hwb"
-            label   "Visible Mirror Transmission"
-            type    toggle
-            default { "1" }
-            help    "Whether the light is visible in miror transmission (refraction)."
-            disablewhen "{ xn__moonrayvisible_mirror_transmission_control_i9b == block } { xn__moonrayvisible_mirror_transmission_control_i9b == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
-            parmtag { "usdvaluetype" "bool" }
-        }
-    }
-
-    parm {
-        name    "xn__moonraylight_filters_control_pmb"
-        label   "moonray:light_filters"
-        type    string
-        default { "none" }
-        hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
-        menujoin {
-            "set"           "Set Or Create"
-            "setexisting"   "Set if Exists"
-            "block"         "Block"
-            "none"          "Do Nothing"
-        }
-    }
-    multiparm {
-        name    "light_filters"
-        label    "Light Filters"
-        default 0
-        disablewhen "{ xn__moonraylight_filters_control_pmb == block } { xn__moonraylight_filters_control_pmb == none }"
-        hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
-        parmtag { "usdvaluetype" "<class 'pxr.Usd.Relationship'>" }
-
-        parm {
-            name    "xn__moonraylight_filters_o8a#"
-            label   "Light Filters"
-            type    oppath
-            default { "" }
-            help    "Vector of LightFilters associated with the light."
-            parmtag { "moonray::is_parm" "1" }
-            parmtag { "oprelative" "." }
-        }
-    }
-
     group {
         name    "folder4"
-        label   "Cone"
-        hidewhen "{ primtype != UsdLuxDiskLight createprims == on }"
+        label   "SpotLight"
+        hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+
+        parm {
+            name    "xn__moonraynative_spotlight_rqa"
+            label   "Enable Native MoonRay SpotLight"
+            type    toggle
+            default { "0" }
+            help    "Forces this Solaris light to render as MoonRay's native SpotLight. Use this when you specifically want MoonRay projector-style controls such as inner/outer cone angles, lens radius, focal plane distance, aspect ratio, angle falloff, and black level. The standard Solaris Shaping tab remains the renderer-neutral USD ShapingAPI path."
+            parmtag { "script_callback_language" "python" }
+            parmtag { "script_callback" "node = kwargs['node']; enabled = bool(kwargs['parm'].eval()); control = node.parm('xn__moonrayclass_control_o8a'); klass = node.parm('xn__moonrayclass_nva');\nif enabled:\n    if control is not None and klass is not None:\n        control.set('set')\n        klass.deleteAllKeyframes()\n        klass.set('SpotLight')\nelse:\n    if control is not None and klass is not None and control.evalAsString() == 'set' and klass.evalAsString() == 'SpotLight':\n        control.set('none')\n        klass.deleteAllKeyframes()" }
+        }
 
         parm {
             name    "xn__moonraylens_radius_control_gjb"
             label   "moonray:lens_radius"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxDiskLight createprims == on }"
+            disablewhen "{ xn__moonraynative_spotlight_rqa == 0 }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -1251,8 +1084,8 @@
             type    float
             default { "1" }
             help    "The radius of the SpotLight's lens (when the aspect ratio is 1.0, so that the lens is circular)."
-            disablewhen "{ xn__moonraylens_radius_control_gjb == block } { xn__moonraylens_radius_control_gjb == none }"
-            hidewhen "{ primtype != UsdLuxDiskLight createprims == on }"
+            disablewhen "{ xn__moonraynative_spotlight_rqa == 0 } { xn__moonraylens_radius_control_gjb == block } { xn__moonraylens_radius_control_gjb == none }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "float" }
         }
@@ -1261,7 +1094,8 @@
             label   "moonray:aspect_ratio"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxDiskLight createprims == on }"
+            disablewhen "{ xn__moonraynative_spotlight_rqa == 0 }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -1275,8 +1109,8 @@
             type    float
             default { "1" }
             help    "The aspect ratio of the lens - its local y dimension divided by its local x dimension. Values other than 1.0 will give the lens a non-circular elliptical shape."
-            disablewhen "{ xn__moonrayaspect_ratio_control_2kb == block } { xn__moonrayaspect_ratio_control_2kb == none }"
-            hidewhen "{ primtype != UsdLuxDiskLight createprims == on }"
+            disablewhen "{ xn__moonraynative_spotlight_rqa == 0 } { xn__moonrayaspect_ratio_control_2kb == block } { xn__moonrayaspect_ratio_control_2kb == none }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "float" }
         }
@@ -1285,7 +1119,8 @@
             label   "moonray:focal_plane_distance"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxDiskLight createprims == on }"
+            disablewhen "{ xn__moonraynative_spotlight_rqa == 0 }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -1299,8 +1134,8 @@
             type    float
             default { "1e+10" }
             help    "The distance from the SpotLight's position, measured in the direction the light is pointing, at which the projected image will be in focus."
-            disablewhen "{ xn__moonrayfocal_plane_distance_control_3xb == block } { xn__moonrayfocal_plane_distance_control_3xb == none }"
-            hidewhen "{ primtype != UsdLuxDiskLight createprims == on }"
+            disablewhen "{ xn__moonraynative_spotlight_rqa == 0 } { xn__moonrayfocal_plane_distance_control_3xb == block } { xn__moonrayfocal_plane_distance_control_3xb == none }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "float" }
         }
@@ -1309,7 +1144,8 @@
             label   "moonray:outer_cone_angle"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxDiskLight createprims == on }"
+            disablewhen "{ xn__moonraynative_spotlight_rqa == 0 }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -1323,9 +1159,9 @@
             type    float
             default { "60" }
             help    "The apex angle of the bounding cone of the light emitted by the SpotLight. No illumination takes placeoutside this angle. This is a full angle, measured from one side to the other. There is a falloff function applied between the outer and inner cones - see the angle_falloff_type attribute."
-            disablewhen "{ xn__moonrayouter_cone_angle_control_lrb == block } { xn__moonrayouter_cone_angle_control_lrb == none }"
-            hidewhen "{ primtype != UsdLuxDiskLight createprims == on }"
-            range   { 0 10 }
+            disablewhen "{ xn__moonraynative_spotlight_rqa == 0 } { xn__moonrayouter_cone_angle_control_lrb == block } { xn__moonrayouter_cone_angle_control_lrb == none }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            range   { 0 180 }
             parmtag { "usdvaluetype" "float" }
         }
         parm {
@@ -1333,7 +1169,8 @@
             label   "moonray:inner_cone_angle"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxDiskLight createprims == on }"
+            disablewhen "{ xn__moonraynative_spotlight_rqa == 0 }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -1347,24 +1184,18 @@
             type    float
             default { "30" }
             help    "The apex angle of the bright inner cone of the light emitted by the SpotLight. Full illumination takes place inside this region. This is a full angle, measured from one side to the other. There is a falloff function applied between the outer and inner cones - see the angle_falloff_type attribute."
-            disablewhen "{ xn__moonrayinner_cone_angle_control_lrb == block } { xn__moonrayinner_cone_angle_control_lrb == none }"
-            hidewhen "{ primtype != UsdLuxDiskLight createprims == on }"
-            range   { 0 10 }
+            disablewhen "{ xn__moonraynative_spotlight_rqa == 0 } { xn__moonrayinner_cone_angle_control_lrb == block } { xn__moonrayinner_cone_angle_control_lrb == none }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            range   { 0 180 }
             parmtag { "usdvaluetype" "float" }
         }
-    }
-
-    group {
-        name    "folder5"
-        label   "Falloff"
-        hidewhen "{ primtype != UsdLuxDiskLight createprims == on }"
-
         parm {
             name    "xn__moonrayangle_falloff_type_control_uub"
             label   "moonray:angle_falloff_type"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxDiskLight createprims == on }"
+            disablewhen "{ xn__moonraynative_spotlight_rqa == 0 }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -1378,8 +1209,8 @@
             type    string
             default { "ease in/out" }
             help    "The falloff function applied between the outer and inner cones. To calculate this, the angle from the cone's axis to the the point being illuminated is measured as seen from the SpotLight's position. This angle is converted into a fractional value representing the fraction from the outer cone angle to the inner cone angle, clamped to the range [0,1]. The resulting value is then fed into one of the following user-selectable functions to determine the final 0-1 scaling value to be applied to thelight's radiance: \n  0 (off)         - no fallof, a step function at the outer cone boundary is applied\n  1 (linear)      - a linear ramp, i.e. the fractional parameter is applied as-is\n  2 (ease in)     - a quadratic ramp with zero gradient at the start point (outer cone)\n  3 (ease out)    - a quadratic ramp with zero gradient at the end point (inner cone)\n  4 (ease in/out) - a cubic ramp with zero gradient at both ends (outer and inner cone)\n"
-            disablewhen "{ xn__moonrayangle_falloff_type_control_uub == block } { xn__moonrayangle_falloff_type_control_uub == none }"
-            hidewhen "{ primtype != UsdLuxDiskLight createprims == on }"
+            disablewhen "{ xn__moonraynative_spotlight_rqa == 0 } { xn__moonrayangle_falloff_type_control_uub == block } { xn__moonrayangle_falloff_type_control_uub == none }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menu {
                 "off"           "Off"
                 "linear"        "Linear"
@@ -1394,7 +1225,8 @@
             label   "moonray:black_level"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxDiskLight createprims == on }"
+            disablewhen "{ xn__moonraynative_spotlight_rqa == 0 }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             menujoin {
                 "set"           "Set Or Create"
                 "setexisting"   "Set if Exists"
@@ -1408,10 +1240,187 @@
             type    float
             default { "0.001" }
             help    "The radiance used for rendering the SpotLight lens as seen through the camera via a primary ray, when the true computed radiance would otherwise be black. This is simply a convenience feature to make the SpotLight lens visible in the camera view."
-            disablewhen "{ xn__moonrayblack_level_control_gjb == block } { xn__moonrayblack_level_control_gjb == none }"
-            hidewhen "{ primtype != UsdLuxDiskLight createprims == on }"
+            disablewhen "{ xn__moonraynative_spotlight_rqa == 0 } { xn__moonrayblack_level_control_gjb == block } { xn__moonrayblack_level_control_gjb == none }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "float" }
+        }
+    }
+
+    group {
+        name    "folder3"
+        label   "Visibility Flags"
+        hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+
+        parm {
+            name    "xn__moonrayvisible_diffuse_reflection_control_v7b"
+            label   "moonray:visible_diffuse_reflection"
+            type    string
+            default { "none" }
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            menujoin {
+                "set"           "Set Or Create"
+                "setexisting"   "Set if Exists"
+                "block"         "Block"
+                "none"          "Do Nothing"
+            }
+        }
+        parm {
+            name    "xn__moonrayvisible_diffuse_reflection_uub"
+            label   "Visible Diffuse Reflection"
+            type    toggle
+            default { "1" }
+            help    "Whether the light is visible in diffuse reflection."
+            disablewhen "{ xn__moonrayvisible_diffuse_reflection_control_v7b == block } { xn__moonrayvisible_diffuse_reflection_control_v7b == none }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            parmtag { "usdvaluetype" "bool" }
+        }
+        parm {
+            name    "xn__moonrayvisible_diffuse_transmission_control_4bc"
+            label   "moonray:visible_diffuse_transmission"
+            type    string
+            default { "none" }
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            menujoin {
+                "set"           "Set Or Create"
+                "setexisting"   "Set if Exists"
+                "block"         "Block"
+                "none"          "Do Nothing"
+            }
+        }
+        parm {
+            name    "xn__moonrayvisible_diffuse_transmission_3xb"
+            label   "Visible Diffuse Transmission"
+            type    toggle
+            default { "1" }
+            help    "Whether the light is visible in diffuse transmission."
+            disablewhen "{ xn__moonrayvisible_diffuse_transmission_control_4bc == block } { xn__moonrayvisible_diffuse_transmission_control_4bc == none }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            parmtag { "usdvaluetype" "bool" }
+        }
+        parm {
+            name    "xn__moonrayvisible_glossy_reflection_control_85b"
+            label   "moonray:visible_glossy_reflection"
+            type    string
+            default { "none" }
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            menujoin {
+                "set"           "Set Or Create"
+                "setexisting"   "Set if Exists"
+                "block"         "Block"
+                "none"          "Do Nothing"
+            }
+        }
+        parm {
+            name    "xn__moonrayvisible_glossy_reflection_7sb"
+            label   "Visible Glossy Reflection"
+            type    toggle
+            default { "1" }
+            help    "Whether the light is visible in glossy reflection."
+            disablewhen "{ xn__moonrayvisible_glossy_reflection_control_85b == block } { xn__moonrayvisible_glossy_reflection_control_85b == none }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            parmtag { "usdvaluetype" "bool" }
+        }
+        parm {
+            name    "xn__moonrayvisible_glossy_transmission_control_i9b"
+            label   "moonray:visible_glossy_transmission"
+            type    string
+            default { "none" }
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            menujoin {
+                "set"           "Set Or Create"
+                "setexisting"   "Set if Exists"
+                "block"         "Block"
+                "none"          "Do Nothing"
+            }
+        }
+        parm {
+            name    "xn__moonrayvisible_glossy_transmission_hwb"
+            label   "Visible Glossy Transmission"
+            type    toggle
+            default { "1" }
+            help    "Whether the light is visible in glossy transmission (refraction)."
+            disablewhen "{ xn__moonrayvisible_glossy_transmission_control_i9b == block } { xn__moonrayvisible_glossy_transmission_control_i9b == none }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            parmtag { "usdvaluetype" "bool" }
+        }
+        parm {
+            name    "xn__moonrayvisible_mirror_reflection_control_85b"
+            label   "moonray:visible_mirror_reflection"
+            type    string
+            default { "none" }
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            menujoin {
+                "set"           "Set Or Create"
+                "setexisting"   "Set if Exists"
+                "block"         "Block"
+                "none"          "Do Nothing"
+            }
+        }
+        parm {
+            name    "xn__moonrayvisible_mirror_reflection_7sb"
+            label   "Visible Mirror Reflection"
+            type    toggle
+            default { "1" }
+            help    "Whether the light is visible in miror reflection."
+            disablewhen "{ xn__moonrayvisible_mirror_reflection_control_85b == block } { xn__moonrayvisible_mirror_reflection_control_85b == none }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            parmtag { "usdvaluetype" "bool" }
+        }
+        parm {
+            name    "xn__moonrayvisible_mirror_transmission_control_i9b"
+            label   "moonray:visible_mirror_transmission"
+            type    string
+            default { "none" }
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            menujoin {
+                "set"           "Set Or Create"
+                "setexisting"   "Set if Exists"
+                "block"         "Block"
+                "none"          "Do Nothing"
+            }
+        }
+        parm {
+            name    "xn__moonrayvisible_mirror_transmission_hwb"
+            label   "Visible Mirror Transmission"
+            type    toggle
+            default { "1" }
+            help    "Whether the light is visible in miror transmission (refraction)."
+            disablewhen "{ xn__moonrayvisible_mirror_transmission_control_i9b == block } { xn__moonrayvisible_mirror_transmission_control_i9b == none }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            parmtag { "usdvaluetype" "bool" }
+        }
+    }
+
+    parm {
+        name    "xn__moonraylight_filters_control_pmb"
+        label   "moonray:light_filters"
+        type    string
+        default { "none" }
+        hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+        menujoin {
+            "set"           "Set Or Create"
+            "setexisting"   "Set if Exists"
+            "block"         "Block"
+            "none"          "Do Nothing"
+        }
+    }
+    multiparm {
+        name    "light_filters"
+        label    "Light Filters"
+        default 0
+        disablewhen "{ xn__moonraylight_filters_control_pmb == block } { xn__moonraylight_filters_control_pmb == none }"
+        hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxDomeLight_1 primtype != DomeLight_1 primtype != UsdLuxGeometryLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+        parmtag { "usdvaluetype" "<class 'pxr.Usd.Relationship'>" }
+
+        parm {
+            name    "xn__moonraylight_filters_o8a#"
+            label   "Light Filters"
+            type    oppath
+            default { "" }
+            help    "Vector of LightFilters associated with the light."
+            parmtag { "moonray::is_parm" "1" }
+            parmtag { "oprelative" "." }
         }
     }
 

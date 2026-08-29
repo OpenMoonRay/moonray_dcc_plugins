@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shelfDocument>
+  <tool name="moonraymaterialbuilder" label="MoonRay Material Builder" icon="VOP_raytrace">
+    <helpText><![CDATA[Create an editable MoonRay-native material subnet with DwaBaseMaterial connected to the MoonRay surface output and a valid no-op NormalDisplacement path connected to displacement.]]></helpText>
+    <toolMenuContext name="network">
+      <contextOpType>Vop/materialbuilder</contextOpType>
+    </toolMenuContext>
+    <toolSubmenu>MoonRay</toolSubmenu>
+    <script scriptType="python"><![CDATA[
+import moonray_material_builder
+moonray_material_builder.create_moonray_material_builder(kwargs)
+]]></script>
+    <keywordList>
+      <keyword>MoonRay</keyword>
+      <keyword>DW_MOONRAY</keyword>
+      <keyword>DwaBaseMaterial</keyword>
+      <keyword>dwa</keyword>
+      <keyword>material builder</keyword>
+    </keywordList>
+  </tool>
+  <tool name="moonrayrendersettings" label="MoonRay Render Settings" icon="ROP_usdrender">
+    <helpText><![CDATA[Create a MoonRay Solaris Render Settings node that authors USD RenderSettings, RenderProduct, a beauty RenderVar, and hdMoonRay moonray:sceneVariable renderer settings.]]></helpText>
+    <toolMenuContext name="viewer">
+      <contextNetType>LOP</contextNetType>
+    </toolMenuContext>
+    <toolMenuContext name="network">
+      <contextNetType>LOP</contextNetType>
+    </toolMenuContext>
+    <toolSubmenu>MoonRay</toolSubmenu>
+    <script scriptType="python"><![CDATA[
+import loptoolutils
+node = loptoolutils.genericTool(kwargs, "Lop::DW_MOONRAY::moonrayrendersettings::1", "moonrayrendersettings")
+node.setCurrent(True)
+node.setSelected(True)
+]]></script>
+    <keywordList>
+      <keyword>MoonRay</keyword>
+      <keyword>Render Settings</keyword>
+      <keyword>HdMoonrayRendererPlugin</keyword>
+      <keyword>husk</keyword>
+      <keyword>rdl</keyword>
+    </keywordList>
+  </tool>
+</shelfDocument>
