@@ -46,7 +46,7 @@
         }
         parm {
             name    "xn__inputsnormal_map_1_dial_jeb"
-            label   "Normal Map 1 Dial"
+            label   "Map 1 Dial"
             type    float
             default { "1" }
             help    "Amount of normal map 1 to blend in"
@@ -95,7 +95,7 @@
         }
         parm {
             name    "xn__inputsnormal_map_2_dial_jeb"
-            label   "Normal Map 2 Dial"
+            label   "Map 2 Dial"
             type    float
             default { "1" }
             help    "Amount of normal map 2 to blend in"

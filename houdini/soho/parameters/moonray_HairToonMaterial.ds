@@ -121,7 +121,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_show_99a"
-            label   "Specular 1 Show"
+            label   "Show"
             type    toggle
             default { "1" }
             help    "Show first toon specular lobe"
@@ -145,7 +145,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_model_wcb"
-            label   "Specular 1 Model"
+            label   "Model"
             type    string
             default { "Toon_Surface" }
             help    "sets the normal distribution function for specular"
@@ -173,7 +173,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_intensity_fjb"
-            label   "Specular 1 Intensity"
+            label   "Intensity"
             type    float
             default { "1" }
             help    "The overall intensity of the specular response"
@@ -198,7 +198,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_tint_99a"
-            label   "Specular 1 Tint"
+            label   "Tint"
             type    color
             size    3
             default { "1" "1" "1" }
@@ -223,7 +223,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_roughness_fjb"
-            label   "Specular 1 Roughness"
+            label   "Roughness"
             type    float
             default { "0.9" }
             help    "The roughness of the toon specular.   Smaller values produce tighter highlights"
@@ -248,7 +248,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_stretch_u_fjb"
-            label   "Specular 1 Stretch U"
+            label   "Stretch U"
             type    float
             default { "0" }
             help    "Amount to stretch or compress the specular in the u direction "
@@ -273,7 +273,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_stretch_v_fjb"
-            label   "Specular 1 Stretch V"
+            label   "Stretch V"
             type    float
             default { "0" }
             help    "Amount to stretch or compress the specular in the v direction "
@@ -296,7 +296,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_use_input_vectors_for_stretch_zgc"
-            label   "Specular 1 Use Input Vectors For Stretch"
+            label   "Use Input Vectors For Stretch"
             type    toggle
             default { "0" }
             help    "when checked, use input_U and V. otherwise use geometry dPds/t"
@@ -320,7 +320,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_input_U_5fb"
-            label   "Specular 1 Input U"
+            label   "Input U"
             type    vector
             size    3
             default { "0" "0" "0" }
@@ -346,7 +346,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_input_V_5fb"
-            label   "Specular 1 Input V"
+            label   "Input V"
             type    vector
             size    3
             default { "0" "0" "0" }
@@ -372,7 +372,7 @@
         }
         parm {
             name    "specular_1_ramp"
-            label   "Specular 1 Ramp"
+            label   "Ramp"
             type    ramp_flt
             default { "4" }
             disablewhen "{ xn__inputsspecular_1_values_control_krb == block } { xn__inputsspecular_1_values_control_krb == none }"
@@ -396,7 +396,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_mult0_wcb"
-            label   "Specular 1 Mult0"
+            label   "Mult0"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -421,7 +421,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_mult1_wcb"
-            label   "Specular 1 Mult1"
+            label   "Mult1"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -446,7 +446,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_mult2_wcb"
-            label   "Specular 1 Mult2"
+            label   "Mult2"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -471,7 +471,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_mult3_wcb"
-            label   "Specular 1 Mult3"
+            label   "Mult3"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -496,7 +496,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_mult4_wcb"
-            label   "Specular 1 Mult4"
+            label   "Mult4"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -521,7 +521,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_mult5_wcb"
-            label   "Specular 1 Mult5"
+            label   "Mult5"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -546,7 +546,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_mult6_wcb"
-            label   "Specular 1 Mult6"
+            label   "Mult6"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -571,7 +571,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_mult7_wcb"
-            label   "Specular 1 Mult7"
+            label   "Mult7"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -596,7 +596,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_mult8_wcb"
-            label   "Specular 1 Mult8"
+            label   "Mult8"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -621,7 +621,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_mult9_wcb"
-            label   "Specular 1 Mult9"
+            label   "Mult9"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -646,7 +646,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_offset0_5fb"
-            label   "Specular 1 Offset0"
+            label   "Offset0"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -671,7 +671,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_offset1_5fb"
-            label   "Specular 1 Offset1"
+            label   "Offset1"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -696,7 +696,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_offset2_5fb"
-            label   "Specular 1 Offset2"
+            label   "Offset2"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -721,7 +721,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_offset3_5fb"
-            label   "Specular 1 Offset3"
+            label   "Offset3"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -746,7 +746,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_offset4_5fb"
-            label   "Specular 1 Offset4"
+            label   "Offset4"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -771,7 +771,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_offset5_5fb"
-            label   "Specular 1 Offset5"
+            label   "Offset5"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -796,7 +796,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_offset6_5fb"
-            label   "Specular 1 Offset6"
+            label   "Offset6"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -821,7 +821,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_offset7_5fb"
-            label   "Specular 1 Offset7"
+            label   "Offset7"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -846,7 +846,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_offset8_5fb"
-            label   "Specular 1 Offset8"
+            label   "Offset8"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -871,7 +871,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_offset9_5fb"
-            label   "Specular 1 Offset9"
+            label   "Offset9"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -894,7 +894,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_enable_input_normal_pzb"
-            label   "Specular 1 Enable Input Normal"
+            label   "Enable Input Normal"
             type    toggle
             default { "0" }
             help    "enables sampling the normal map for toon specular 1"
@@ -916,7 +916,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_input_normal_bob"
-            label   "Specular 1 Input Normal"
+            label   "Input Normal"
             type    oppath
             invisible
             default { "" }
@@ -942,7 +942,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_input_normal_dial_gwb"
-            label   "Specular 1 Input Normal Dial"
+            label   "Input Normal Dial"
             type    float
             default { "1" }
             help    "controls influence of input normal versus hair normal for toon specular 1"
@@ -965,7 +965,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_enable_indirect_reflections_qdc"
-            label   "Specular 1 Enable Indirect Reflections"
+            label   "Enable Indirect Reflections"
             type    toggle
             default { "0" }
             help    "enables indirect GGX reflections for toon specular model"
@@ -989,7 +989,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_indirect_reflections_intensity_mic"
-            label   "Specular 1 Indirect Reflections Intensity"
+            label   "Indirect Reflections Intensity"
             type    float
             default { "1" }
             help    "the intensity for the indirect reflections of the toon specular model"
@@ -1014,7 +1014,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_indirect_reflections_roughness_mic"
-            label   "Specular 1 Indirect Reflections Roughness"
+            label   "Indirect Reflections Roughness"
             type    float
             default { "0.5" }
             help    "the roughness for the indirect reflections of the toon specular model"
@@ -1045,7 +1045,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_fresnel_blend_xpb"
-            label   "Specular 1 Fresnel Blend"
+            label   "1 Fresnel Blend"
             type    float
             default { "1" }
             help    "The amount of fresnel to use for the toon specular response"
@@ -1070,7 +1070,7 @@
         }
         parm {
             name    "xn__inputsspecular_1_ramp_input_scale_tub"
-            label   "Specular 1 Ramp Input Scale"
+            label   "1 Ramp Input Scale"
             type    float
             default { "1" }
             help    "Scales the input value x to the ramp lookup y, where x is based on the angle between the sample direction and normal.  This has the effect of squashing or stretching the ramp point positions towards/away from 0."
@@ -1095,7 +1095,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_fresnel_blend_xpb"
-            label   "Specular 2 Fresnel Blend"
+            label   "2 Fresnel Blend"
             type    float
             default { "1" }
             help    "The amount of fresnel to use for the toon specular response"
@@ -1120,7 +1120,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_ramp_input_scale_tub"
-            label   "Specular 2 Ramp Input Scale"
+            label   "2 Ramp Input Scale"
             type    float
             default { "1" }
             help    "Scales the input value x to the ramp lookup y, where x is based on the angle between the sample direction and normal.  This has the effect of squashing or stretching the ramp point positions towards/away from 0."
@@ -1145,7 +1145,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_fresnel_blend_xpb"
-            label   "Specular 3 Fresnel Blend"
+            label   "3 Fresnel Blend"
             type    float
             default { "1" }
             help    "The amount of fresnel to use for the toon specular response"
@@ -1170,7 +1170,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_ramp_input_scale_tub"
-            label   "Specular 3 Ramp Input Scale"
+            label   "3 Ramp Input Scale"
             type    float
             default { "1" }
             help    "Scales the input value x to the ramp lookup y, where x is based on the angle between the sample direction and normal.  This has the effect of squashing or stretching the ramp point positions towards/away from 0."
@@ -1222,7 +1222,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_show_99a"
-            label   "Specular 2 Show"
+            label   "Show"
             type    toggle
             default { "0" }
             help    "Show second toon specular lobe"
@@ -1246,7 +1246,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_model_wcb"
-            label   "Specular 2 Model"
+            label   "Model"
             type    string
             default { "Toon_Surface" }
             help    "sets the normal distribution function for specular"
@@ -1274,7 +1274,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_intensity_fjb"
-            label   "Specular 2 Intensity"
+            label   "Intensity"
             type    float
             default { "1" }
             help    "The overall intensity of the specular response"
@@ -1299,7 +1299,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_tint_99a"
-            label   "Specular 2 Tint"
+            label   "Tint"
             type    color
             size    3
             default { "1" "1" "1" }
@@ -1324,7 +1324,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_roughness_fjb"
-            label   "Specular 2 Roughness"
+            label   "Roughness"
             type    float
             default { "0.9" }
             help    "The roughness of the toon specular.   Smaller values produce tighter highlights"
@@ -1349,7 +1349,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_stretch_u_fjb"
-            label   "Specular 2 Stretch U"
+            label   "Stretch U"
             type    float
             default { "0" }
             help    "Amount to stretch or compress the specular in the u direction "
@@ -1374,7 +1374,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_stretch_v_fjb"
-            label   "Specular 2 Stretch V"
+            label   "Stretch V"
             type    float
             default { "0" }
             help    "Amount to stretch or compress the specular in the v direction "
@@ -1397,7 +1397,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_use_input_vectors_for_stretch_zgc"
-            label   "Specular 2 Use Input Vectors For Stretch"
+            label   "Use Input Vectors For Stretch"
             type    toggle
             default { "0" }
             help    "when checked, use input_U and V. otherwise use geometry dPds/t"
@@ -1421,7 +1421,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_input_U_5fb"
-            label   "Specular 2 Input U"
+            label   "Input U"
             type    vector
             size    3
             default { "0" "0" "0" }
@@ -1447,7 +1447,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_input_V_5fb"
-            label   "Specular 2 Input V"
+            label   "Input V"
             type    vector
             size    3
             default { "0" "0" "0" }
@@ -1473,7 +1473,7 @@
         }
         parm {
             name    "specular_2_ramp"
-            label   "Specular 2 Ramp"
+            label   "Ramp"
             type    ramp_flt
             default { "4" }
             disablewhen "{ xn__inputsspecular_2_values_control_krb == block } { xn__inputsspecular_2_values_control_krb == none }"
@@ -1497,7 +1497,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_mult0_wcb"
-            label   "Specular 2 Mult0"
+            label   "Mult0"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -1522,7 +1522,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_mult1_wcb"
-            label   "Specular 2 Mult1"
+            label   "Mult1"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -1547,7 +1547,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_mult2_wcb"
-            label   "Specular 2 Mult2"
+            label   "Mult2"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -1572,7 +1572,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_mult3_wcb"
-            label   "Specular 2 Mult3"
+            label   "Mult3"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -1597,7 +1597,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_mult4_wcb"
-            label   "Specular 2 Mult4"
+            label   "Mult4"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -1622,7 +1622,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_mult5_wcb"
-            label   "Specular 2 Mult5"
+            label   "Mult5"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -1647,7 +1647,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_mult6_wcb"
-            label   "Specular 2 Mult6"
+            label   "Mult6"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -1672,7 +1672,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_mult7_wcb"
-            label   "Specular 2 Mult7"
+            label   "Mult7"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -1697,7 +1697,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_mult8_wcb"
-            label   "Specular 2 Mult8"
+            label   "Mult8"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -1722,7 +1722,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_mult9_wcb"
-            label   "Specular 2 Mult9"
+            label   "Mult9"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -1747,7 +1747,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_offset0_5fb"
-            label   "Specular 2 Offset0"
+            label   "Offset0"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -1772,7 +1772,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_offset1_5fb"
-            label   "Specular 2 Offset1"
+            label   "Offset1"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -1797,7 +1797,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_offset2_5fb"
-            label   "Specular 2 Offset2"
+            label   "Offset2"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -1822,7 +1822,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_offset3_5fb"
-            label   "Specular 2 Offset3"
+            label   "Offset3"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -1847,7 +1847,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_offset4_5fb"
-            label   "Specular 2 Offset4"
+            label   "Offset4"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -1872,7 +1872,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_offset5_5fb"
-            label   "Specular 2 Offset5"
+            label   "Offset5"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -1897,7 +1897,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_offset6_5fb"
-            label   "Specular 2 Offset6"
+            label   "Offset6"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -1922,7 +1922,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_offset7_5fb"
-            label   "Specular 2 Offset7"
+            label   "Offset7"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -1947,7 +1947,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_offset8_5fb"
-            label   "Specular 2 Offset8"
+            label   "Offset8"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -1972,7 +1972,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_offset9_5fb"
-            label   "Specular 2 Offset9"
+            label   "Offset9"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -1995,7 +1995,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_enable_input_normal_pzb"
-            label   "Specular 2 Enable Input Normal"
+            label   "Enable Input Normal"
             type    toggle
             default { "0" }
             help    "enables sampling the normal map for toon specular 2"
@@ -2017,7 +2017,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_input_normal_bob"
-            label   "Specular 2 Input Normal"
+            label   "Input Normal"
             type    oppath
             invisible
             default { "" }
@@ -2043,7 +2043,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_input_normal_dial_gwb"
-            label   "Specular 2 Input Normal Dial"
+            label   "Input Normal Dial"
             type    float
             default { "1" }
             help    "controls influence of input normal versus hair normal for toon specular 2"
@@ -2066,7 +2066,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_enable_indirect_reflections_qdc"
-            label   "Specular 2 Enable Indirect Reflections"
+            label   "Enable Indirect Reflections"
             type    toggle
             default { "0" }
             help    "enables indirect GGX reflections for toon specular model"
@@ -2090,7 +2090,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_indirect_reflections_intensity_mic"
-            label   "Specular 2 Indirect Reflections Intensity"
+            label   "Indirect Reflections Intensity"
             type    float
             default { "1" }
             help    "the intensity for the indirect reflections of the toon specular model"
@@ -2115,7 +2115,7 @@
         }
         parm {
             name    "xn__inputsspecular_2_indirect_reflections_roughness_mic"
-            label   "Specular 2 Indirect Reflections Roughness"
+            label   "Indirect Reflections Roughness"
             type    float
             default { "0.5" }
             help    "the roughness for the indirect reflections of the toon specular model"
@@ -2144,7 +2144,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_show_99a"
-            label   "Specular 3 Show"
+            label   "Show"
             type    toggle
             default { "0" }
             help    "Show third toon specular lobe"
@@ -2168,7 +2168,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_model_wcb"
-            label   "Specular 3 Model"
+            label   "Model"
             type    string
             default { "Toon_Surface" }
             help    "sets the normal distribution function for specular"
@@ -2196,7 +2196,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_intensity_fjb"
-            label   "Specular 3 Intensity"
+            label   "Intensity"
             type    float
             default { "1" }
             help    "The overall intensity of the specular response"
@@ -2221,7 +2221,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_tint_99a"
-            label   "Specular 3 Tint"
+            label   "Tint"
             type    color
             size    3
             default { "1" "1" "1" }
@@ -2246,7 +2246,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_roughness_fjb"
-            label   "Specular 3 Roughness"
+            label   "Roughness"
             type    float
             default { "0.9" }
             help    "The roughness of the toon specular.   Smaller values produce tighter highlights"
@@ -2271,7 +2271,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_stretch_u_fjb"
-            label   "Specular 3 Stretch U"
+            label   "Stretch U"
             type    float
             default { "0" }
             help    "Amount to stretch or compress the specular in the u direction "
@@ -2296,7 +2296,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_stretch_v_fjb"
-            label   "Specular 3 Stretch V"
+            label   "Stretch V"
             type    float
             default { "0" }
             help    "Amount to stretch or compress the specular in the v direction "
@@ -2319,7 +2319,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_use_input_vectors_for_stretch_zgc"
-            label   "Specular 3 Use Input Vectors For Stretch"
+            label   "Use Input Vectors For Stretch"
             type    toggle
             default { "0" }
             help    "when checked, use input_U and V. otherwise use geometry dPds/t"
@@ -2343,7 +2343,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_input_U_5fb"
-            label   "Specular 3 Input U"
+            label   "Input U"
             type    vector
             size    3
             default { "0" "0" "0" }
@@ -2369,7 +2369,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_input_V_5fb"
-            label   "Specular 3 Input V"
+            label   "Input V"
             type    vector
             size    3
             default { "0" "0" "0" }
@@ -2395,7 +2395,7 @@
         }
         parm {
             name    "specular_3_ramp"
-            label   "Specular 3 Ramp"
+            label   "Ramp"
             type    ramp_flt
             default { "4" }
             disablewhen "{ xn__inputsspecular_3_values_control_krb == block } { xn__inputsspecular_3_values_control_krb == none }"
@@ -2419,7 +2419,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_mult0_wcb"
-            label   "Specular 3 Mult0"
+            label   "Mult0"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -2444,7 +2444,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_mult1_wcb"
-            label   "Specular 3 Mult1"
+            label   "Mult1"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -2469,7 +2469,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_mult2_wcb"
-            label   "Specular 3 Mult2"
+            label   "Mult2"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -2494,7 +2494,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_mult3_wcb"
-            label   "Specular 3 Mult3"
+            label   "Mult3"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -2519,7 +2519,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_mult4_wcb"
-            label   "Specular 3 Mult4"
+            label   "Mult4"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -2544,7 +2544,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_mult5_wcb"
-            label   "Specular 3 Mult5"
+            label   "Mult5"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -2569,7 +2569,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_mult6_wcb"
-            label   "Specular 3 Mult6"
+            label   "Mult6"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -2594,7 +2594,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_mult7_wcb"
-            label   "Specular 3 Mult7"
+            label   "Mult7"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -2619,7 +2619,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_mult8_wcb"
-            label   "Specular 3 Mult8"
+            label   "Mult8"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -2644,7 +2644,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_mult9_wcb"
-            label   "Specular 3 Mult9"
+            label   "Mult9"
             type    float
             default { "1" }
             help    "Bindable multiplier on the toon specular ramp value"
@@ -2669,7 +2669,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_offset0_5fb"
-            label   "Specular 3 Offset0"
+            label   "Offset0"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -2694,7 +2694,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_offset1_5fb"
-            label   "Specular 3 Offset1"
+            label   "Offset1"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -2719,7 +2719,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_offset2_5fb"
-            label   "Specular 3 Offset2"
+            label   "Offset2"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -2744,7 +2744,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_offset3_5fb"
-            label   "Specular 3 Offset3"
+            label   "Offset3"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -2769,7 +2769,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_offset4_5fb"
-            label   "Specular 3 Offset4"
+            label   "Offset4"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -2794,7 +2794,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_offset5_5fb"
-            label   "Specular 3 Offset5"
+            label   "Offset5"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -2819,7 +2819,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_offset6_5fb"
-            label   "Specular 3 Offset6"
+            label   "Offset6"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -2844,7 +2844,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_offset7_5fb"
-            label   "Specular 3 Offset7"
+            label   "Offset7"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -2869,7 +2869,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_offset8_5fb"
-            label   "Specular 3 Offset8"
+            label   "Offset8"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -2894,7 +2894,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_offset9_5fb"
-            label   "Specular 3 Offset9"
+            label   "Offset9"
             type    float
             default { "0" }
             help    "Bindable offset to the toon specular ramp-position, add a small variation using noise etc for art-directable ramp thresholds"
@@ -2917,7 +2917,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_enable_input_normal_pzb"
-            label   "Specular 3 Enable Input Normal"
+            label   "Enable Input Normal"
             type    toggle
             default { "0" }
             help    "enables sampling the normal map for toon specular 3"
@@ -2939,7 +2939,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_input_normal_bob"
-            label   "Specular 3 Input Normal"
+            label   "Input Normal"
             type    oppath
             invisible
             default { "" }
@@ -2965,7 +2965,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_input_normal_dial_gwb"
-            label   "Specular 3 Input Normal Dial"
+            label   "Input Normal Dial"
             type    float
             default { "1" }
             help    "controls influence of input normal versus hair normal for toon specular 3"
@@ -2988,7 +2988,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_enable_indirect_reflections_qdc"
-            label   "Specular 3 Enable Indirect Reflections"
+            label   "Enable Indirect Reflections"
             type    toggle
             default { "0" }
             help    "enables indirect GGX reflections for toon specular model"
@@ -3012,7 +3012,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_indirect_reflections_intensity_mic"
-            label   "Specular 3 Indirect Reflections Intensity"
+            label   "Indirect Reflections Intensity"
             type    float
             default { "1" }
             help    "the intensity for the indirect reflections of the toon specular model"
@@ -3037,7 +3037,7 @@
         }
         parm {
             name    "xn__inputsspecular_3_indirect_reflections_roughness_mic"
-            label   "Specular 3 Indirect Reflections Roughness"
+            label   "Indirect Reflections Roughness"
             type    float
             default { "0.5" }
             help    "the roughness for the indirect reflections of the toon specular model"
@@ -3171,7 +3171,7 @@
         }
         parm {
             name    "xn__inputssubsurface_blend_wcb"
-            label   "Subsurface Blend"
+            label   "Blend"
             type    float
             default { "1" }
             help    "0 is fully hair diffuse, 1 is fully SSS. No effect if scattering radius is 0."

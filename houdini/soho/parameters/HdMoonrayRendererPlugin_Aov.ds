@@ -201,6 +201,28 @@
         parmtag { "usdvaluetype" "string" }
     }
     parm {
+        name    "xn__parametersmoonraymaterial_aov_secondary_rays_control_vqch"
+        label   "parameters:moonray:material_aov_secondary_rays"
+        type    string
+        default { "none" }
+        menujoin {
+            "set"           "![BUTTONS_set_or_create]Set or Create"
+            "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+            "block"         "![BUTTONS_set_block]Block"
+            "none"          "![BUTTONS_set_nothing]Do Nothing"
+        }
+        parmtag { "sidefx::look" "icon" }
+    }
+    parm {
+        name    "xn__parametersmoonraymaterial_aov_secondary_rays_udch"
+        label   "Material Aov Secondary Rays"
+        type    toggle
+        default { "0" }
+        help    "When \"result\" is \"material aov\", this controls whether the material aov is evaluated on secondary (indirect) rays in addition to primary rays.  Enabling this allows material aovs to appear behind refractive or reflective surfaces.  Defaults to false for backward compatibility."
+        disablewhen "{ xn__parametersmoonraymaterial_aov_secondary_rays_control_vqch == block } { xn__parametersmoonraymaterial_aov_secondary_rays_control_vqch == none }"
+        parmtag { "usdvaluetype" "bool" }
+    }
+    parm {
         name    "xn__parametersmoonraylpe_control_smbh"
         label   "parameters:moonray:lpe"
         type    string
