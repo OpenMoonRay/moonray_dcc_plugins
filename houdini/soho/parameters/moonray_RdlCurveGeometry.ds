@@ -554,6 +554,158 @@
             parmtag { "usdvaluetype" "float" }
         }
         parm {
+            name    "xn__primvarsmoonraylocal_motion_blur_radius_list_control_tqch"
+            label   "primvars:moonray:local_motion_blur_radius_list"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        multiparm {
+            name    "local_motion_blur_radius_list"
+            label    "Local Motion Blur Radius List"
+            default 0
+            disablewhen "{ xn__primvarsmoonraylocal_motion_blur_radius_list_control_tqch == block } { xn__primvarsmoonraylocal_motion_blur_radius_list_control_tqch == none }"
+            parmtag { "usdvaluetype" "float[]" }
+
+            parm {
+                name    "xn__primvarsmoonraylocal_motion_blur_radius_list_sdch#"
+                label   "Local Motion Blur Radius List"
+                type    float
+                default { "0" }
+                help    "Per-point outer radius for each local motion blur region. If empty, defaults to 1.0. Must match the length of local_motion_blur_position_list."
+                disablewhen "{ use_local_motion_blur == 0 }"
+                range   { 0 10 }
+                parmtag { "moonray::is_parm" "1" }
+            }
+        }
+
+        parm {
+            name    "xn__primvarsmoonraylocal_motion_blur_inner_radius_list_control_l0ch"
+            label   "primvars:moonray:local_motion_blur_inner_radius_list"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        multiparm {
+            name    "local_motion_blur_inner_radius_list"
+            label    "Local Motion Blur Inner Radius List"
+            default 0
+            disablewhen "{ xn__primvarsmoonraylocal_motion_blur_inner_radius_list_control_l0ch == block } { xn__primvarsmoonraylocal_motion_blur_inner_radius_list_control_l0ch == none }"
+            parmtag { "usdvaluetype" "float[]" }
+
+            parm {
+                name    "xn__primvarsmoonraylocal_motion_blur_inner_radius_list_knch#"
+                label   "Local Motion Blur Inner Radius List"
+                type    float
+                default { "0" }
+                help    "Per-point inner radius for each local motion blur region (full-strength core). If empty, defaults to 1.0. Must match the length of local_motion_blur_position_list."
+                disablewhen "{ use_local_motion_blur == 0 }"
+                range   { 0 10 }
+                parmtag { "moonray::is_parm" "1" }
+            }
+        }
+
+        parm {
+            name    "xn__primvarsmoonraylocal_motion_blur_multiplier_list_control_cxch"
+            label   "primvars:moonray:local_motion_blur_multiplier_list"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        multiparm {
+            name    "local_motion_blur_multiplier_list"
+            label    "Local Motion Blur Multiplier List"
+            default 0
+            disablewhen "{ xn__primvarsmoonraylocal_motion_blur_multiplier_list_control_cxch == block } { xn__primvarsmoonraylocal_motion_blur_multiplier_list_control_cxch == none }"
+            parmtag { "usdvaluetype" "float[]" }
+
+            parm {
+                name    "xn__primvarsmoonraylocal_motion_blur_multiplier_list_bkch#"
+                label   "Local Motion Blur Multiplier List"
+                type    float
+                default { "0" }
+                help    "Per-point motion blur strength multiplier for each local motion blur region. If empty, defaults to 1.0. Must match the length of local_motion_blur_position_list."
+                disablewhen "{ use_local_motion_blur == 0 }"
+                range   { 0 10 }
+                parmtag { "moonray::is_parm" "1" }
+            }
+        }
+
+        parm {
+            name    "xn__primvarsmoonraylocal_motion_blur_strength_multiplier_control_u3ch"
+            label   "primvars:moonray:local_motion_blur_strength_multiplier"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonraylocal_motion_blur_strength_multiplier_tqch"
+            label   "Local Motion Blur Strength Multiplier"
+            type    float
+            default { "1" }
+            help    "Global strength multiplier for local motion blur application"
+            disablewhen "{ xn__primvarsmoonraylocal_motion_blur_strength_multiplier_control_u3ch == block } { xn__primvarsmoonraylocal_motion_blur_strength_multiplier_control_u3ch == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+        parm {
+            name    "xn__primvarsmoonraylocal_motion_blur_radius_multiplier_control_l0ch"
+            label   "primvars:moonray:local_motion_blur_radius_multiplier"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonraylocal_motion_blur_radius_multiplier_knch"
+            label   "Local Motion Blur Radius Multiplier"
+            type    float
+            default { "1" }
+            help    "Global radius multiplier applied to per-region radius values, whether supplied via the \"radius\"/\"inner_radius\" point attributes or the \"local_motion_blur_radius_list\"/\"local_motion_blur_inner_radius_list\" explicit list attributes"
+            disablewhen "{ xn__primvarsmoonraylocal_motion_blur_radius_multiplier_control_l0ch == block } { xn__primvarsmoonraylocal_motion_blur_radius_multiplier_control_l0ch == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+        parm {
             name    "xn__primvarsmoonrayuse_rotation_motion_blur_control_oich"
             label   "primvars:moonray:use_rotation_motion_blur"
             type    string

@@ -22,7 +22,7 @@
         }
         parm {
             name    "xn__inputsoutput_mode_r3a"
-            label   "Output Mode"
+            label   "Mode"
             type    string
             default { "distance" }
             help    "Method by which the shader outputs a color.  Distance uses F1..F4 interpolated between color A and color B, gradient outputs the gradient of the noise, and cell ID outputs a random color for each cell"

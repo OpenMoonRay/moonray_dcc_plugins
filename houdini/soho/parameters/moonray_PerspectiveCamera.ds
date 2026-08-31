@@ -56,8 +56,8 @@
             parmtag { "usdvaluetype" "float" }
         }
         parm {
-            name    "focalLength_control"
-            label   "focalLength"
+            name    "xn__moonrayfocal_control_o8a"
+            label   "moonray:focal"
             type    string
             default { "none" }
             menujoin {
@@ -71,12 +71,12 @@
             parmtag { "sidefx::look" "icon" }
         }
         parm {
-            name    "focalLength"
+            name    "focal"
             label   "Focal"
             type    float
             default { "30" }
             help    "Focal length"
-            disablewhen "{ focalLength_control == block } { focalLength_control == none }"
+            disablewhen "{ xn__moonrayfocal_control_o8a == block } { xn__moonrayfocal_control_o8a == none }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "float" }
         }
@@ -131,8 +131,8 @@
             parmtag { "usdvaluetype" "float" }
         }
         parm {
-            name    "horizontalAperture_control"
-            label   "horizontalAperture"
+            name    "xn__moonrayfilm_width_aperture_control_hwb"
+            label   "moonray:film_width_aperture"
             type    string
             default { "none" }
             menujoin {
@@ -146,12 +146,12 @@
             parmtag { "sidefx::look" "icon" }
         }
         parm {
-            name    "horizontalAperture"
+            name    "film_width_aperture"
             label   "Film Width Aperture"
             type    float
             default { "24" }
             help    "Scale the aperture of the camera (i.e., the frustum) by this value."
-            disablewhen "{ horizontalAperture_control == block } { horizontalAperture_control == none }"
+            disablewhen "{ xn__moonrayfilm_width_aperture_control_hwb == block } { xn__moonrayfilm_width_aperture_control_hwb == none }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "float" }
         }
@@ -187,8 +187,8 @@
         label   "Motion Blur"
 
         parm {
-            name    "xn__shutteropen_control_16a"
-            label   "shutter:open"
+            name    "xn__moonraymb_shutter_open_control_ypb"
+            label   "moonray:mb_shutter_open"
             type    string
             default { "none" }
             menujoin {
@@ -202,18 +202,18 @@
             parmtag { "sidefx::look" "icon" }
         }
         parm {
-            name    "xn__shutteropen_0ta"
+            name    "mb_shutter_open"
             label   "Mb Shutter Open"
             type    float
             default { "-0.25" }
             help    "Frame at which the shutter opens, i.e., the beginning of the motion blur interval."
-            disablewhen "{ xn__shutteropen_control_16a == block } { xn__shutteropen_control_16a == none }"
+            disablewhen "{ xn__moonraymb_shutter_open_control_ypb == block } { xn__moonraymb_shutter_open_control_ypb == none }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "float" }
         }
         parm {
-            name    "xn__shutterclose_control_o8a"
-            label   "shutter:close"
+            name    "xn__moonraymb_shutter_close_control_lrb"
+            label   "moonray:mb_shutter_close"
             type    string
             default { "none" }
             menujoin {
@@ -227,12 +227,12 @@
             parmtag { "sidefx::look" "icon" }
         }
         parm {
-            name    "xn__shutterclose_nva"
+            name    "mb_shutter_close"
             label   "Mb Shutter Close"
             type    float
             default { "0.25" }
             help    "Frame at which the shutter closes, i.e., the end of the motion blur interval."
-            disablewhen "{ xn__shutterclose_control_o8a == block } { xn__shutterclose_control_o8a == none }"
+            disablewhen "{ xn__moonraymb_shutter_close_control_lrb == block } { xn__moonraymb_shutter_close_control_lrb == none }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "float" }
         }
@@ -455,8 +455,8 @@
             parmtag { "usdvaluetype" "bool" }
         }
         parm {
-            name    "fStop_control"
-            label   "fStop"
+            name    "xn__moonraydof_aperture_control_2kb"
+            label   "moonray:dof_aperture"
             type    string
             default { "none" }
             menujoin {
@@ -470,18 +470,18 @@
             parmtag { "sidefx::look" "icon" }
         }
         parm {
-            name    "fStop"
+            name    "dof_aperture"
             label   "Dof Aperture"
             type    float
             default { "8" }
             help    "Depth of field focus distance"
-            disablewhen "{ fStop_control == block } { fStop_control == none }"
+            disablewhen "{ xn__moonraydof_aperture_control_2kb == block } { xn__moonraydof_aperture_control_2kb == none }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "float" }
         }
         parm {
-            name    "focusDistance_control"
-            label   "focusDistance"
+            name    "xn__moonraydof_focus_distance_control_uub"
+            label   "moonray:dof_focus_distance"
             type    string
             default { "none" }
             menujoin {
@@ -495,11 +495,11 @@
             parmtag { "sidefx::look" "icon" }
         }
         parm {
-            name    "focusDistance"
+            name    "dof_focus_distance"
             label   "Dof Focus Distance"
             type    float
             default { "0" }
-            disablewhen "{ focusDistance_control == block } { focusDistance_control == none }"
+            disablewhen "{ xn__moonraydof_focus_distance_control_uub == block } { xn__moonraydof_focus_distance_control_uub == none }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "float" }
         }

@@ -178,7 +178,7 @@
         }
         parm {
             name    "xn__inputssubsurface_blend_wcb"
-            label   "Subsurface Blend"
+            label   "Blend"
             type    float
             default { "1" }
             help    "0 is fully hair diffuse, 1 is fully SSS. No effect if scattering radius is 0."

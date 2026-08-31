@@ -69,7 +69,7 @@
         }
         parm {
             name    "xn__inputsfuzz_roughness_n8a"
-            label   "Fuzz Roughness"
+            label   "Roughness"
             type    float
             default { "0.25" }
             help    "Lower values result in glancing angle highlights while higher values result in a broad, uniform coverage"
@@ -94,7 +94,7 @@
         }
         parm {
             name    "xn__inputsfuzz_albedo_r3a"
-            label   "Fuzz Albedo"
+            label   "Albedo"
             type    color
             size    3
             default { "1" "1" "1" }
@@ -140,7 +140,7 @@
         }
         parm {
             name    "xn__inputsfuzz_normal_r3a"
-            label   "Fuzz Normal"
+            label   "Normal"
             type    oppath
             invisible
             default { "" }
@@ -166,7 +166,7 @@
         }
         parm {
             name    "xn__inputsfuzz_normal_dial_wcb"
-            label   "Fuzz Normal Dial"
+            label   "Normal Dial"
             type    float
             default { "1" }
             help    "controls the amount of infuence of the alternate fuzz normal"
@@ -244,7 +244,7 @@
         }
         parm {
             name    "xn__inputsclearcoat_model_99a"
-            label   "Clearcoat Model"
+            label   "Model"
             type    string
             default { "GGX" }
             help    "sets the normal distribution function for clearcoat.  GGX is currently isotropic only"
@@ -272,7 +272,7 @@
         }
         parm {
             name    "xn__inputsclearcoat_refractive_index_6sb"
-            label   "Clearcoat Refractive Index"
+            label   "Refractive Index"
             type    float
             default { "1.5" }
             help    "defines the Fresnel behavior"
@@ -297,7 +297,7 @@
         }
         parm {
             name    "xn__inputsclearcoat_roughness_shb"
-            label   "Clearcoat Roughness"
+            label   "Roughness"
             type    float
             default { "0.1" }
             help    "the roughness of the clearcoat lobe"
@@ -322,7 +322,7 @@
         }
         parm {
             name    "xn__inputsclearcoat_thickness_shb"
-            label   "Clearcoat Thickness"
+            label   "Thickness"
             type    float
             default { "0" }
             help    "the thickness of the virtual clearcoat layer. Values > 0 enable absorption"
@@ -347,7 +347,7 @@
         }
         parm {
             name    "xn__inputsclearcoat_attenuation_color_tub"
-            label   "Clearcoat Attenuation Color"
+            label   "Attenuation Color"
             type    color
             size    3
             default { "0.5" "0.5" "0.5" }
@@ -371,7 +371,7 @@
         }
         parm {
             name    "xn__inputsclearcoat_bending_jeb"
-            label   "Clearcoat Bending"
+            label   "Bending"
             type    toggle
             default { "1" }
             help    "(advanced, recommended ON) bends rays based on the clearcoat-refractive-index before evaluating the lobes under clearcoat"
@@ -441,7 +441,7 @@
         }
         parm {
             name    "xn__inputsclearcoat_normal_dial_1kb"
-            label   "Clearcoat Normal Dial"
+            label   "Normal Dial"
             type    float
             default { "1" }
             help    "controls the amount of infuence of the alternate clearcoat normal"
@@ -517,7 +517,7 @@
         }
         parm {
             name    "xn__inputsspecular_model_n8a"
-            label   "Specular Model"
+            label   "Model"
             type    string
             default { "GGX" }
             help    "sets the normal distribution function for specular.  GGX is currently isotropic only"
@@ -677,7 +677,7 @@
         }
         parm {
             name    "xn__inputsiridescence_apply_to_fjb"
-            label   "Iridescence Apply To"
+            label   "Apply To"
             type    string
             default { "primary specular" }
             help    "Apply iridescence to primary specular lobe or clearcoat/moisture lobe"
@@ -705,7 +705,7 @@
         }
         parm {
             name    "xn__inputsiridescence_color_control_krb"
-            label   "Iridescence Color Control"
+            label   "Color Control"
             type    string
             default { "use hue interpolation" }
             help    "use hue interpolation: automatically cycles through hue wheel, use ramp: user specified color ramp"
@@ -733,7 +733,7 @@
         }
         parm {
             name    "xn__inputsiridescence_primary_color_krb"
-            label   "Iridescence Primary Color"
+            label   "Primary Color"
             type    color
             size    3
             default { "1" "0" "0" }
@@ -759,7 +759,7 @@
         }
         parm {
             name    "xn__inputsiridescence_secondary_color_tub"
-            label   "Iridescence Secondary Color"
+            label   "Secondary Color"
             type    color
             size    3
             default { "1" "0" "0" }
@@ -783,7 +783,7 @@
         }
         parm {
             name    "xn__inputsiridescence_flip_hue_direction_pzb"
-            label   "Iridescence Flip Hue Direction"
+            label   "Flip Hue Direction"
             type    toggle
             default { "0" }
             help    "flip interpolation around the hue wheel to counter-clockwise direction"
@@ -807,7 +807,7 @@
         }
         parm {
             name    "xn__inputsiridescence_ramp_interpolation_mode_u7b"
-            label   "Iridescence Ramp Interpolation Mode"
+            label   "Ramp Interpolation Mode"
             type    string
             default { "RGB" }
             help    "RGB: lerp in RGB space which matches UI preview but can lose saturation, HSV: lerp in HSV space which preserves saturation"
@@ -835,7 +835,7 @@
         }
         parm {
             name    "iridescence_ramp"
-            label   "Iridescence Ramp"
+            label   "Ramp"
             type    ramp_rgb
             default { "7" }
             disablewhen "{ xn__inputsiridescence_colors_control_6sb == block } { xn__inputsiridescence_colors_control_6sb == none }"
@@ -859,7 +859,7 @@
         }
         parm {
             name    "xn__inputsiridescence_thickness_1kb"
-            label   "Iridescence Thickness"
+            label   "Thickness"
             type    float
             default { "1" }
             help    "Controls how much the color spectrum is repeated"
@@ -884,7 +884,7 @@
         }
         parm {
             name    "xn__inputsiridescence_exponent_fjb"
-            label   "Iridescence Exponent"
+            label   "Exponent"
             type    float
             default { "1" }
             help    "Tightens or broadens the distribution of colors"
@@ -909,7 +909,7 @@
         }
         parm {
             name    "xn__inputsiridescence_at_0_incidence_6sb"
-            label   "Iridescence At 0 Incidence"
+            label   "At 0 Incidence"
             type    float
             default { "1" }
             help    "Iridescence effect at 0 degree viewing angle"
@@ -934,7 +934,7 @@
         }
         parm {
             name    "xn__inputsiridescence_at_90_incidence_tub"
-            label   "Iridescence At 90 Incidence"
+            label   "At 90 Incidence"
             type    float
             default { "1" }
             help    "Iridescence effect at 90 degree viewing angle"
@@ -987,7 +987,7 @@
         }
         parm {
             name    "xn__inputstransmission_color_5fb"
-            label   "Transmission Color"
+            label   "Color"
             type    color
             size    3
             default { "1" "1" "1" }

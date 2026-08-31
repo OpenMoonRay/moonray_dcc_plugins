@@ -284,7 +284,7 @@
         multiparm {
             name    "aperture_window"
             label    "Aperture Window"
-            default 4
+            default 0
             disablewhen "{ xn__moonraysceneVariableaperture_window_control_4bcn == block } { xn__moonraysceneVariableaperture_window_control_4bcn == none }"
             parmtag { "usdvaluetype" "int[]" }
 
@@ -317,7 +317,7 @@
         multiparm {
             name    "region_window"
             label    "Region Window"
-            default 4
+            default 0
             disablewhen "{ xn__moonraysceneVariableregion_window_control_v7bn == block } { xn__moonraysceneVariableregion_window_control_v7bn == none }"
             parmtag { "usdvaluetype" "int[]" }
 
@@ -350,7 +350,7 @@
         multiparm {
             name    "sub_viewport"
             label    "Sub Viewport"
-            default 4
+            default 0
             disablewhen "{ xn__moonraysceneVariablesub_viewport_control_85bn == block } { xn__moonraysceneVariablesub_viewport_control_85bn == none }"
             parmtag { "usdvaluetype" "int[]" }
 
@@ -389,7 +389,7 @@
         multiparm {
             name    "motion_steps"
             label    "Motion Steps"
-            default 2
+            default 0
             disablewhen "{ xn__moonraysceneVariablemotion_steps_control_85bn == block } { xn__moonraysceneVariablemotion_steps_control_85bn == none }"
             parmtag { "usdvaluetype" "float[]" }
 
@@ -2507,7 +2507,7 @@
         multiparm {
             name    "debug_pixel"
             label    "Debug Pixel"
-            default 2
+            default 0
             disablewhen "{ xn__moonraysceneVariabledebug_pixel_control_m4bn == block } { xn__moonraysceneVariabledebug_pixel_control_m4bn == none }"
             parmtag { "usdvaluetype" "int[]" }
 
@@ -2900,5 +2900,52 @@
         help    "Specifies whether to use a two-stage writing process for images. In two-stage writing, the image is first written to a temporary location and then moved to the final location. This approach significantly reduces the risk of output data corruption due to an unexpected render process termination.\nThe directory where the temporary files are stored is defined by the \"tmp_dir\" scene variable."
         disablewhen "{ xn__moonraysceneVariabletwo_stage_output_control_rdcn == block } { xn__moonraysceneVariabletwo_stage_output_control_rdcn == none }"
         parmtag { "usdvaluetype" "bool" }
+    }
+    parm {
+        name    "xn__moonraysceneVariablefatal_bool_control_z2bn"
+        label   "moonray:sceneVariable:fatal_bool"
+        type    string
+        default { "none" }
+        menujoin {
+            "set"           "![BUTTONS_set_or_create]Set or Create"
+            "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+            "block"         "![BUTTONS_set_block]Block"
+            "none"          "![BUTTONS_set_nothing]Do Nothing"
+        }
+        parmtag { "sidefx::look" "icon" }
+    }
+    parm {
+        name    "xn__moonraysceneVariablefatal_bool_ypbn"
+        label   "Fatal Bool"
+        type    toggle
+        default { "0" }
+        help    "The bool to use for materialx map shaders that are unable to execute shading, usually due to incomplete initialization."
+        disablewhen "{ xn__moonraysceneVariablefatal_bool_control_z2bn == block } { xn__moonraysceneVariablefatal_bool_control_z2bn == none }"
+        parmtag { "usdvaluetype" "bool" }
+    }
+    parm {
+        name    "xn__moonraysceneVariablefatal_int_control_d1bn"
+        label   "moonray:sceneVariable:fatal_int"
+        type    string
+        default { "none" }
+        menujoin {
+            "set"           "![BUTTONS_set_or_create]Set or Create"
+            "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+            "add"           "![BUTTONS_set_add]Add if Exists"
+            "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+            "block"         "![BUTTONS_set_block]Block"
+            "none"          "![BUTTONS_set_nothing]Do Nothing"
+        }
+        parmtag { "sidefx::look" "icon" }
+    }
+    parm {
+        name    "xn__moonraysceneVariablefatal_int_cobn"
+        label   "Fatal Int"
+        type    integer
+        default { "0" }
+        help    "The int to use for materialx map shaders that are unable to execute shading, usually due to incomplete initialization."
+        disablewhen "{ xn__moonraysceneVariablefatal_int_control_d1bn == block } { xn__moonraysceneVariablefatal_int_control_d1bn == none }"
+        range   { 0 10 }
+        parmtag { "usdvaluetype" "int" }
     }
 }

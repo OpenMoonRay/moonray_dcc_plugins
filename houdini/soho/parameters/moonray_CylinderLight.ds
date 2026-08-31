@@ -79,8 +79,8 @@
             parmtag { "usdvaluetype" "token" }
         }
         parm {
-            name    "xn__inputscolor_control_06a"
-            label   "inputs:color"
+            name    "xn__moonraycolor_control_o8a"
+            label   "moonray:color"
             type    string
             default { "none" }
             menujoin {
@@ -94,19 +94,19 @@
             parmtag { "sidefx::look" "icon" }
         }
         parm {
-            name    "xn__inputscolor_zta"
+            name    "xn__moonraycolor_nva"
             label   "Color"
             type    color
             size    3
             default { "1" "1" "1" }
             help    "The light's RGB values.\nThese are combined multiplicatively with the intensity and other attributes in determining the light's 3-channel radiance."
-            disablewhen "{ xn__inputscolor_control_06a == block } { xn__inputscolor_control_06a == none }"
+            disablewhen "{ xn__moonraycolor_control_o8a == block } { xn__moonraycolor_control_o8a == none }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "color3f" }
         }
         parm {
-            name    "xn__inputsintensity_control_jeb"
-            label   "inputs:intensity"
+            name    "xn__moonrayintensity_control_6fb"
+            label   "moonray:intensity"
             type    string
             default { "none" }
             menujoin {
@@ -120,18 +120,18 @@
             parmtag { "sidefx::look" "icon" }
         }
         parm {
-            name    "xn__inputsintensity_i0a"
+            name    "xn__moonrayintensity_51a"
             label   "Intensity"
             type    float
             default { "1" }
             help    "The light's intensity.\nThis is combined multiplicatively with the color and other attributes in determining the light's 3-channel radiance."
-            disablewhen "{ xn__inputsintensity_control_jeb == block } { xn__inputsintensity_control_jeb == none }"
+            disablewhen "{ xn__moonrayintensity_control_6fb == block } { xn__moonrayintensity_control_6fb == none }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "float" }
         }
         parm {
-            name    "xn__inputsexposure_control_wcb"
-            label   "inputs:exposure"
+            name    "xn__moonrayexposure_control_keb"
+            label   "moonray:exposure"
             type    string
             default { "none" }
             menujoin {
@@ -145,12 +145,12 @@
             parmtag { "sidefx::look" "icon" }
         }
         parm {
-            name    "xn__inputsexposure_vya"
+            name    "xn__moonrayexposure_j0a"
             label   "Exposure"
             type    float
             default { "0" }
             help    "The light's exposure value.\nThis value provides an alternative to the intensity value as a mechanism for controlling the light's overall brightness, and is inspired by the corresponding photographic term but is generalised to apply independently to each light. To calculate its effect, pow(2, exposure) is combined multiplicatively with the color and other attributes in determining the light's 3-channel radiance."
-            disablewhen "{ xn__inputsexposure_control_wcb == block } { xn__inputsexposure_control_wcb == none }"
+            disablewhen "{ xn__moonrayexposure_control_keb == block } { xn__moonrayexposure_control_keb == none }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "float" }
         }
@@ -308,8 +308,8 @@
             parmtag { "usdvaluetype" "string" }
         }
         parm {
-            name    "xn__inputsnormalize_control_jeb"
-            label   "inputs:normalize"
+            name    "xn__moonraynormalized_control_thb"
+            label   "moonray:normalized"
             type    string
             default { "none" }
             menujoin {
@@ -321,12 +321,12 @@
             parmtag { "sidefx::look" "icon" }
         }
         parm {
-            name    "xn__inputsnormalize_i0a"
+            name    "xn__moonraynormalized_s3a"
             label   "Normalized"
             type    toggle
             default { "1" }
             help    "When set to true, the size of the light can be changed without altering the amount of total energy cast into the scene. This is achieved via scaling the light's radiance by the reciprocal of its surface area. When set to false, the radiance is used as-is, regardless of surface area."
-            disablewhen "{ xn__inputsnormalize_control_jeb == block } { xn__inputsnormalize_control_jeb == none }"
+            disablewhen "{ xn__moonraynormalized_control_thb == block } { xn__moonraynormalized_control_thb == none }"
             parmtag { "usdvaluetype" "bool" }
         }
         parm {
@@ -352,8 +352,8 @@
             parmtag { "usdvaluetype" "bool" }
         }
         parm {
-            name    "xn__inputsradius_control_n8a"
-            label   "inputs:radius"
+            name    "xn__moonrayradius_control_bbb"
+            label   "moonray:radius"
             type    string
             default { "none" }
             menujoin {
@@ -367,18 +367,18 @@
             parmtag { "sidefx::look" "icon" }
         }
         parm {
-            name    "xn__inputsradius_mva"
+            name    "xn__moonrayradius_9wa"
             label   "Radius"
             type    float
             default { "1" }
             help    "The radius of the cylinder."
-            disablewhen "{ xn__inputsradius_control_n8a == block } { xn__inputsradius_control_n8a == none }"
+            disablewhen "{ xn__moonrayradius_control_bbb == block } { xn__moonrayradius_control_bbb == none }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "float" }
         }
         parm {
-            name    "xn__inputslength_control_n8a"
-            label   "inputs:length"
+            name    "xn__moonrayheight_control_bbb"
+            label   "moonray:height"
             type    string
             default { "none" }
             menujoin {
@@ -392,12 +392,12 @@
             parmtag { "sidefx::look" "icon" }
         }
         parm {
-            name    "xn__inputslength_mva"
+            name    "xn__moonrayheight_9wa"
             label   "Height"
             type    float
             default { "1" }
             help    "The height of the cylinder as measured along its axis."
-            disablewhen "{ xn__inputslength_control_n8a == block } { xn__inputslength_control_n8a == none }"
+            disablewhen "{ xn__moonrayheight_control_bbb == block } { xn__moonrayheight_control_bbb == none }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "float" }
         }

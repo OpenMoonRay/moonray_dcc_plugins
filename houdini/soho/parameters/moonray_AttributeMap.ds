@@ -20,7 +20,7 @@
         }
         parm {
             name    "xn__inputsprimitive_attribute_name_xpb"
-            label   "Primitive Attribute Name"
+            label   "Name"
             type    string
             default { "Cd" }
             help    "the name of primitive attribute to display when attribute 'map type' is set to 'primitive attribute'"
@@ -44,7 +44,7 @@
         }
         parm {
             name    "xn__inputsprimitive_attribute_type_xpb"
-            label   "Primitive Attribute Type"
+            label   "Type"
             type    string
             default { "rgb" }
             help    "the type of primitive attribute to display when attribute 'map type' is set to 'primitive attribute'"

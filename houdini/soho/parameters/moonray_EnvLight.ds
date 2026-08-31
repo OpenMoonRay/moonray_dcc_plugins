@@ -79,8 +79,8 @@
             parmtag { "usdvaluetype" "token" }
         }
         parm {
-            name    "xn__inputscolor_control_06a"
-            label   "inputs:color"
+            name    "xn__moonraycolor_control_o8a"
+            label   "moonray:color"
             type    string
             default { "none" }
             menujoin {
@@ -94,19 +94,19 @@
             parmtag { "sidefx::look" "icon" }
         }
         parm {
-            name    "xn__inputscolor_zta"
+            name    "xn__moonraycolor_nva"
             label   "Color"
             type    color
             size    3
             default { "1" "1" "1" }
             help    "The light's RGB values.\nThese are combined multiplicatively with the intensity and other attributes in determining the light's 3-channel radiance."
-            disablewhen "{ xn__inputscolor_control_06a == block } { xn__inputscolor_control_06a == none }"
+            disablewhen "{ xn__moonraycolor_control_o8a == block } { xn__moonraycolor_control_o8a == none }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "color3f" }
         }
         parm {
-            name    "xn__inputsintensity_control_jeb"
-            label   "inputs:intensity"
+            name    "xn__moonrayintensity_control_6fb"
+            label   "moonray:intensity"
             type    string
             default { "none" }
             menujoin {
@@ -120,18 +120,18 @@
             parmtag { "sidefx::look" "icon" }
         }
         parm {
-            name    "xn__inputsintensity_i0a"
+            name    "xn__moonrayintensity_51a"
             label   "Intensity"
             type    float
             default { "1" }
             help    "The light's intensity.\nThis is combined multiplicatively with the color and other attributes in determining the light's 3-channel radiance."
-            disablewhen "{ xn__inputsintensity_control_jeb == block } { xn__inputsintensity_control_jeb == none }"
+            disablewhen "{ xn__moonrayintensity_control_6fb == block } { xn__moonrayintensity_control_6fb == none }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "float" }
         }
         parm {
-            name    "xn__inputsexposure_control_wcb"
-            label   "inputs:exposure"
+            name    "xn__moonrayexposure_control_keb"
+            label   "moonray:exposure"
             type    string
             default { "none" }
             menujoin {
@@ -145,12 +145,12 @@
             parmtag { "sidefx::look" "icon" }
         }
         parm {
-            name    "xn__inputsexposure_vya"
+            name    "xn__moonrayexposure_j0a"
             label   "Exposure"
             type    float
             default { "0" }
             help    "The light's exposure value.\nThis value provides an alternative to the intensity value as a mechanism for controlling the light's overall brightness, and is inspired by the corresponding photographic term but is generalised to apply independently to each light. To calculate its effect, pow(2, exposure) is combined multiplicatively with the color and other attributes in determining the light's 3-channel radiance."
-            disablewhen "{ xn__inputsexposure_control_wcb == block } { xn__inputsexposure_control_wcb == none }"
+            disablewhen "{ xn__moonrayexposure_control_keb == block } { xn__moonrayexposure_control_keb == none }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "float" }
         }
@@ -314,8 +314,8 @@
         label   "Map"
 
         parm {
-            name    "xn__inputstexturefile_control_shbh"
-            label   "inputs:texture:file"
+            name    "xn__moonraytexture_control_xcb"
+            label   "moonray:texture"
             type    string
             default { "none" }
             menujoin {
@@ -327,12 +327,12 @@
             parmtag { "sidefx::look" "icon" }
         }
         parm {
-            name    "xn__inputstexturefile_r3ah"
+            name    "xn__moonraytexture_wya"
             label   "Texture"
             type    file
             default { "" }
             help    "File name of the texture applied to the light. If set to the empty string, no texture is applied. Any file format supported by OpenImageIO can be used. The texture is used in 2 ways - for looking up the texture value at the intersection point when a ray hits the light, and for building a lookup-table-based auxilliary data structure used for distributing light samples over the texture."
-            disablewhen "{ xn__inputstexturefile_control_shbh == block } { xn__inputstexturefile_control_shbh == none }"
+            disablewhen "{ xn__moonraytexture_control_xcb == block } { xn__moonraytexture_control_xcb == none }"
             parmtag { "usdvaluetype" "asset" }
         }
         parm {
