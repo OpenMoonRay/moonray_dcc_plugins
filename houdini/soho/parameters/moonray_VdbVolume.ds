@@ -1,0 +1,245 @@
+#include "$HFS/houdini/soho/parameters/CommonMacros.ds"
+{
+    name	parameters
+    group {
+        name    "folder"
+        label   "Volume Baking"
+
+        parm {
+            name    "xn__inputsbake_resolution_mode_control_gwb"
+            label   "inputs:bake_resolution_mode"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__inputsbake_resolution_mode_fjb"
+            label   "Bake Resolution Mode"
+            type    string
+            default { "default" }
+            help    "Method to specify grid resolution of baked density grid.  Choices are:\n		\"default\": For shaders that are bound to vdb volumes, use vdb resolution.\n						For shaders that are bounds to mesh geometries use 100 divisions\n		\"divisions\": Specify number of divisions.\n		\"voxel size\": Specify voxel size."
+            disablewhen "{ xn__inputsbake_resolution_mode_control_gwb == block } { xn__inputsbake_resolution_mode_control_gwb == none }"
+            menu {
+                "default"       "Default"
+                "divisions"     "Divisions"
+                "voxel size"    "Voxel Size"
+            }
+            parmtag { "usdvaluetype" "token" }
+        }
+        parm {
+            name    "xn__inputsbake_divisions_control_omb"
+            label   "inputs:bake_divisions"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__inputsbake_divisions_n8a"
+            label   "Bake Divisions"
+            type    integer
+            default { "100" }
+            help    "Divide widest axis by this many divisions"
+            disablewhen "{ xn__inputsbake_divisions_control_omb == block } { xn__inputsbake_divisions_control_omb == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "int" }
+        }
+        parm {
+            name    "xn__inputsbake_voxel_size_control_bob"
+            label   "inputs:bake_voxel_size"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__inputsbake_voxel_size_99a"
+            label   "Bake Voxel Size"
+            type    float
+            default { "10" }
+            help    "Size of voxel in world space"
+            disablewhen "{ xn__inputsbake_voxel_size_control_bob == block } { xn__inputsbake_voxel_size_control_bob == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+    }
+
+    group {
+        name    "folder2"
+        label   "Volume"
+
+        parm {
+            name    "xn__inputssurface_opacity_threshold_control_l4b"
+            label   "inputs:surface_opacity_threshold"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__inputssurface_opacity_threshold_krb"
+            label   "Surface Opacity Threshold"
+            type    float
+            default { "0.5" }
+            help    "Accumulated opacity that's considered the 'surface' for computing surface position and Z"
+            disablewhen "{ xn__inputssurface_opacity_threshold_control_l4b == block } { xn__inputssurface_opacity_threshold_control_l4b == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+        parm {
+            name    "xn__inputsopacity_gain_mult_control_krb"
+            label   "inputs:opacity_gain_mult"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__inputsopacity_gain_mult_jeb"
+            label   "Opacity Gain Mult"
+            type    color
+            size    3
+            default { "1" "1" "1" }
+            help    "A multiplier applied to the volume density"
+            disablewhen "{ xn__inputsopacity_gain_mult_control_krb == block } { xn__inputsopacity_gain_mult_control_krb == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "color3f" }
+        }
+        parm {
+            name    "xn__inputscolor_mult_control_5fb"
+            label   "inputs:color_mult"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__inputscolor_mult_41a"
+            label   "Color Mult"
+            type    color
+            size    3
+            default { "1" "1" "1" }
+            help    "The albedo of the volume"
+            disablewhen "{ xn__inputscolor_mult_control_5fb == block } { xn__inputscolor_mult_control_5fb == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "color3f" }
+        }
+        parm {
+            name    "xn__inputsincandescence_gain_mult_control_c1b"
+            label   "inputs:incandescence_gain_mult"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__inputsincandescence_gain_mult_bob"
+            label   "Incandescence Gain Mult"
+            type    color
+            size    3
+            default { "1" "1" "1" }
+            help    "A multiplier applied to the volume emission"
+            disablewhen "{ xn__inputsincandescence_gain_mult_control_c1b == block } { xn__inputsincandescence_gain_mult_control_c1b == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "color3f" }
+        }
+        parm {
+            name    "xn__inputsanisotropy_control_5fb"
+            label   "inputs:anisotropy"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__inputsanisotropy_41a"
+            label   "Anisotropy"
+            type    float
+            default { "0" }
+            help    "Value in the interval [-1,1] that defines how foward (1) or backward (-1) scattering the volume is.  A value of 0.0 indicates an isotropic volume."
+            disablewhen "{ xn__inputsanisotropy_control_5fb == block } { xn__inputsanisotropy_control_5fb == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+    }
+
+    parm {
+        name    "xn__inputslabel_control_06a"
+        label   "inputs:label"
+        type    string
+        default { "none" }
+        menujoin {
+            "set"           "![BUTTONS_set_or_create]Set or Create"
+            "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+            "block"         "![BUTTONS_set_block]Block"
+            "none"          "![BUTTONS_set_nothing]Do Nothing"
+        }
+        parmtag { "sidefx::look" "icon" }
+    }
+    parm {
+        name    "xn__inputslabel_zta"
+        label   "Label"
+        type    string
+        default { "" }
+        help    "label used in light aovs"
+        disablewhen "{ xn__inputslabel_control_06a == block } { xn__inputslabel_control_06a == none }"
+        parmtag { "usdvaluetype" "string" }
+    }
+}

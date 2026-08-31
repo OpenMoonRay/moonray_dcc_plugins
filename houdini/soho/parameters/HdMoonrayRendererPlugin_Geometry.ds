@@ -515,4 +515,1580 @@
         }
     }
 
+    group {
+        name    "folder2"
+        label   "Box"
+
+        parm {
+            name    "xn__primvarsmoonraysize_control_3kbh"
+            label   "primvars:moonray:size"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonraysize_26ah"
+            label   "Size"
+            type    vector
+            size    3
+            default { "1" "1" "1" }
+            help    "The size of the box"
+            disablewhen "{ xn__primvarsmoonraysize_control_3kbh == block } { xn__primvarsmoonraysize_control_3kbh == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "vector3f" }
+        }
+    }
+
+    group {
+        name    "folder3"
+        label   "RdlCurve"
+
+        parm {
+            name    "xn__primvarsmoonraycurves_vertex_count_control_j9bh"
+            label   "primvars:moonray:curves_vertex_count"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        multiparm {
+            name    "curves_vertex_count"
+            label    "Curves Vertex Count"
+            default 0
+            disablewhen "{ xn__primvarsmoonraycurves_vertex_count_control_j9bh == block } { xn__primvarsmoonraycurves_vertex_count_control_j9bh == none }"
+            parmtag { "usdvaluetype" "int[]" }
+
+            parm {
+                name    "xn__primvarsmoonraycurves_vertex_count_iwbh#"
+                label   "Curves Vertex Count"
+                type    integer
+                default { "0" }
+                help    "List of vertices per curve"
+                range   { 0 10 }
+                parmtag { "moonray::is_parm" "1" }
+            }
+        }
+
+        parm {
+            name    "xn__primvarsmoonrayradius_list_control_iwbh"
+            label   "primvars:moonray:radius_list"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        multiparm {
+            name    "radius_list"
+            label    "Radius List"
+            default 0
+            disablewhen "{ xn__primvarsmoonrayradius_list_control_iwbh == block } { xn__primvarsmoonrayradius_list_control_iwbh == none }"
+            parmtag { "usdvaluetype" "float[]" }
+
+            parm {
+                name    "xn__primvarsmoonrayradius_list_hjbh#"
+                label   "Radius List"
+                type    float
+                default { "0" }
+                help    "List of radius values.  The rate will be determined based on the number of values.   A single value will be interpreted as constant.   If the  number of values matches the number of curves, the rate will be interpreted as uniform.   If the number of values matches the number of vertices, the rate will be interpreted as  vertex."
+                range   { 0 10 }
+                parmtag { "moonray::is_parm" "1" }
+            }
+        }
+
+        parm {
+            name    "xn__primvarsmoonrayuse_screen_space_radius_control_1gch"
+            label   "primvars:moonray:use_screen_space_radius"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayuse_screen_space_radius_02bh"
+            label   "Use Screen Space Radius"
+            type    toggle
+            default { "0" }
+            help    "Radius is applied in screen space"
+            disablewhen "{ xn__primvarsmoonrayuse_screen_space_radius_control_1gch == block } { xn__primvarsmoonrayuse_screen_space_radius_control_1gch == none }"
+            parmtag { "usdvaluetype" "bool" }
+        }
+        parm {
+            name    "xn__primvarsmoonraypart_list_control_8sbh"
+            label   "primvars:moonray:part_list"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        multiparm {
+            name    "part_list"
+            label    "Part List"
+            default 0
+            disablewhen "{ xn__primvarsmoonraypart_list_control_8sbh == block } { xn__primvarsmoonraypart_list_control_8sbh == none }"
+            parmtag { "usdvaluetype" "string[]" }
+
+            parm {
+                name    "xn__primvarsmoonraypart_list_7fbh#"
+                label   "Part List"
+                type    string
+                default { "" }
+                help    "List of part names, used in conjunction with 'part_indices' to assign per-part materials"
+                parmtag { "moonray::is_parm" "1" }
+            }
+        }
+
+        parm {
+            name    "xn__primvarsmoonraypart_indices_control_4xbh"
+            label   "primvars:moonray:part_indices"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        multiparm {
+            name    "part_indices"
+            label    "Part Indices"
+            default 0
+            disablewhen "{ xn__primvarsmoonraypart_indices_control_4xbh == block } { xn__primvarsmoonraypart_indices_control_4xbh == none }"
+            parmtag { "usdvaluetype" "int[]" }
+
+            parm {
+                name    "xn__primvarsmoonraypart_indices_3kbh#"
+                label   "Part Indices"
+                type    integer
+                default { "0" }
+                help    "List of part indices.  No index should have a value greater than the size of 'curves_vertex_count'"
+                range   { 0 10 }
+                parmtag { "moonray::is_parm" "1" }
+            }
+        }
+
+        parm {
+            name    "xn__primvarsmoonrayvelocity_scale_control_e1bh"
+            label   "primvars:moonray:velocity_scale"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayvelocity_scale_dobh"
+            label   "Velocity Scale"
+            type    float
+            default { "1" }
+            help    "Adjusts magnitude of velocity-based motion blur"
+            disablewhen "{ xn__primvarsmoonrayvelocity_scale_control_e1bh == block } { xn__primvarsmoonrayvelocity_scale_control_e1bh == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+        parm {
+            name    "xn__primvarsmoonraycurve_type_control_vubh"
+            label   "primvars:moonray:curve_type"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonraycurve_type_uhbh"
+            label   "Curve Type"
+            type    string
+            default { "bezier" }
+            help    "Curve interpolation type is linear, bezier, or bspline"
+            disablewhen "{ xn__primvarsmoonraycurve_type_control_vubh == block } { xn__primvarsmoonraycurve_type_control_vubh == none }"
+            menu {
+                "linear"    "Linear"
+                "bezier"    "Bezier"
+                "bspline"   "Bspline"
+            }
+            parmtag { "usdvaluetype" "token" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayprimitive_attributes_control_5bch"
+            label   "primvars:moonray:primitive_attributes"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        multiparm {
+            name    "primitive_attributes"
+            label    "Primitive Attributes"
+            default 0
+            disablewhen "{ xn__primvarsmoonrayprimitive_attributes_control_5bch == block } { xn__primvarsmoonrayprimitive_attributes_control_5bch == none }"
+            parmtag { "usdvaluetype" "<class 'pxr.Usd.Relationship'>" }
+
+            parm {
+                name    "xn__primvarsmoonrayprimitive_attributes_4xbh#"
+                label   "Primitive Attributes"
+                type    oppath
+                default { "" }
+                help    "Vector of UserData.  Each key/value pair will be added as a primitive attribute of the curves."
+                parmtag { "moonray::is_parm" "1" }
+                parmtag { "oprelative" "." }
+            }
+        }
+
+        parm {
+            name    "xn__primvarsmoonraylocal_motion_blur_radius_list_control_tqch"
+            label   "primvars:moonray:local_motion_blur_radius_list"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        multiparm {
+            name    "local_motion_blur_radius_list"
+            label    "Local Motion Blur Radius List"
+            default 0
+            disablewhen "{ xn__primvarsmoonraylocal_motion_blur_radius_list_control_tqch == block } { xn__primvarsmoonraylocal_motion_blur_radius_list_control_tqch == none }"
+            parmtag { "usdvaluetype" "float[]" }
+
+            parm {
+                name    "xn__primvarsmoonraylocal_motion_blur_radius_list_sdch#"
+                label   "Local Motion Blur Radius List"
+                type    float
+                default { "0" }
+                help    "Per-point outer radius for each local motion blur region. If empty, defaults to 1.0. Must match the length of local_motion_blur_position_list."
+                disablewhen "{ use_local_motion_blur == 0 }"
+                range   { 0 10 }
+                parmtag { "moonray::is_parm" "1" }
+            }
+        }
+
+        parm {
+            name    "xn__primvarsmoonraylocal_motion_blur_inner_radius_list_control_l0ch"
+            label   "primvars:moonray:local_motion_blur_inner_radius_list"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        multiparm {
+            name    "local_motion_blur_inner_radius_list"
+            label    "Local Motion Blur Inner Radius List"
+            default 0
+            disablewhen "{ xn__primvarsmoonraylocal_motion_blur_inner_radius_list_control_l0ch == block } { xn__primvarsmoonraylocal_motion_blur_inner_radius_list_control_l0ch == none }"
+            parmtag { "usdvaluetype" "float[]" }
+
+            parm {
+                name    "xn__primvarsmoonraylocal_motion_blur_inner_radius_list_knch#"
+                label   "Local Motion Blur Inner Radius List"
+                type    float
+                default { "0" }
+                help    "Per-point inner radius for each local motion blur region (full-strength core). If empty, defaults to 1.0. Must match the length of local_motion_blur_position_list."
+                disablewhen "{ use_local_motion_blur == 0 }"
+                range   { 0 10 }
+                parmtag { "moonray::is_parm" "1" }
+            }
+        }
+
+        parm {
+            name    "xn__primvarsmoonraylocal_motion_blur_multiplier_list_control_cxch"
+            label   "primvars:moonray:local_motion_blur_multiplier_list"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        multiparm {
+            name    "local_motion_blur_multiplier_list"
+            label    "Local Motion Blur Multiplier List"
+            default 0
+            disablewhen "{ xn__primvarsmoonraylocal_motion_blur_multiplier_list_control_cxch == block } { xn__primvarsmoonraylocal_motion_blur_multiplier_list_control_cxch == none }"
+            parmtag { "usdvaluetype" "float[]" }
+
+            parm {
+                name    "xn__primvarsmoonraylocal_motion_blur_multiplier_list_bkch#"
+                label   "Local Motion Blur Multiplier List"
+                type    float
+                default { "0" }
+                help    "Per-point motion blur strength multiplier for each local motion blur region. If empty, defaults to 1.0. Must match the length of local_motion_blur_position_list."
+                disablewhen "{ use_local_motion_blur == 0 }"
+                range   { 0 10 }
+                parmtag { "moonray::is_parm" "1" }
+            }
+        }
+
+        parm {
+            name    "xn__primvarsmoonraylocal_motion_blur_strength_multiplier_control_u3ch"
+            label   "primvars:moonray:local_motion_blur_strength_multiplier"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonraylocal_motion_blur_strength_multiplier_tqch"
+            label   "Local Motion Blur Strength Multiplier"
+            type    float
+            default { "1" }
+            help    "Global strength multiplier for local motion blur application"
+            disablewhen "{ use_local_motion_blur == 0 } { xn__primvarsmoonraylocal_motion_blur_strength_multiplier_control_u3ch == block } { xn__primvarsmoonraylocal_motion_blur_strength_multiplier_control_u3ch == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+        parm {
+            name    "xn__primvarsmoonraylocal_motion_blur_radius_multiplier_control_l0ch"
+            label   "primvars:moonray:local_motion_blur_radius_multiplier"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonraylocal_motion_blur_radius_multiplier_knch"
+            label   "Local Motion Blur Radius Multiplier"
+            type    float
+            default { "1" }
+            help    "Global radius multiplier applied to per-region radius values, whether supplied via the \"radius\"/\"inner_radius\" point attributes or the \"local_motion_blur_radius_list\"/\"local_motion_blur_inner_radius_list\" explicit list attributes"
+            disablewhen "{ use_local_motion_blur == 0 } { xn__primvarsmoonraylocal_motion_blur_radius_multiplier_control_l0ch == block } { xn__primvarsmoonraylocal_motion_blur_radius_multiplier_control_l0ch == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+        parm {
+            name    "xn__primvarsmoonraytessellation_rate_control_95bh"
+            label   "primvars:moonray:tessellation_rate"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonraytessellation_rate_8sbh"
+            label   "Tessellation Rate"
+            type    integer
+            default { "4" }
+            help    "Number of segments to split curve spans into"
+            disablewhen "{ xn__primvarsmoonraytessellation_rate_control_95bh == block } { xn__primvarsmoonraytessellation_rate_control_95bh == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "int" }
+        }
+        parm {
+            name    "xn__primvarsmoonraycurves_subtype_control_e1bh"
+            label   "primvars:moonray:curves_subtype"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonraycurves_subtype_dobh"
+            label   "Curves Subtype"
+            type    string
+            default { "ray_facing" }
+            help    "Selects the style the curves are rendered"
+            disablewhen "{ xn__primvarsmoonraycurves_subtype_control_e1bh == block } { xn__primvarsmoonraycurves_subtype_control_e1bh == none }"
+            menu {
+                "ray_facing"        "Ray_Facing"
+                "round"             "Round"
+                "normal_oriented"   "Normal_Oriented"
+            }
+            parmtag { "usdvaluetype" "token" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayuse_rotation_motion_blur_control_oich"
+            label   "primvars:moonray:use_rotation_motion_blur"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayuse_rotation_motion_blur_n4bh"
+            label   "Use Rotation Motion Blur"
+            type    toggle
+            default { "0" }
+            help    "If \"xform\" is time varying and motion blur is enabled, enabling this feature can produce a curved rotation trail.  Enabling this feature will disable adaptive tessellation for this mesh"
+            disablewhen "{ xn__primvarsmoonrayuse_rotation_motion_blur_control_oich == block } { xn__primvarsmoonrayuse_rotation_motion_blur_control_oich == none }"
+            parmtag { "usdvaluetype" "bool" }
+        }
+        parm {
+            name    "xn__primvarsmoonraymotion_blur_type_control_n4bh"
+            label   "primvars:moonray:motion_blur_type"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonraymotion_blur_type_mrbh"
+            label   "Motion Blur Type"
+            type    string
+            default { "best" }
+            help    "Motion blur type for PolygonMesh/Points/Curves.\n\"static\" will treat the mesh as static.\n\"velocity\" will blur using the supplied vertex positions and velocities.\n\"frame delta\" will interpolate between the two supplied vertex positions.\n\"acceleration\" will blur using the supplied vertex positions, velocities and accelerations.\n\"hermite\" will use supplied pair of positions and pair of velocities to interpolate along a cubic Hermite curve.\n\"best\" will use choose the method which provides the highest quality given the available data.\n"
+            disablewhen "{ xn__primvarsmoonraymotion_blur_type_control_n4bh == block } { xn__primvarsmoonraymotion_blur_type_control_n4bh == none }"
+            menu {
+                "best"          "Best"
+                "static"        "Static"
+                "velocity"      "Velocity"
+                "frame delta"   "Frame Delta"
+                "acceleration"  "Acceleration"
+                "hermite"       "Hermite"
+            }
+            parmtag { "usdvaluetype" "token" }
+        }
+        parm {
+            name    "xn__primvarsmoonraycurved_motion_blur_sample_count_control_2tch"
+            label   "primvars:moonray:curved_motion_blur_sample_count"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonraycurved_motion_blur_sample_count_1gch"
+            label   "Curved Motion Blur Sample Count"
+            type    integer
+            default { "10" }
+            help    "Number of time samples generated along each curve when using curved motion blur"
+            disablewhen "{ xn__primvarsmoonraycurved_motion_blur_sample_count_control_2tch == block } { xn__primvarsmoonraycurved_motion_blur_sample_count_control_2tch == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "int" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayprimitive_attribute_frame_control_bkch"
+            label   "primvars:moonray:primitive_attribute_frame"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayprimitive_attribute_frame_95bh"
+            label   "Primitive Attribute Frame"
+            type    string
+            default { "both motion steps" }
+            help    "Which frame(s) do we take the primitive attributes from?\n	O : first motion step\n	1 : second motion step\n	2 : both motion steps"
+            disablewhen "{ xn__primvarsmoonrayprimitive_attribute_frame_control_bkch == block } { xn__primvarsmoonrayprimitive_attribute_frame_control_bkch == none }"
+            menu {
+                "first motion step"     "First Motion Step"
+                "second motion step"    "Second Motion Step"
+                "both motion steps"     "Both Motion Steps"
+            }
+            parmtag { "usdvaluetype" "token" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayuse_explicit_shading_attributes_control_2tch"
+            label   "primvars:moonray:use_explicit_shading_attributes"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayuse_explicit_shading_attributes_1gch"
+            label   "Use Explicit Shading Attributes"
+            type    toggle
+            default { "0" }
+            help    "Enable the use of explicit shading attributes (N, dPds, dPdt) if they are present"
+            disablewhen "{ xn__primvarsmoonrayuse_explicit_shading_attributes_control_2tch == block } { xn__primvarsmoonrayuse_explicit_shading_attributes_control_2tch == none }"
+            parmtag { "usdvaluetype" "bool" }
+        }
+    }
+
+    group {
+        name    "folder4"
+        label   "RdlInstancer"
+
+        parm {
+            name    "xn__primvarsmoonraymethod_control_dobh"
+            label   "primvars:moonray:method"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonraymethod_cbbh"
+            label   "Method"
+            type    string
+            default { "xform attributes" }
+            help    "Specifies the source of the transform data for instancing. If set to \"xform attributes\", data is used from the \"positions\", \"orientations\", \"scales\" attributes.If set to \"xform list\", data is used from the \"xform list\"attribute."
+            disablewhen "{ xn__primvarsmoonraymethod_control_dobh == block } { xn__primvarsmoonraymethod_control_dobh == none }"
+            menu {
+                "xform attributes"  "Xform Attributes"
+                "xform list"        "Xform List"
+            }
+            parmtag { "usdvaluetype" "token" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayinstance_level_control_e1bh"
+            label   "primvars:moonray:instance_level"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayinstance_level_dobh"
+            label   "Instance Level"
+            type    string
+            default { "instance level 0" }
+            help    "Sets the level/depth of this instance.  This adds a Mat4f primitive attribute to the geometry which can be referenced during shading to use the local space of each instance.  The name of the primitive attribute corresponds the the instance level  that is set (i.e. \"instance_level_0\", \"instance_level_1\", etc)"
+            disablewhen "{ xn__primvarsmoonrayinstance_level_control_e1bh == block } { xn__primvarsmoonrayinstance_level_control_e1bh == none }"
+            menu {
+                "instance level 0"  "Instance Level 0"
+                "instance level 1"  "Instance Level 1"
+                "instance level 2"  "Instance Level 2"
+                "instance level 3"  "Instance Level 3"
+                "instance level 4"  "Instance Level 4"
+            }
+            parmtag { "usdvaluetype" "token" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayref_indices_control_iwbh"
+            label   "primvars:moonray:ref_indices"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        multiparm {
+            name    "ref_indices"
+            label    "Ref Indices"
+            default 0
+            disablewhen "{ xn__primvarsmoonrayref_indices_control_iwbh == block } { xn__primvarsmoonrayref_indices_control_iwbh == none }"
+            parmtag { "usdvaluetype" "int[]" }
+
+            parm {
+                name    "xn__primvarsmoonrayref_indices_hjbh#"
+                label   "Ref Indices"
+                type    integer
+                default { "0" }
+                help    "A list of index values to specify which reference geometry to instance at each   position.   The list corresponds to entries in the \"references\" attribute.  The length of the list should be either 0 or consistent with \"positions\"|\"xform_list\".  The index entry falls back to 0 when this attribute is empty or the value of entry is out of index range"
+                range   { 0 10 }
+                parmtag { "moonray::is_parm" "1" }
+            }
+        }
+
+        parm {
+            name    "xn__primvarsmoonraydisable_indices_control_02bh"
+            label   "primvars:moonray:disable_indices"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        multiparm {
+            name    "disable_indices"
+            label    "Disable Indices"
+            default 0
+            disablewhen "{ xn__primvarsmoonraydisable_indices_control_02bh == block } { xn__primvarsmoonraydisable_indices_control_02bh == none }"
+            parmtag { "usdvaluetype" "int[]" }
+
+            parm {
+                name    "xn__primvarsmoonraydisable_indices_zpbh#"
+                label   "Disable Indices"
+                type    integer
+                default { "0" }
+                help    "A list of index values to hide / disable.  For example, with 4 instances you can supply a list of 0, 2 to disable those instances.  If an index in this list is out of range, it is ignored."
+                range   { 0 10 }
+                parmtag { "moonray::is_parm" "1" }
+            }
+        }
+
+        parm {
+            name    "xn__primvarsmoonrayevaluation_frame_control_n4bh"
+            label   "primvars:moonray:evaluation_frame"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayevaluation_frame_mrbh"
+            label   "Evaluation Frame"
+            type    float
+            default { "0" }
+            help    "Evaluate geometry at specified frame (relative) instead of SceneVariables frame."
+            disablewhen "{ xn__primvarsmoonrayevaluation_frame_control_n4bh == block } { xn__primvarsmoonrayevaluation_frame_control_n4bh == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayuse_reference_xforms_control_5bch"
+            label   "primvars:moonray:use_reference_xforms"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayuse_reference_xforms_4xbh"
+            label   "Use Reference Xforms"
+            type    toggle
+            default { "0" }
+            help    "Transform the reference (prototype) geometry by it's node_xform parameter before applying the instance transform"
+            disablewhen "{ xn__primvarsmoonrayuse_reference_xforms_control_5bch == block } { xn__primvarsmoonrayuse_reference_xforms_control_5bch == none }"
+            parmtag { "usdvaluetype" "bool" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayuse_reference_attributes_control_oich"
+            label   "primvars:moonray:use_reference_attributes"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayuse_reference_attributes_n4bh"
+            label   "Use Reference Attributes"
+            type    toggle
+            default { "1" }
+            help    "Use the geometry attributes of the reference (prototype) instead of the ones on the InstanceGeometry.   Currently only works for shadow_ray_epsilon"
+            disablewhen "{ xn__primvarsmoonrayuse_reference_attributes_control_oich == block } { xn__primvarsmoonrayuse_reference_attributes_control_oich == none }"
+            parmtag { "usdvaluetype" "bool" }
+        }
+    }
+
+    group {
+        name    "folder5"
+        label   "RdlMesh"
+
+        parm {
+            name    "xn__primvarsmoonrayface_vertex_count_control_95bh"
+            label   "primvars:moonray:face_vertex_count"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        multiparm {
+            name    "face_vertex_count"
+            label    "Face Vertex Count"
+            default 0
+            disablewhen "{ xn__primvarsmoonrayface_vertex_count_control_95bh == block } { xn__primvarsmoonrayface_vertex_count_control_95bh == none }"
+            parmtag { "usdvaluetype" "int[]" }
+
+            parm {
+                name    "xn__primvarsmoonrayface_vertex_count_8sbh#"
+                label   "Face Vertex Count"
+                type    integer
+                default { "0" }
+                help    "List of vertices per face, used in conjunction with vertices_by_index to construct the mesh"
+                range   { 0 10 }
+                parmtag { "moonray::is_parm" "1" }
+            }
+        }
+
+        parm {
+            name    "xn__primvarsmoonrayvertices_by_index_control_95bh"
+            label   "primvars:moonray:vertices_by_index"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        multiparm {
+            name    "vertices_by_index"
+            label    "Vertices By Index"
+            default 0
+            disablewhen "{ xn__primvarsmoonrayvertices_by_index_control_95bh == block } { xn__primvarsmoonrayvertices_by_index_control_95bh == none }"
+            parmtag { "usdvaluetype" "int[]" }
+
+            parm {
+                name    "xn__primvarsmoonrayvertices_by_index_8sbh#"
+                label   "Vertices By Index"
+                type    integer
+                default { "0" }
+                help    "List of vertex indices used to construct the mesh using the vertex list"
+                range   { 0 10 }
+                parmtag { "moonray::is_parm" "1" }
+            }
+        }
+
+        parm {
+            name    "xn__primvarsmoonrayorientation_control_iwbh"
+            label   "primvars:moonray:orientation"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayorientation_hjbh"
+            label   "Orientation"
+            type    string
+            default { "right-handed" }
+            help    "When set to \"left-handed\", normals are generated using the left-handed rule. This reverses the direction of generated normals, and which side of surfaces is considered the front, without affecting supplied normals."
+            disablewhen "{ xn__primvarsmoonrayorientation_control_iwbh == block } { xn__primvarsmoonrayorientation_control_iwbh == none }"
+            menu {
+                "right-handed"  "Right-Handed"
+                "left-handed"   "Left-Handed"
+            }
+            parmtag { "usdvaluetype" "token" }
+        }
+        parm {
+            name    "xn__primvarsmoonraypart_face_count_list_control_5bch"
+            label   "primvars:moonray:part_face_count_list"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        multiparm {
+            name    "part_face_count_list"
+            label    "Part Face Count List"
+            default 0
+            disablewhen "{ xn__primvarsmoonraypart_face_count_list_control_5bch == block } { xn__primvarsmoonraypart_face_count_list_control_5bch == none }"
+            parmtag { "usdvaluetype" "int[]" }
+
+            parm {
+                name    "xn__primvarsmoonraypart_face_count_list_4xbh#"
+                label   "Part Face Count List"
+                type    integer
+                default { "0" }
+                help    "List of the number of faces belonging to the part with corresponding index in 'part list'."
+                range   { 0 10 }
+                parmtag { "moonray::is_parm" "1" }
+            }
+        }
+
+        parm {
+            name    "xn__primvarsmoonraypart_face_indices_control_95bh"
+            label   "primvars:moonray:part_face_indices"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        multiparm {
+            name    "part_face_indices"
+            label    "Part Face Indices"
+            default 0
+            disablewhen "{ xn__primvarsmoonraypart_face_indices_control_95bh == block } { xn__primvarsmoonraypart_face_indices_control_95bh == none }"
+            parmtag { "usdvaluetype" "int[]" }
+
+            parm {
+                name    "xn__primvarsmoonraypart_face_indices_8sbh#"
+                label   "Part Face Indices"
+                type    integer
+                default { "0" }
+                help    "List of face indices. No index should have a value greater than the size of 'face_vertex_count'"
+                range   { 0 10 }
+                parmtag { "moonray::is_parm" "1" }
+            }
+        }
+
+        parm {
+            name    "xn__primvarsmoonrayis_subd_control_zpbh"
+            label   "primvars:moonray:is_subd"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayis_subd_ycbh"
+            label   "Is Subd"
+            type    toggle
+            default { "1" }
+            help    "If true, a SubdivisionMesh primitive will be created - PolygonMesh otherwise"
+            disablewhen "{ xn__primvarsmoonrayis_subd_control_zpbh == block } { xn__primvarsmoonrayis_subd_control_zpbh == none }"
+            parmtag { "usdvaluetype" "bool" }
+        }
+        parm {
+            name    "xn__primvarsmoonraysubd_scheme_control_iwbh"
+            label   "primvars:moonray:subd_scheme"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonraysubd_scheme_hjbh"
+            label   "Subd Scheme"
+            type    string
+            default { "catclark" }
+            help    "CatClark or Bilinear"
+            disablewhen "{ xn__primvarsmoonraysubd_scheme_control_iwbh == block } { xn__primvarsmoonraysubd_scheme_control_iwbh == none }"
+            menu {
+                "bilinear"  "Bilinear"
+                "catclark"  "Catclark"
+            }
+            parmtag { "usdvaluetype" "token" }
+        }
+        parm {
+            name    "xn__primvarsmoonraysubd_boundary_control_rzbh"
+            label   "primvars:moonray:subd_boundary"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonraysubd_boundary_qmbh"
+            label   "Subd Boundary"
+            type    string
+            default { "edge and corner" }
+            help    "Boundary interpolation: Corners, Edges or None"
+            disablewhen "{ xn__primvarsmoonraysubd_boundary_control_rzbh == block } { xn__primvarsmoonraysubd_boundary_control_rzbh == none }"
+            menu {
+                "none"              "None"
+                "edge only"         "Edge Only"
+                "edge and corner"   "Edge And Corner"
+            }
+            parmtag { "usdvaluetype" "token" }
+        }
+        parm {
+            name    "xn__primvarsmoonraysubd_fvar_linear_control_n4bh"
+            label   "primvars:moonray:subd_fvar_linear"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonraysubd_fvar_linear_mrbh"
+            label   "Subd Fvar Linear"
+            type    string
+            default { "corners only" }
+            help    "Face-varying linear interpolation: None, Corners Only, Corners Plus 1 or Plus 2 (RenderMan), Boundaries, or All"
+            disablewhen "{ xn__primvarsmoonraysubd_fvar_linear_control_n4bh == block } { xn__primvarsmoonraysubd_fvar_linear_control_n4bh == none }"
+            menu {
+                "none"          "None"
+                "corners only"  "Corners Only"
+                "corners plus1" "Corners Plus1"
+                "corners plus2" "Corners Plus2"
+                "boundaries"    "Boundaries"
+                "all"           "All"
+            }
+            parmtag { "usdvaluetype" "token" }
+        }
+        parm {
+            name    "xn__primvarsmoonraysubd_crease_indices_control_j9bh"
+            label   "primvars:moonray:subd_crease_indices"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        multiparm {
+            name    "subd_crease_indices"
+            label    "Subd Crease Indices"
+            default 0
+            disablewhen "{ xn__primvarsmoonraysubd_crease_indices_control_j9bh == block } { xn__primvarsmoonraysubd_crease_indices_control_j9bh == none }"
+            parmtag { "usdvaluetype" "int[]" }
+
+            parm {
+                name    "xn__primvarsmoonraysubd_crease_indices_iwbh#"
+                label   "Subd Crease Indices"
+                type    integer
+                default { "0" }
+                help    "List of vertex index pairs for each crease edge with an assigned sharpness."
+                range   { 0 10 }
+                parmtag { "moonray::is_parm" "1" }
+            }
+        }
+
+        parm {
+            name    "xn__primvarsmoonraysubd_crease_sharpnesses_control_1gch"
+            label   "primvars:moonray:subd_crease_sharpnesses"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        multiparm {
+            name    "subd_crease_sharpnesses"
+            label    "Subd Crease Sharpnesses"
+            default 0
+            disablewhen "{ xn__primvarsmoonraysubd_crease_sharpnesses_control_1gch == block } { xn__primvarsmoonraysubd_crease_sharpnesses_control_1gch == none }"
+            parmtag { "usdvaluetype" "float[]" }
+
+            parm {
+                name    "xn__primvarsmoonraysubd_crease_sharpnesses_02bh#"
+                label   "Subd Crease Sharpnesses"
+                type    float
+                default { "0" }
+                help    "Sharpness value for each crease edge."
+                range   { 0 10 }
+                parmtag { "moonray::is_parm" "1" }
+            }
+        }
+
+        parm {
+            name    "xn__primvarsmoonraysubd_corner_indices_control_j9bh"
+            label   "primvars:moonray:subd_corner_indices"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        multiparm {
+            name    "subd_corner_indices"
+            label    "Subd Corner Indices"
+            default 0
+            disablewhen "{ xn__primvarsmoonraysubd_corner_indices_control_j9bh == block } { xn__primvarsmoonraysubd_corner_indices_control_j9bh == none }"
+            parmtag { "usdvaluetype" "int[]" }
+
+            parm {
+                name    "xn__primvarsmoonraysubd_corner_indices_iwbh#"
+                label   "Subd Corner Indices"
+                type    integer
+                default { "0" }
+                help    "List of indices for each corner vertex with an assigned sharpness."
+                range   { 0 10 }
+                parmtag { "moonray::is_parm" "1" }
+            }
+        }
+
+        parm {
+            name    "xn__primvarsmoonraysubd_corner_sharpnesses_control_1gch"
+            label   "primvars:moonray:subd_corner_sharpnesses"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        multiparm {
+            name    "subd_corner_sharpnesses"
+            label    "Subd Corner Sharpnesses"
+            default 0
+            disablewhen "{ xn__primvarsmoonraysubd_corner_sharpnesses_control_1gch == block } { xn__primvarsmoonraysubd_corner_sharpnesses_control_1gch == none }"
+            parmtag { "usdvaluetype" "float[]" }
+
+            parm {
+                name    "xn__primvarsmoonraysubd_corner_sharpnesses_02bh#"
+                label   "Subd Corner Sharpnesses"
+                type    float
+                default { "0" }
+                help    "Sharpness value for each corner vertex."
+                range   { 0 10 }
+                parmtag { "moonray::is_parm" "1" }
+            }
+        }
+
+        parm {
+            name    "xn__primvarsmoonraymesh_resolution_control_02bh"
+            label   "primvars:moonray:mesh_resolution"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonraymesh_resolution_zpbh"
+            label   "Mesh Resolution"
+            type    float
+            default { "2" }
+            help    "The maximum resolution to which a mesh will be tessellated. NOTE: to prevent t-junctions, only even values are supported. If \"mesh resolution\" is set to n, it will first be rounded up to N=n+1 for odd n, N=n for even n. An edge on an input face will then be tessellated to at most N segments. If \"adaptive error\" is set to 0, every edge on the input face will be uniformly tessellated to N segments. Otherwise the mesh will tessellated adaptively based on its relationship to the camera."
+            disablewhen "{ xn__primvarsmoonraymesh_resolution_control_02bh == block } { xn__primvarsmoonraymesh_resolution_control_02bh == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayadaptive_error_control_e1bh"
+            label   "primvars:moonray:adaptive_error"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayadaptive_error_dobh"
+            label   "Adaptive Error"
+            type    float
+            default { "0" }
+            help    "The maximum allowable difference in pixels for subdivison mesh adaptive tessellation (each final tessellated edge won't be longer than n pixels if adaptive error is set to n). A value of 0 disables adaptive tessellation, reverting to uniform tessellation, which sometimes is more stable in animation. Adaptive tessellation is not supported for instances. The maximum tessellation won't exceed the value specified in mesh_resolution.  This prevents excessive tessellation when the mesh is extremely close to the camera."
+            disablewhen "{ xn__primvarsmoonrayadaptive_error_control_e1bh == block } { xn__primvarsmoonrayadaptive_error_control_e1bh == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+        parm {
+            name    "xn__primvarsmoonraysmooth_normal_control_rzbh"
+            label   "primvars:moonray:smooth_normal"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonraysmooth_normal_qmbh"
+            label   "Smooth Normal"
+            type    toggle
+            default { "1" }
+            help    "Generates smooth shading normals on a PolygonMesh when the mesh doesn't provide shading normals"
+            disablewhen "{ xn__primvarsmoonraysmooth_normal_control_rzbh == block } { xn__primvarsmoonraysmooth_normal_control_rzbh == none }"
+            parmtag { "usdvaluetype" "bool" }
+        }
+    }
+
+    group {
+        name    "folder6"
+        label   "RdlPoint"
+
+    }
+
+    group {
+        name    "folder7"
+        label   "Sphere"
+
+        parm {
+            name    "xn__primvarsmoonrayradius_control_dobh"
+            label   "primvars:moonray:radius"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayradius_cbbh"
+            label   "Radius"
+            type    float
+            default { "1" }
+            help    "The radius of the sphere.  The sphere will clip if the radius exceeds the magnitude of either the zmin or zmax values."
+            disablewhen "{ xn__primvarsmoonrayradius_control_dobh == block } { xn__primvarsmoonrayradius_control_dobh == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayzmin_control_3kbh"
+            label   "primvars:moonray:zmin"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayzmin_26ah"
+            label   "Zmin"
+            type    float
+            default { "-1" }
+            help    "The minimum extent of sphere on the z axis expressed in object space and independent of the radius.  The sphere will clip if the radius exceeds the magnitude of this parameter."
+            disablewhen "{ xn__primvarsmoonrayzmin_control_3kbh == block } { xn__primvarsmoonrayzmin_control_3kbh == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayzmax_control_3kbh"
+            label   "primvars:moonray:zmax"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayzmax_26ah"
+            label   "Zmax"
+            type    float
+            default { "1" }
+            help    "The maximum extent of sphere on the z axis expressed in object space and independent of the radius.  The sphere will clip if the radius exceeds the magnitude of this parameter."
+            disablewhen "{ xn__primvarsmoonrayzmax_control_3kbh == block } { xn__primvarsmoonrayzmax_control_3kbh == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayphi_max_control_zpbh"
+            label   "primvars:moonray:phi_max"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayphi_max_ycbh"
+            label   "Phi Max"
+            type    float
+            default { "360" }
+            help    "The arc of the sphere surface around the z axis expressed in degrees."
+            disablewhen "{ xn__primvarsmoonrayphi_max_control_zpbh == block } { xn__primvarsmoonrayphi_max_control_zpbh == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+    }
+
+    group {
+        name    "folder8"
+        label   "Vdb"
+
+        parm {
+            name    "xn__primvarsmoonraymodel_control_qmbh"
+            label   "primvars:moonray:model"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonraymodel_p8ah"
+            label   "Model"
+            type    file
+            default { "" }
+            help    "The VDB file to load"
+            disablewhen "{ xn__primvarsmoonraymodel_control_qmbh == block } { xn__primvarsmoonraymodel_control_qmbh == none }"
+            parmtag { "usdvaluetype" "asset" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayinterpolation_control_rzbh"
+            label   "primvars:moonray:interpolation"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayinterpolation_qmbh"
+            label   "Interpolation"
+            type    string
+            default { "linear" }
+            help    "Voxel interpolation to use when sampling the volume data"
+            disablewhen "{ xn__primvarsmoonrayinterpolation_control_rzbh == block } { xn__primvarsmoonrayinterpolation_control_rzbh == none }"
+            menu {
+                "nearest neighbor"  "Nearest Neighbor"
+                "linear"            "Linear"
+                "quadratic"         "Quadratic"
+            }
+            parmtag { "usdvaluetype" "token" }
+        }
+        parm {
+            name    "xn__primvarsmoonraydensity_grid_control_4xbh"
+            label   "primvars:moonray:density_grid"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonraydensity_grid_3kbh"
+            label   "Density Grid"
+            type    string
+            default { "density" }
+            help    "The name of the density grid. If multiple grids have the same name, only the first grid with that name will be loaded. If a vdb file has multiple grids with the same name, you may use a suffix index to pick which grid to load, e.g. \"density[3]\". The index must be in [] brackets."
+            disablewhen "{ xn__primvarsmoonraydensity_grid_control_4xbh == block } { xn__primvarsmoonraydensity_grid_control_4xbh == none }"
+            parmtag { "usdvaluetype" "string" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayemission_grid_control_rzbh"
+            label   "primvars:moonray:emission_grid"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayemission_grid_qmbh"
+            label   "Emission Grid"
+            type    string
+            default { "" }
+            help    "The name of the emission grid. If multiple grids have the same name, only the first grid with that name will be loaded. If a vdb file has multiple grids with the same name, you may use a suffix index to pick which grid to load, e.g. \"emission[3]\". The index must be in [] brackets."
+            disablewhen "{ xn__primvarsmoonrayemission_grid_control_rzbh == block } { xn__primvarsmoonrayemission_grid_control_rzbh == none }"
+            parmtag { "usdvaluetype" "string" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayvelocity_grid_control_rzbh"
+            label   "primvars:moonray:velocity_grid"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayvelocity_grid_qmbh"
+            label   "Velocity Grid"
+            type    string
+            default { "" }
+            help    "the name of vector grid representing the velocity field. Usually named \"v\" or \"vel\" in simulation export. If multiple velocity grids have the same name, only the first grid with that name will be loaded. If a vdb file has multiple grids with the same name, you may use a suffix index to pick which grid to load, e.g. \"v[3]\". The index must be in [] brackets. The index can be different from the index on the \"density_grid\"."
+            disablewhen "{ xn__primvarsmoonrayvelocity_grid_control_rzbh == block } { xn__primvarsmoonrayvelocity_grid_control_rzbh == none }"
+            parmtag { "usdvaluetype" "string" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayvelocity_sample_rate_control_5bch"
+            label   "primvars:moonray:velocity_sample_rate"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayvelocity_sample_rate_4xbh"
+            label   "Velocity Sample Rate"
+            type    float
+            default { "0.2" }
+            help    "the relative scale of input velocity grid resolution. Lower value has lower memory overhead and lower fidelity of motion blur effect, which is sometimes desired for artistic reasons"
+            disablewhen "{ xn__primvarsmoonrayvelocity_sample_rate_control_5bch == block } { xn__primvarsmoonrayvelocity_sample_rate_control_5bch == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayemission_sample_rate_control_5bch"
+            label   "primvars:moonray:emission_sample_rate"
+            type    string
+            default { "none" }
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__primvarsmoonrayemission_sample_rate_4xbh"
+            label   "Emission Sample Rate"
+            type    float
+            default { "1" }
+            help    "the relative scale of input emission grid resolution. Lower value has lower memory overhead and faster render time, with the cost of lower fidelity of emission shape and illumination"
+            disablewhen "{ xn__primvarsmoonrayemission_sample_rate_control_5bch == block } { xn__primvarsmoonrayemission_sample_rate_control_5bch == none }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+    }
+
 }
