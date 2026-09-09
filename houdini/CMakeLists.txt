@@ -15,8 +15,15 @@ install(DIRECTORY
         otls
         soho
         python2.7libs
-        python3.9libs
     DESTINATION
         plugin/houdini
 )
 
+# Houdini 22 scans versioned Python package directories matching its Python
+# runtime.  Keep the source layout compatible with older hosts while installing
+# the startup hook under the H22 name.
+install(DIRECTORY
+        python3.9libs/
+    DESTINATION
+        plugin/houdini/python3.13libs
+)
