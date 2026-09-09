@@ -101,7 +101,7 @@
         }
         parm {
             name    "xn__inputsTMI_enabled_r3a"
-            label   "TMI Enabled"
+            label   "Enabled"
             type    toggle
             default { "0" }
             help    "enables the TMI parameters"

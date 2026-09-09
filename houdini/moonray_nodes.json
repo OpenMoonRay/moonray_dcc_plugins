@@ -1,14 +1,5 @@
 {
-    "packages": {
-        "mcrt_dataio_folio": "mcrt_dataio-16.0",
-        "mcrt_denoise_folio": "mcrt_denoise-7.0",
-        "mcrt_messages_folio": "mcrt_messages-15.0",
-        "moonbase_proxies_folio": "moonbase_proxies-15.0",
-        "moonray_folio": "moonray-18.0",
-        "moonshine_folio": "moonshine-15.0",
-        "moonshine_usd_folio": "moonshine_usd-15.0",
-        "scene_rdl2_folio": "scene_rdl2-16.0"
-    },
+    "packages": {},
     "AttributeMap": {
         "moonray_name": "AttributeMap",
         "moonray_type": "Map",
@@ -40532,6 +40523,100 @@
                 ],
                 "help": "Vector of UserData.  Each key/value pair will be added as a primitive attribute of the curves."
             },
+            "local_motion_blur_position_list": {
+                "moonray_name": "local_motion_blur_position_list",
+                "moonray_type": "Vec3fVector",
+                "default_value": [],
+                "houdini_name": "local_motion_blur_position_list",
+                "houdini_label": "Local Motion Blur Position List",
+                "order": 37,
+                "aliases": [
+                    "local motion blur position list"
+                ],
+                "help": "World-space center position for each local motion blur region."
+            },
+            "local_motion_blur_orient_list": {
+                "moonray_name": "local_motion_blur_orient_list",
+                "moonray_type": "Vec4fVector",
+                "default_value": [],
+                "houdini_name": "local_motion_blur_orient_list",
+                "houdini_label": "Local Motion Blur Orient List",
+                "order": 38,
+                "aliases": [
+                    "local motion blur orient list"
+                ],
+                "help": "Per-point orientation quaternion (x=i, y=j, z=k, w=r) for each local motion blur region. Combined with the scale list, this orients and shapes the blur falloff region. If empty, identity orientation is used. Must match the length of local_motion_blur_position_list."
+            },
+            "local_motion_blur_scale_list": {
+                "moonray_name": "local_motion_blur_scale_list",
+                "moonray_type": "Vec3fVector",
+                "default_value": [],
+                "houdini_name": "local_motion_blur_scale_list",
+                "houdini_label": "Local Motion Blur Scale List",
+                "order": 39,
+                "aliases": [
+                    "local motion blur scale list"
+                ],
+                "help": "Per-point non-uniform scale (x,y,z) for each local motion blur region. Non-uniform scale makes the falloff region ellipsoidal rather than spherical. If empty, uniform scale (1,1,1) is used. Must match the length of local_motion_blur_position_list."
+            },
+            "local_motion_blur_radius_list": {
+                "moonray_name": "local_motion_blur_radius_list",
+                "moonray_type": "FloatVector",
+                "default_value": [],
+                "houdini_name": "local_motion_blur_radius_list",
+                "houdini_label": "Local Motion Blur Radius List",
+                "order": 40,
+                "aliases": [
+                    "local motion blur radius list"
+                ],
+                "help": "Per-point outer radius for each local motion blur region. If empty, defaults to 1.0. Must match the length of local_motion_blur_position_list."
+            },
+            "local_motion_blur_inner_radius_list": {
+                "moonray_name": "local_motion_blur_inner_radius_list",
+                "moonray_type": "FloatVector",
+                "default_value": [],
+                "houdini_name": "local_motion_blur_inner_radius_list",
+                "houdini_label": "Local Motion Blur Inner Radius List",
+                "order": 41,
+                "aliases": [
+                    "local motion blur inner radius list"
+                ],
+                "help": "Per-point inner radius for each local motion blur region (full-strength core). If empty, defaults to 1.0. Must match the length of local_motion_blur_position_list."
+            },
+            "local_motion_blur_multiplier_list": {
+                "moonray_name": "local_motion_blur_multiplier_list",
+                "moonray_type": "FloatVector",
+                "default_value": [],
+                "houdini_name": "local_motion_blur_multiplier_list",
+                "houdini_label": "Local Motion Blur Multiplier List",
+                "order": 42,
+                "aliases": [
+                    "local motion blur multiplier list"
+                ],
+                "help": "Per-point motion blur strength multiplier for each local motion blur region. If empty, defaults to 1.0. Must match the length of local_motion_blur_position_list."
+            },
+            "local_motion_blur_strength_multiplier": {
+                "moonray_name": "local_motion_blur_strength_multiplier",
+                "moonray_type": "Float",
+                "default_value": [
+                    1.0
+                ],
+                "houdini_name": "local_motion_blur_strength_multiplier",
+                "houdini_label": "Local Motion Blur Strength Multiplier",
+                "order": 43,
+                "help": "Global strength multiplier for local motion blur application"
+            },
+            "local_motion_blur_radius_multiplier": {
+                "moonray_name": "local_motion_blur_radius_multiplier",
+                "moonray_type": "Float",
+                "default_value": [
+                    1.0
+                ],
+                "houdini_name": "local_motion_blur_radius_multiplier",
+                "houdini_label": "Local Motion Blur Radius Multiplier",
+                "order": 44,
+                "help": "Global radius multiplier applied to per-region radius values, whether supplied via the \"radius\"/\"inner_radius\" point attributes or the \"local_motion_blur_radius_list\"/\"local_motion_blur_inner_radius_list\" explicit list attributes"
+            },
             "tessellation_rate": {
                 "moonray_name": "tessellation_rate",
                 "moonray_type": "Int",
@@ -40540,7 +40625,7 @@
                 ],
                 "houdini_name": "tessellation_rate",
                 "houdini_label": "Tessellation Rate",
-                "order": 37,
+                "order": 45,
                 "help": "Number of segments to split curve spans into"
             },
             "curves_subtype": {
@@ -40551,7 +40636,7 @@
                 ],
                 "houdini_name": "curves_subtype",
                 "houdini_label": "Curves Subtype",
-                "order": 38,
+                "order": 46,
                 "help": "Selects the style the curves are rendered",
                 "menu": [
                     "ray_facing",
@@ -40572,7 +40657,7 @@
                 ],
                 "houdini_name": "use_rotation_motion_blur",
                 "houdini_label": "Use Rotation Motion Blur",
-                "order": 39,
+                "order": 47,
                 "aliases": [
                     "use_rotation_motion_blur"
                 ],
@@ -40586,7 +40671,7 @@
                 ],
                 "houdini_name": "motion_blur_type",
                 "houdini_label": "Motion Blur Type",
-                "order": 40,
+                "order": 48,
                 "aliases": [
                     "motion blur type"
                 ],
@@ -40616,7 +40701,7 @@
                 ],
                 "houdini_name": "curved_motion_blur_sample_count",
                 "houdini_label": "Curved Motion Blur Sample Count",
-                "order": 41,
+                "order": 49,
                 "aliases": [
                     "curved motion blur sample count"
                 ],
@@ -40630,7 +40715,7 @@
                 ],
                 "houdini_name": "primitive_attribute_frame",
                 "houdini_label": "Primitive Attribute Frame",
-                "order": 42,
+                "order": 50,
                 "help": "Which frame(s) do we take the primitive attributes from?\n\tO : first motion step\n\t1 : second motion step\n\t2 : both motion steps",
                 "menu": [
                     "first motion step",
@@ -40651,7 +40736,7 @@
                 ],
                 "houdini_name": "use_explicit_shading_attributes",
                 "houdini_label": "Use Explicit Shading Attributes",
-                "order": 43,
+                "order": 51,
                 "aliases": [
                     "use_explicit_shading_attributes"
                 ],
@@ -40696,6 +40781,14 @@
                 "velocity_list_1",
                 "accleration_list",
                 "velocity_scale",
+                "local_motion_blur_position_list",
+                "local_motion_blur_orient_list",
+                "local_motion_blur_scale_list",
+                "local_motion_blur_radius_list",
+                "local_motion_blur_inner_radius_list",
+                "local_motion_blur_multiplier_list",
+                "local_motion_blur_strength_multiplier",
+                "local_motion_blur_radius_multiplier",
                 "use_rotation_motion_blur",
                 "motion_blur_type",
                 "curved_motion_blur_sample_count",
@@ -41882,6 +41975,100 @@
                 ],
                 "help": "Vector of UserData.  Each key/value pair will be added as a primitive attribute of the mesh."
             },
+            "local_motion_blur_position_list": {
+                "moonray_name": "local_motion_blur_position_list",
+                "moonray_type": "Vec3fVector",
+                "default_value": [],
+                "houdini_name": "local_motion_blur_position_list",
+                "houdini_label": "Local Motion Blur Position List",
+                "order": 46,
+                "aliases": [
+                    "local motion blur position list"
+                ],
+                "help": "World-space center position for each local motion blur region."
+            },
+            "local_motion_blur_orient_list": {
+                "moonray_name": "local_motion_blur_orient_list",
+                "moonray_type": "Vec4fVector",
+                "default_value": [],
+                "houdini_name": "local_motion_blur_orient_list",
+                "houdini_label": "Local Motion Blur Orient List",
+                "order": 47,
+                "aliases": [
+                    "local motion blur orient list"
+                ],
+                "help": "Per-point orientation quaternion (x=i, y=j, z=k, w=r) for each local motion blur region. Combined with the scale list, this orients and shapes the blur falloff region. If empty, identity orientation is used. Must match the length of local_motion_blur_position_list."
+            },
+            "local_motion_blur_scale_list": {
+                "moonray_name": "local_motion_blur_scale_list",
+                "moonray_type": "Vec3fVector",
+                "default_value": [],
+                "houdini_name": "local_motion_blur_scale_list",
+                "houdini_label": "Local Motion Blur Scale List",
+                "order": 48,
+                "aliases": [
+                    "local motion blur scale list"
+                ],
+                "help": "Per-point non-uniform scale (x,y,z) for each local motion blur region. Non-uniform scale makes the falloff region ellipsoidal rather than spherical. If empty, uniform scale (1,1,1) is used. Must match the length of local_motion_blur_position_list."
+            },
+            "local_motion_blur_radius_list": {
+                "moonray_name": "local_motion_blur_radius_list",
+                "moonray_type": "FloatVector",
+                "default_value": [],
+                "houdini_name": "local_motion_blur_radius_list",
+                "houdini_label": "Local Motion Blur Radius List",
+                "order": 49,
+                "aliases": [
+                    "local motion blur radius list"
+                ],
+                "help": "Per-point outer radius for each local motion blur region. If empty, defaults to 1.0. Must match the length of local_motion_blur_position_list."
+            },
+            "local_motion_blur_inner_radius_list": {
+                "moonray_name": "local_motion_blur_inner_radius_list",
+                "moonray_type": "FloatVector",
+                "default_value": [],
+                "houdini_name": "local_motion_blur_inner_radius_list",
+                "houdini_label": "Local Motion Blur Inner Radius List",
+                "order": 50,
+                "aliases": [
+                    "local motion blur inner radius list"
+                ],
+                "help": "Per-point inner radius for each local motion blur region (full-strength core). If empty, defaults to 1.0. Must match the length of local_motion_blur_position_list."
+            },
+            "local_motion_blur_multiplier_list": {
+                "moonray_name": "local_motion_blur_multiplier_list",
+                "moonray_type": "FloatVector",
+                "default_value": [],
+                "houdini_name": "local_motion_blur_multiplier_list",
+                "houdini_label": "Local Motion Blur Multiplier List",
+                "order": 51,
+                "aliases": [
+                    "local motion blur multiplier list"
+                ],
+                "help": "Per-point motion blur strength multiplier for each local motion blur region. If empty, defaults to 1.0. Must match the length of local_motion_blur_position_list."
+            },
+            "local_motion_blur_strength_multiplier": {
+                "moonray_name": "local_motion_blur_strength_multiplier",
+                "moonray_type": "Float",
+                "default_value": [
+                    1.0
+                ],
+                "houdini_name": "local_motion_blur_strength_multiplier",
+                "houdini_label": "Local Motion Blur Strength Multiplier",
+                "order": 52,
+                "help": "Global strength multiplier for local motion blur application"
+            },
+            "local_motion_blur_radius_multiplier": {
+                "moonray_name": "local_motion_blur_radius_multiplier",
+                "moonray_type": "Float",
+                "default_value": [
+                    1.0
+                ],
+                "houdini_name": "local_motion_blur_radius_multiplier",
+                "houdini_label": "Local Motion Blur Radius Multiplier",
+                "order": 53,
+                "help": "Global radius multiplier applied to per-region radius values, whether supplied via the \"radius\"/\"inner_radius\" point attributes or the \"local_motion_blur_radius_list\"/\"local_motion_blur_inner_radius_list\" explicit list attributes"
+            },
             "mesh_resolution": {
                 "moonray_name": "mesh_resolution",
                 "moonray_type": "Float",
@@ -41890,7 +42077,7 @@
                 ],
                 "houdini_name": "mesh_resolution",
                 "houdini_label": "Mesh Resolution",
-                "order": 46,
+                "order": 54,
                 "aliases": [
                     "resolution factor",
                     "subd resolution",
@@ -41906,7 +42093,7 @@
                 ],
                 "houdini_name": "adaptive_error",
                 "houdini_label": "Adaptive Error",
-                "order": 47,
+                "order": 55,
                 "aliases": [
                     "adaptive error"
                 ],
@@ -41920,7 +42107,7 @@
                 ],
                 "houdini_name": "smooth_normal",
                 "houdini_label": "Smooth Normal",
-                "order": 48,
+                "order": 56,
                 "help": "Generates smooth shading normals on a PolygonMesh when the mesh doesn't provide shading normals"
             },
             "use_rotation_motion_blur": {
@@ -41931,7 +42118,7 @@
                 ],
                 "houdini_name": "use_rotation_motion_blur",
                 "houdini_label": "Use Rotation Motion Blur",
-                "order": 49,
+                "order": 57,
                 "aliases": [
                     "use_rotation_motion_blur"
                 ],
@@ -41945,7 +42132,7 @@
                 ],
                 "houdini_name": "motion_blur_type",
                 "houdini_label": "Motion Blur Type",
-                "order": 50,
+                "order": 58,
                 "aliases": [
                     "motion blur type"
                 ],
@@ -41975,7 +42162,7 @@
                 ],
                 "houdini_name": "curved_motion_blur_sample_count",
                 "houdini_label": "Curved Motion Blur Sample Count",
-                "order": 51,
+                "order": 59,
                 "aliases": [
                     "curved motion blur sample count"
                 ],
@@ -41989,7 +42176,7 @@
                 ],
                 "houdini_name": "primitive_attribute_frame",
                 "houdini_label": "Primitive Attribute Frame",
-                "order": 52,
+                "order": 60,
                 "help": "Which frame(s) do we take the primitive attributes from?\n\tO : first motion step\n\t1 : second motion step\n\t2 : both motion steps",
                 "menu": [
                     "first motion step",
@@ -42010,7 +42197,7 @@
                 ],
                 "houdini_name": "use_explicit_shading_attributes",
                 "houdini_label": "Use Explicit Shading Attributes",
-                "order": 53,
+                "order": 61,
                 "aliases": [
                     "use_explicit_shading_attributes"
                 ],
@@ -42063,6 +42250,14 @@
                 "velocity_list_1",
                 "accleration_list",
                 "velocity_scale",
+                "local_motion_blur_position_list",
+                "local_motion_blur_orient_list",
+                "local_motion_blur_scale_list",
+                "local_motion_blur_radius_list",
+                "local_motion_blur_inner_radius_list",
+                "local_motion_blur_multiplier_list",
+                "local_motion_blur_strength_multiplier",
+                "local_motion_blur_radius_multiplier",
                 "use_rotation_motion_blur",
                 "motion_blur_type",
                 "curved_motion_blur_sample_count",
@@ -42516,6 +42711,100 @@
                 ],
                 "help": "Vector of UserData.  Each key/value pair will be added as a primitive attribute of the points."
             },
+            "local_motion_blur_position_list": {
+                "moonray_name": "local_motion_blur_position_list",
+                "moonray_type": "Vec3fVector",
+                "default_value": [],
+                "houdini_name": "local_motion_blur_position_list",
+                "houdini_label": "Local Motion Blur Position List",
+                "order": 34,
+                "aliases": [
+                    "local motion blur position list"
+                ],
+                "help": "World-space center position for each local motion blur region."
+            },
+            "local_motion_blur_orient_list": {
+                "moonray_name": "local_motion_blur_orient_list",
+                "moonray_type": "Vec4fVector",
+                "default_value": [],
+                "houdini_name": "local_motion_blur_orient_list",
+                "houdini_label": "Local Motion Blur Orient List",
+                "order": 35,
+                "aliases": [
+                    "local motion blur orient list"
+                ],
+                "help": "Per-point orientation quaternion (x=i, y=j, z=k, w=r) for each local motion blur region. Combined with the scale list, this orients and shapes the blur falloff region. If empty, identity orientation is used. Must match the length of local_motion_blur_position_list."
+            },
+            "local_motion_blur_scale_list": {
+                "moonray_name": "local_motion_blur_scale_list",
+                "moonray_type": "Vec3fVector",
+                "default_value": [],
+                "houdini_name": "local_motion_blur_scale_list",
+                "houdini_label": "Local Motion Blur Scale List",
+                "order": 36,
+                "aliases": [
+                    "local motion blur scale list"
+                ],
+                "help": "Per-point non-uniform scale (x,y,z) for each local motion blur region. Non-uniform scale makes the falloff region ellipsoidal rather than spherical. If empty, uniform scale (1,1,1) is used. Must match the length of local_motion_blur_position_list."
+            },
+            "local_motion_blur_radius_list": {
+                "moonray_name": "local_motion_blur_radius_list",
+                "moonray_type": "FloatVector",
+                "default_value": [],
+                "houdini_name": "local_motion_blur_radius_list",
+                "houdini_label": "Local Motion Blur Radius List",
+                "order": 37,
+                "aliases": [
+                    "local motion blur radius list"
+                ],
+                "help": "Per-point outer radius for each local motion blur region. If empty, defaults to 1.0. Must match the length of local_motion_blur_position_list."
+            },
+            "local_motion_blur_inner_radius_list": {
+                "moonray_name": "local_motion_blur_inner_radius_list",
+                "moonray_type": "FloatVector",
+                "default_value": [],
+                "houdini_name": "local_motion_blur_inner_radius_list",
+                "houdini_label": "Local Motion Blur Inner Radius List",
+                "order": 38,
+                "aliases": [
+                    "local motion blur inner radius list"
+                ],
+                "help": "Per-point inner radius for each local motion blur region (full-strength core). If empty, defaults to 1.0. Must match the length of local_motion_blur_position_list."
+            },
+            "local_motion_blur_multiplier_list": {
+                "moonray_name": "local_motion_blur_multiplier_list",
+                "moonray_type": "FloatVector",
+                "default_value": [],
+                "houdini_name": "local_motion_blur_multiplier_list",
+                "houdini_label": "Local Motion Blur Multiplier List",
+                "order": 39,
+                "aliases": [
+                    "local motion blur multiplier list"
+                ],
+                "help": "Per-point motion blur strength multiplier for each local motion blur region. If empty, defaults to 1.0. Must match the length of local_motion_blur_position_list."
+            },
+            "local_motion_blur_strength_multiplier": {
+                "moonray_name": "local_motion_blur_strength_multiplier",
+                "moonray_type": "Float",
+                "default_value": [
+                    1.0
+                ],
+                "houdini_name": "local_motion_blur_strength_multiplier",
+                "houdini_label": "Local Motion Blur Strength Multiplier",
+                "order": 40,
+                "help": "Global strength multiplier for local motion blur application"
+            },
+            "local_motion_blur_radius_multiplier": {
+                "moonray_name": "local_motion_blur_radius_multiplier",
+                "moonray_type": "Float",
+                "default_value": [
+                    1.0
+                ],
+                "houdini_name": "local_motion_blur_radius_multiplier",
+                "houdini_label": "Local Motion Blur Radius Multiplier",
+                "order": 41,
+                "help": "Global radius multiplier applied to per-region radius values, whether supplied via the \"radius\"/\"inner_radius\" point attributes or the \"local_motion_blur_radius_list\"/\"local_motion_blur_inner_radius_list\" explicit list attributes"
+            },
             "use_rotation_motion_blur": {
                 "moonray_name": "use_rotation_motion_blur",
                 "moonray_type": "Bool",
@@ -42524,7 +42813,7 @@
                 ],
                 "houdini_name": "use_rotation_motion_blur",
                 "houdini_label": "Use Rotation Motion Blur",
-                "order": 34,
+                "order": 42,
                 "aliases": [
                     "use_rotation_motion_blur"
                 ],
@@ -42538,7 +42827,7 @@
                 ],
                 "houdini_name": "motion_blur_type",
                 "houdini_label": "Motion Blur Type",
-                "order": 35,
+                "order": 43,
                 "aliases": [
                     "motion blur type"
                 ],
@@ -42568,7 +42857,7 @@
                 ],
                 "houdini_name": "curved_motion_blur_sample_count",
                 "houdini_label": "Curved Motion Blur Sample Count",
-                "order": 36,
+                "order": 44,
                 "aliases": [
                     "curved motion blur sample count"
                 ],
@@ -42582,7 +42871,7 @@
                 ],
                 "houdini_name": "primitive_attribute_frame",
                 "houdini_label": "Primitive Attribute Frame",
-                "order": 37,
+                "order": 45,
                 "help": "Which frame(s) do we take the primitive attributes from?\n\tO : first motion step\n\t1 : second motion step\n\t2 : both motion steps",
                 "menu": [
                     "first motion step",
@@ -42603,7 +42892,7 @@
                 ],
                 "houdini_name": "use_explicit_shading_attributes",
                 "houdini_label": "Use Explicit Shading Attributes",
-                "order": 38,
+                "order": 46,
                 "aliases": [
                     "use_explicit_shading_attributes"
                 ],
@@ -42633,6 +42922,14 @@
                 "velocity_list_1",
                 "accleration_list",
                 "velocity_scale",
+                "local_motion_blur_position_list",
+                "local_motion_blur_orient_list",
+                "local_motion_blur_scale_list",
+                "local_motion_blur_radius_list",
+                "local_motion_blur_inner_radius_list",
+                "local_motion_blur_multiplier_list",
+                "local_motion_blur_strength_multiplier",
+                "local_motion_blur_radius_multiplier",
                 "use_rotation_motion_blur",
                 "motion_blur_type",
                 "curved_motion_blur_sample_count",
@@ -44045,6 +44342,20 @@
                 ],
                 "help": "If \"result\" is \"material aov\", this attribute specifies a material aov expression to output.  The expression format is: \n\t[('<GL>')+\\.][('<ML>')+\\.][('<LL>')+\\.][(SS|R|T|D|G|M)+\\.][fresnel\\.]<property>. Where:\n\t\t<GL> is a label associated with the geometry \n\t\t<ML> is a label associated with the material \n\t\t<LL> is a lobe label \n\t\tR means reflection side lobe \n\t\tT means transmission side lobe \n\t\tD means diffuse lobe category \n\t\tG means glossy lobe category \n\t\tM means mirror lobe category \n\t\tSS means sub-surface component of the material \n\t\tfresnel means to select the lobe's or sub-surface's fresnel \n\t\t<property> can be one of: \n\t\t\t'albedo'       (bsdf lobe | subsurface)           (RGB),\n\t\t\t'color'        (bsdf lobe | subsurface | fresnel) (RGB),\n\t\t\t'depth'        (state variable)                   (FLOAT),\n\t\t\t'dPds'         (state variable)                   (VEC3F),\n\t\t\t'dPdt'         (state variable)                   (VEC3F),\n\t\t\t'dSdx'         (state variable)                   (FLOAT),\n\t\t\t'dSdy'         (state variable)                   (FLOAT),\n\t\t\t'dTdx'         (state variable)                   (FLOAT),\n\t\t\t'dTdy'         (state variable)                   (FLOAT),\n\t\t\t'emission'     (bsdf)                             (RGB),\n\t\t\t'factor'       (fresnel)                          (FLOAT),\n\t\t\t'float:<attr>' (primitive attribute)              (FLOAT),\n\t\t\t'matte'        (bsdf lobe | subsurface)           (FLOAT),\n\t\t\t'motionvec'    (state variable)                   (VEC2F),\n\t\t\t'N'            (state variable)                   (VEC3F),\n\t\t\t'Ng'           (state variable)                   (VEC3F),\n\t\t\t'normal'       (bsdf lobe | subsurface)           (VEC3F),\n\t\t\t'P'            (state variable)                   (VEC3F),\n\t\t\t'pbr_validity' (bsdf lobe | subsurface)           (RGB),\n\t\t\t'radius'       (subsurface)                       (RGB),\n\t\t\t'rgb:<attr>'   (primitive attribute)              (RGB),\n\t\t\t'roughness'    (bsdf lobe) (fresnel)              (VEC2F),\n\t\t\t'St'           (state variable)                   (VEC2F),\n\t\t\t'vec2:<attr>'  (primitive attribute)              (VEC2F),\n\t\t\t'vec3:<attr>'  (primitive attribute)              (VEC3F),\n\t\t\t'Wp'           (state variable)                   (VEC3F)\n\tExamples:\n\t\talbedo              : Albedo of all rendered materials \n\t\tR.albedo            : Total reflection albedo \n\t\t'spec'.MG.roughness : Roughness of all mirror and glossy lobes that have the 'spec' label"
             },
+            "material_aov_secondary_rays": {
+                "moonray_name": "material_aov_secondary_rays",
+                "moonray_type": "Bool",
+                "default_value": [
+                    false
+                ],
+                "houdini_name": "material_aov_secondary_rays",
+                "houdini_label": "Material Aov Secondary Rays",
+                "order": 7,
+                "aliases": [
+                    "material aov secondary rays"
+                ],
+                "help": "When \"result\" is \"material aov\", this controls whether the material aov is evaluated on secondary (indirect) rays in addition to primary rays.  Enabling this allows material aovs to appear behind refractive or reflective surfaces.  Defaults to false for backward compatibility."
+            },
             "lpe": {
                 "moonray_name": "lpe",
                 "moonray_type": "String",
@@ -44053,7 +44364,7 @@
                 ],
                 "houdini_name": "lpe",
                 "houdini_label": "Lpe",
-                "order": 7,
+                "order": 8,
                 "aliases": [
                     "light_aov",
                     "light aov"
@@ -44068,7 +44379,7 @@
                 ],
                 "houdini_name": "visibility_aov",
                 "houdini_label": "Visibility Aov",
-                "order": 8,
+                "order": 9,
                 "help": "If \"result\" is \"visibility aov\", this attribute specifies a light path expression that defines the set of all paths usedto compute the visibility ratio."
             },
             "file_name": {
@@ -44079,7 +44390,7 @@
                 ],
                 "houdini_name": "file_name",
                 "houdini_label": "File Name",
-                "order": 9,
+                "order": 10,
                 "aliases": [
                     "file name"
                 ],
@@ -44093,7 +44404,7 @@
                 ],
                 "houdini_name": "file_part",
                 "houdini_label": "File Part",
-                "order": 10,
+                "order": 11,
                 "aliases": [
                     "file part"
                 ],
@@ -44107,7 +44418,7 @@
                 ],
                 "houdini_name": "compression",
                 "houdini_label": "Compression",
-                "order": 11,
+                "order": 12,
                 "help": "Compression used for file (or file part in the multi-part case). All render outputs that target the same image must specify the same compression.",
                 "menu": [
                     "none",
@@ -44142,7 +44453,7 @@
                 ],
                 "houdini_name": "exr_dwa_compression_level",
                 "houdini_label": "Exr Dwa Compression Level",
-                "order": 12,
+                "order": 13,
                 "aliases": [
                     "exr dwa compression level"
                 ],
@@ -44156,7 +44467,7 @@
                 ],
                 "houdini_name": "channel_name",
                 "houdini_label": "Channel Name",
-                "order": 13,
+                "order": 14,
                 "aliases": [
                     "channel name"
                 ],
@@ -44170,7 +44481,7 @@
                 ],
                 "houdini_name": "channel_suffix_mode",
                 "houdini_label": "Channel Suffix Mode",
-                "order": 14,
+                "order": 15,
                 "help": "When processing multi-channel outputs, how should channel names be suffixed?\n\tauto : a best guess suffix is chosen based on the type of output\n\trgb  : .R, .G, .B\n\txyz  : .X, .Y, .Z\n\tuvw  : .U, .V, .W",
                 "menu": [
                     "auto",
@@ -44193,7 +44504,7 @@
                 ],
                 "houdini_name": "channel_format",
                 "houdini_label": "Channel Format",
-                "order": 15,
+                "order": 16,
                 "aliases": [
                     "channel format"
                 ],
@@ -44215,7 +44526,7 @@
                 ],
                 "houdini_name": "math_filter",
                 "houdini_label": "Math Filter",
-                "order": 16,
+                "order": 17,
                 "aliases": [
                     "math filter"
                 ],
@@ -44243,7 +44554,7 @@
                 "default_value": [],
                 "houdini_name": "exr_header_attributes",
                 "houdini_label": "Exr Header Attributes",
-                "order": 17,
+                "order": 18,
                 "interface": "Metadata",
                 "aliases": [
                     "exr header attributes"
@@ -44258,7 +44569,7 @@
                 ],
                 "houdini_name": "denoiser_input",
                 "houdini_label": "Denoiser Input",
-                "order": 18,
+                "order": 19,
                 "help": "How to use this output as a denoiser input",
                 "menu": [
                     "not an input",
@@ -44279,7 +44590,7 @@
                 ],
                 "houdini_name": "denoise",
                 "houdini_label": "Denoise",
-                "order": 19,
+                "order": 20,
                 "help": "Run optix denoiser before writing to disk"
             },
             "checkpoint_file_name": {
@@ -44290,7 +44601,7 @@
                 ],
                 "houdini_name": "checkpoint_file_name",
                 "houdini_label": "Checkpoint File Name",
-                "order": 20,
+                "order": 21,
                 "aliases": [
                     "checkpoint file name"
                 ],
@@ -44304,7 +44615,7 @@
                 ],
                 "houdini_name": "checkpoint_multi_version_file_name",
                 "houdini_label": "Checkpoint Multi Version File Name",
-                "order": 21,
+                "order": 22,
                 "aliases": [
                     "checkpoint multi version file name"
                 ],
@@ -44318,7 +44629,7 @@
                 ],
                 "houdini_name": "resume_file_name",
                 "houdini_label": "Resume File Name",
-                "order": 22,
+                "order": 23,
                 "aliases": [
                     "resume file name"
                 ],
@@ -44332,7 +44643,7 @@
                 ],
                 "houdini_name": "cryptomatte_depth",
                 "houdini_label": "Cryptomatte Depth",
-                "order": 23,
+                "order": 24,
                 "help": "Number of cryptomatte (id,coverage) data sets to output"
             },
             "cryptomatte_output_positions": {
@@ -44343,7 +44654,7 @@
                 ],
                 "houdini_name": "cryptomatte_output_positions",
                 "houdini_label": "Cryptomatte Output Positions",
-                "order": 24,
+                "order": 25,
                 "help": "Whether to output position data per cryptomatte id"
             },
             "cryptomatte_output_p0": {
@@ -44354,7 +44665,7 @@
                 ],
                 "houdini_name": "cryptomatte_output_p0",
                 "houdini_label": "Cryptomatte Output P0",
-                "order": 25,
+                "order": 26,
                 "help": "Whether to output p0 data per cryptomatte id"
             },
             "cryptomatte_output_normals": {
@@ -44365,7 +44676,7 @@
                 ],
                 "houdini_name": "cryptomatte_output_normals",
                 "houdini_label": "Cryptomatte Output Normals",
-                "order": 26,
+                "order": 27,
                 "help": "Whether to output shading normal data per cryptomatte id"
             },
             "cryptomatte_output_beauty": {
@@ -44376,7 +44687,7 @@
                 ],
                 "houdini_name": "cryptomatte_output_beauty",
                 "houdini_label": "Cryptomatte Output Beauty",
-                "order": 27,
+                "order": 28,
                 "help": "Whether to output beauty data per cryptomatte id"
             },
             "cryptomatte_output_refp": {
@@ -44387,7 +44698,7 @@
                 ],
                 "houdini_name": "cryptomatte_output_refp",
                 "houdini_label": "Cryptomatte Output Refp",
-                "order": 28,
+                "order": 29,
                 "help": "Whether to output refp data per cryptomatte id"
             },
             "cryptomatte_output_refn": {
@@ -44398,7 +44709,7 @@
                 ],
                 "houdini_name": "cryptomatte_output_refn",
                 "houdini_label": "Cryptomatte Output Refn",
-                "order": 29,
+                "order": 30,
                 "help": "Whether to output refn data per cryptomatte id"
             },
             "cryptomatte_output_uv": {
@@ -44409,7 +44720,7 @@
                 ],
                 "houdini_name": "cryptomatte_output_uv",
                 "houdini_label": "Cryptomatte Output Uv",
-                "order": 30,
+                "order": 31,
                 "help": "Whether to output uv data per cryptomatte id"
             },
             "cryptomatte_support_resume_render": {
@@ -44420,7 +44731,7 @@
                 ],
                 "houdini_name": "cryptomatte_support_resume_render",
                 "houdini_label": "Cryptomatte Support Resume Render",
-                "order": 31,
+                "order": 32,
                 "help": "Whether to add additional cryptomatte layers to support checkpoint/resume rendering"
             },
             "cryptomatte_record_reflected": {
@@ -44431,7 +44742,7 @@
                 ],
                 "houdini_name": "cryptomatte_record_reflected",
                 "houdini_label": "Cryptomatte Record Reflected",
-                "order": 32,
+                "order": 33,
                 "aliases": [
                     "record reflected cryptomatte"
                 ],
@@ -44445,7 +44756,7 @@
                 ],
                 "houdini_name": "cryptomatte_record_refracted",
                 "houdini_label": "Cryptomatte Record Refracted",
-                "order": 33,
+                "order": 34,
                 "aliases": [
                     "record refracted cryptomatte"
                 ],
@@ -44457,7 +44768,7 @@
                 "default_value": [],
                 "houdini_name": "camera",
                 "houdini_label": "Camera",
-                "order": 34,
+                "order": 35,
                 "interface": "Camera",
                 "help": "Camera to use for this output.  If not specified, defaults to the primary camera."
             },
@@ -44467,7 +44778,7 @@
                 "default_value": [],
                 "houdini_name": "display_filter",
                 "houdini_label": "Display Filter",
-                "order": 35,
+                "order": 36,
                 "interface": "DisplayFilter",
                 "help": "If \"result\" is \"display filter\", this attribute refers to a display filter object which is used to compute the output pixel values."
             }
@@ -46531,6 +46842,133 @@
                 ],
                 "help": "The color to use for materials or map shaders that are unable to execute shading, usually due to incomplete initialization."
             },
+            "fatal_bool": {
+                "moonray_name": "fatal_bool",
+                "moonray_type": "Bool",
+                "default_value": [
+                    false
+                ],
+                "houdini_name": "fatal_bool",
+                "houdini_label": "Fatal Bool",
+                "order": 106,
+                "aliases": [
+                    "fatal bool"
+                ],
+                "help": "The bool to use for materialx map shaders that are unable to execute shading, usually due to incomplete initialization."
+            },
+            "fatal_int": {
+                "moonray_name": "fatal_int",
+                "moonray_type": "Int",
+                "default_value": [
+                    0
+                ],
+                "houdini_name": "fatal_int",
+                "houdini_label": "Fatal Int",
+                "order": 107,
+                "aliases": [
+                    "fatal int"
+                ],
+                "help": "The int to use for materialx map shaders that are unable to execute shading, usually due to incomplete initialization."
+            },
+            "fatal_vec4f": {
+                "moonray_name": "fatal_vec4f",
+                "moonray_type": "Vec4f",
+                "default_value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "houdini_name": "fatal_vec4f",
+                "houdini_label": "Fatal Vec4F",
+                "order": 108,
+                "aliases": [
+                    "fatal vec4f"
+                ],
+                "help": "The vec4f to use for materialx map shaders that are unable to execute shading, usually due to incomplete initialization."
+            },
+            "fatal_rgba": {
+                "moonray_name": "fatal_rgba",
+                "moonray_type": "Rgba",
+                "default_value": [
+                    1.0,
+                    0.0,
+                    1.0,
+                    1.0
+                ],
+                "houdini_name": "fatal_rgba",
+                "houdini_label": "Fatal Rgba",
+                "order": 109,
+                "aliases": [
+                    "fatal rgba"
+                ],
+                "help": "The rgba to use for materialx map shaders that are unable to execute shading, usually due to incomplete initialization."
+            },
+            "fatal_mat3f": {
+                "moonray_name": "fatal_mat3f",
+                "moonray_type": "Mat3f",
+                "default_value": [
+                    [
+                        1.0,
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        1.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0,
+                        1.0
+                    ]
+                ],
+                "houdini_name": "fatal_mat3f",
+                "houdini_label": "Fatal Mat3F",
+                "order": 110,
+                "aliases": [
+                    "fatal mat3f"
+                ],
+                "help": "The mat3f to use for materialx map shaders that are unable to execute shading, usually due to incomplete initialization."
+            },
+            "fatal_mat4f": {
+                "moonray_name": "fatal_mat4f",
+                "moonray_type": "Mat4f",
+                "default_value": [
+                    [
+                        1.0,
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        1.0,
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0,
+                        1.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0,
+                        0.0,
+                        1.0
+                    ]
+                ],
+                "houdini_name": "fatal_mat4f",
+                "houdini_label": "Fatal Mat4F",
+                "order": 111,
+                "aliases": [
+                    "fatal mat4f"
+                ],
+                "help": "The mat4f to use for materialx map shaders that are unable to execute shading, usually due to incomplete initialization."
+            },
             "stats_file": {
                 "moonray_name": "stats_file",
                 "moonray_type": "String",
@@ -46539,7 +46977,7 @@
                 ],
                 "houdini_name": "stats_file",
                 "houdini_label": "Stats File",
-                "order": 106,
+                "order": 112,
                 "aliases": [
                     "stats file"
                 ],
@@ -46553,7 +46991,7 @@
                 ],
                 "houdini_name": "athena_debug",
                 "houdini_label": "Athena Debug",
-                "order": 107,
+                "order": 113,
                 "aliases": [
                     "athena debug"
                 ],
@@ -46568,7 +47006,7 @@
                 ],
                 "houdini_name": "debug_pixel",
                 "houdini_label": "Debug Pixel",
-                "order": 108,
+                "order": 114,
                 "aliases": [
                     "debug pixel"
                 ],
@@ -46582,7 +47020,7 @@
                 ],
                 "houdini_name": "debug_console",
                 "houdini_label": "Debug Console",
-                "order": 109,
+                "order": 115,
                 "aliases": [
                     "debug console"
                 ],
@@ -46596,7 +47034,7 @@
                 ],
                 "houdini_name": "validate_geometry",
                 "houdini_label": "Validate Geometry",
-                "order": 110,
+                "order": 116,
                 "aliases": [
                     "validate geometry"
                 ],
@@ -46610,7 +47048,7 @@
                 ],
                 "houdini_name": "cryptomatte_multi_presence",
                 "houdini_label": "Cryptomatte Multi Presence",
-                "order": 111,
+                "order": 117,
                 "help": "Determines whether to record presence bounces as separate cryptomatte samples."
             }
         },
@@ -54932,6 +55370,42 @@
                 "order": 17,
                 "help": "vec3f type user data values for motion step 1"
             },
+            "mat3f_key": {
+                "moonray_name": "mat3f_key",
+                "moonray_type": "String",
+                "default_value": [
+                    ""
+                ],
+                "houdini_name": "mat3f_key",
+                "houdini_label": "Mat3F Key",
+                "order": 18,
+                "aliases": [
+                    "mat3f key"
+                ],
+                "help": "key name for mat3f type user data"
+            },
+            "mat3f_values_0": {
+                "moonray_name": "mat3f_values_0",
+                "moonray_type": "Mat3fVector",
+                "default_value": [],
+                "houdini_name": "mat3f_values_0",
+                "houdini_label": "Mat3F Values 0",
+                "order": 19,
+                "aliases": [
+                    "mat3f_values",
+                    "mat3f values"
+                ],
+                "help": "mat3f type user data values for motion step 0"
+            },
+            "mat3f_values_1": {
+                "moonray_name": "mat3f_values_1",
+                "moonray_type": "Mat3fVector",
+                "default_value": [],
+                "houdini_name": "mat3f_values_1",
+                "houdini_label": "Mat3F Values 1",
+                "order": 20,
+                "help": "mat3f type user data values for motion step 1"
+            },
             "mat4f_key": {
                 "moonray_name": "mat4f_key",
                 "moonray_type": "String",
@@ -54940,7 +55414,7 @@
                 ],
                 "houdini_name": "mat4f_key",
                 "houdini_label": "Mat4F Key",
-                "order": 18,
+                "order": 21,
                 "aliases": [
                     "mat4f key"
                 ],
@@ -54952,7 +55426,7 @@
                 "default_value": [],
                 "houdini_name": "mat4f_values_0",
                 "houdini_label": "Mat4F Values 0",
-                "order": 19,
+                "order": 22,
                 "aliases": [
                     "mat4f_values",
                     "mat4f values"
@@ -54965,7 +55439,7 @@
                 "default_value": [],
                 "houdini_name": "mat4f_values_1",
                 "houdini_label": "Mat4F Values 1",
-                "order": 20,
+                "order": 23,
                 "help": "mat4f type user data values for motion step 1"
             },
             "rate": {
@@ -54976,7 +55450,7 @@
                 ],
                 "houdini_name": "rate",
                 "houdini_label": "Rate",
-                "order": 21,
+                "order": 24,
                 "aliases": [
                     "rate"
                 ],
@@ -55693,6 +56167,158 @@
                 "blur_value",
                 "blur_type",
                 "invert_density"
+            ]
+        }
+    },
+    "VdbVolume": {
+        "moonray_name": "VdbVolume",
+        "moonray_type": "Volume",
+        "parms": {
+            "label": {
+                "moonray_name": "label",
+                "moonray_type": "String",
+                "default_value": [
+                    ""
+                ],
+                "houdini_name": "label",
+                "houdini_label": "Label",
+                "order": 0,
+                "help": "label used in light aovs"
+            },
+            "bake_resolution_mode": {
+                "moonray_name": "bake_resolution_mode",
+                "moonray_type": "Int",
+                "default_value": [
+                    0
+                ],
+                "houdini_name": "bake_resolution_mode",
+                "houdini_label": "Bake Resolution Mode",
+                "order": 1,
+                "help": "Method to specify grid resolution of baked density grid.  Choices are:\n\t\t\"default\": For shaders that are bound to vdb volumes, use vdb resolution.\n\t\t\t\t\t\tFor shaders that are bounds to mesh geometries use 100 divisions\n\t\t\"divisions\": Specify number of divisions.\n\t\t\"voxel size\": Specify voxel size.",
+                "menu": [
+                    "default",
+                    "divisions",
+                    "voxel size"
+                ],
+                "menu_values": [
+                    "0",
+                    "1",
+                    "2"
+                ]
+            },
+            "bake_divisions": {
+                "moonray_name": "bake_divisions",
+                "moonray_type": "Int",
+                "default_value": [
+                    100
+                ],
+                "houdini_name": "bake_divisions",
+                "houdini_label": "Bake Divisions",
+                "order": 2,
+                "help": "Divide widest axis by this many divisions"
+            },
+            "bake_voxel_size": {
+                "moonray_name": "bake_voxel_size",
+                "moonray_type": "Float",
+                "default_value": [
+                    10.0
+                ],
+                "houdini_name": "bake_voxel_size",
+                "houdini_label": "Bake Voxel Size",
+                "order": 3,
+                "help": "Size of voxel in world space"
+            },
+            "surface_opacity_threshold": {
+                "moonray_name": "surface_opacity_threshold",
+                "moonray_type": "Float",
+                "default_value": [
+                    0.5
+                ],
+                "houdini_name": "surface_opacity_threshold",
+                "houdini_label": "Surface Opacity Threshold",
+                "order": 4,
+                "help": "Accumulated opacity that's considered the 'surface' for computing surface position and Z"
+            },
+            "opacity_gain_mult": {
+                "moonray_name": "opacity_gain_mult",
+                "moonray_type": "Rgb",
+                "default_value": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "houdini_name": "opacity_gain_mult",
+                "houdini_label": "Opacity Gain Mult",
+                "order": 5,
+                "aliases": [
+                    "opacity gain mult"
+                ],
+                "bindable": true,
+                "help": "A multiplier applied to the volume density"
+            },
+            "color_mult": {
+                "moonray_name": "color_mult",
+                "moonray_type": "Rgb",
+                "default_value": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "houdini_name": "color_mult",
+                "houdini_label": "Color Mult",
+                "order": 6,
+                "aliases": [
+                    "color mult"
+                ],
+                "bindable": true,
+                "help": "The albedo of the volume"
+            },
+            "incandescence_gain_mult": {
+                "moonray_name": "incandescence_gain_mult",
+                "moonray_type": "Rgb",
+                "default_value": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "houdini_name": "incandescence_gain_mult",
+                "houdini_label": "Incandescence Gain Mult",
+                "order": 7,
+                "aliases": [
+                    "incandescence gain mult"
+                ],
+                "bindable": true,
+                "help": "A multiplier applied to the volume emission"
+            },
+            "anisotropy": {
+                "moonray_name": "anisotropy",
+                "moonray_type": "Float",
+                "default_value": [
+                    0.0
+                ],
+                "houdini_name": "anisotropy",
+                "houdini_label": "Anisotropy",
+                "order": 8,
+                "bindable": true,
+                "help": "Value in the interval [-1,1] that defines how foward (1) or backward (-1) scattering the volume is.  A value of 0.0 indicates an isotropic volume."
+            }
+        },
+        "folders_sorted": [
+            "Volume Baking",
+            "Volume"
+        ],
+        "folders_with_parms": {
+            "Volume": [
+                "surface_opacity_threshold",
+                "opacity_gain_mult",
+                "color_mult",
+                "incandescence_gain_mult",
+                "anisotropy"
+            ],
+            "Volume Baking": [
+                "bake_resolution_mode",
+                "bake_divisions",
+                "bake_voxel_size"
             ]
         }
     },

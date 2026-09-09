@@ -69,7 +69,7 @@
         }
         parm {
             name    "xn__inputsfuzz_roughness_n8a"
-            label   "Fuzz Roughness"
+            label   "Roughness"
             type    float
             default { "0.25" }
             help    "Lower values result in glancing angle highlights while higher values result in a broad, uniform coverage"
@@ -94,7 +94,7 @@
         }
         parm {
             name    "xn__inputsfuzz_albedo_r3a"
-            label   "Fuzz Albedo"
+            label   "Albedo"
             type    color
             size    3
             default { "1" "1" "1" }
@@ -140,7 +140,7 @@
         }
         parm {
             name    "xn__inputsfuzz_normal_r3a"
-            label   "Fuzz Normal"
+            label   "Normal"
             type    oppath
             invisible
             default { "" }
@@ -166,7 +166,7 @@
         }
         parm {
             name    "xn__inputsfuzz_normal_dial_wcb"
-            label   "Fuzz Normal Dial"
+            label   "Normal Dial"
             type    float
             default { "1" }
             help    "controls the amount of infuence of the alternate fuzz normal"
@@ -244,7 +244,7 @@
         }
         parm {
             name    "xn__inputsclearcoat_model_99a"
-            label   "Clearcoat Model"
+            label   "Model"
             type    string
             default { "GGX" }
             help    "sets the normal distribution function for clearcoat.  GGX is currently isotropic only"
@@ -272,7 +272,7 @@
         }
         parm {
             name    "xn__inputsclearcoat_refractive_index_6sb"
-            label   "Clearcoat Refractive Index"
+            label   "Refractive Index"
             type    float
             default { "1.5" }
             help    "defines the Fresnel behavior"
@@ -297,7 +297,7 @@
         }
         parm {
             name    "xn__inputsclearcoat_roughness_shb"
-            label   "Clearcoat Roughness"
+            label   "Roughness"
             type    float
             default { "0.1" }
             help    "the roughness of the clearcoat lobe"
@@ -322,7 +322,7 @@
         }
         parm {
             name    "xn__inputsclearcoat_thickness_shb"
-            label   "Clearcoat Thickness"
+            label   "Thickness"
             type    float
             default { "0" }
             help    "the thickness of the virtual clearcoat layer. Values > 0 enable absorption"
@@ -347,7 +347,7 @@
         }
         parm {
             name    "xn__inputsclearcoat_attenuation_color_tub"
-            label   "Clearcoat Attenuation Color"
+            label   "Attenuation Color"
             type    color
             size    3
             default { "0.5" "0.5" "0.5" }
@@ -371,7 +371,7 @@
         }
         parm {
             name    "xn__inputsclearcoat_bending_jeb"
-            label   "Clearcoat Bending"
+            label   "Bending"
             type    toggle
             default { "1" }
             help    "(advanced, recommended ON) bends rays based on the clearcoat-refractive-index before evaluating the lobes under clearcoat"
@@ -441,7 +441,7 @@
         }
         parm {
             name    "xn__inputsclearcoat_normal_dial_1kb"
-            label   "Clearcoat Normal Dial"
+            label   "Normal Dial"
             type    float
             default { "1" }
             help    "controls the amount of infuence of the alternate clearcoat normal"
@@ -519,7 +519,7 @@
         }
         parm {
             name    "xn__inputsglitter_seed_e5a"
-            label   "Glitter Seed"
+            label   "Seed"
             type    integer
             default { "0" }
             help    "The seed for the glitter random number generator"
@@ -544,7 +544,7 @@
         }
         parm {
             name    "xn__inputsglitter_space_06a"
-            label   "Glitter Space"
+            label   "Space"
             type    string
             default { "reference" }
             help    "The space to calculate the worley noise in, defaults to reference space"
@@ -572,7 +572,7 @@
         }
         parm {
             name    "xn__inputsglitter_density_99a"
-            label   "Glitter Density"
+            label   "Density"
             type    float
             default { "1" }
             help    "controls the number of flakes per unit length; larger density packs more flakes into same space"
@@ -597,7 +597,7 @@
         }
         parm {
             name    "xn__inputsglitter_randomness_5fb"
-            label   "Glitter Randomness"
+            label   "Randomness"
             type    float
             default { "0.5" }
             help    "randomness of flake orientation"
@@ -622,7 +622,7 @@
         }
         parm {
             name    "xn__inputsglitter_layering_mode_1kb"
-            label   "Glitter Layering Mode"
+            label   "Layering Mode"
             type    string
             default { "physical" }
             help    "layering mode for glitter on top of the under material. physical: conserves energy and glitter attenuates under material, additive: breaks energy conservation but glitter is never darker than the under material (eg. use case: snow)"
@@ -650,7 +650,7 @@
         }
         parm {
             name    "xn__inputsglitter_style_A_frequency_krb"
-            label   "Glitter Style A Frequency"
+            label   "Style A Frequency"
             type    float
             default { "1" }
             help    "0 implies none of this style, 1 implies all the flakes will get this style"
@@ -675,7 +675,7 @@
         }
         parm {
             name    "xn__inputsglitter_size_A_n8a"
-            label   "Glitter Size A"
+            label   "Size A"
             type    float
             default { "1" }
             help    "size of the flakes.  Apparent flake size may vary based on how much the flake spheres intersect the surface"
@@ -700,7 +700,7 @@
         }
         parm {
             name    "xn__inputsglitter_roughness_A_shb"
-            label   "Glitter Roughness A"
+            label   "Roughness A"
             type    float
             default { "0.14" }
             help    "specular roughness of individual flakes (0 makes flakes mirror-like)"
@@ -725,7 +725,7 @@
         }
         parm {
             name    "xn__inputsglitter_color_A_99a"
-            label   "Glitter Color A"
+            label   "Color A"
             type    color
             size    3
             default { "1" "1" "1" }
@@ -749,7 +749,7 @@
         }
         parm {
             name    "xn__inputsglitter_texture_A_jeb"
-            label   "Glitter Texture A"
+            label   "Texture A"
             type    file
             default { "" }
             help    "filename that points to a texture .exr or .tx file (must be mip-mapped and tiled with maketx)."
@@ -773,7 +773,7 @@
         }
         parm {
             name    "xn__inputsglitter_style_B_frequency_krb"
-            label   "Glitter Style B Frequency"
+            label   "Style B Frequency"
             type    float
             default { "0" }
             help    "0 implies none of this style, 1 implies all the flakes will get this style"
@@ -798,7 +798,7 @@
         }
         parm {
             name    "xn__inputsglitter_size_B_n8a"
-            label   "Glitter Size B"
+            label   "Size B"
             type    float
             default { "1" }
             help    "size of the flakes.  Apparent flake size may vary based on how much the flake spheres intersect the surface"
@@ -823,7 +823,7 @@
         }
         parm {
             name    "xn__inputsglitter_roughness_B_shb"
-            label   "Glitter Roughness B"
+            label   "Roughness B"
             type    float
             default { "0.14" }
             help    "specular roughness of individual flakes (0 makes flakes mirror-like)"
@@ -848,7 +848,7 @@
         }
         parm {
             name    "xn__inputsglitter_color_B_99a"
-            label   "Glitter Color B"
+            label   "Color B"
             type    color
             size    3
             default { "1" "1" "1" }
@@ -872,7 +872,7 @@
         }
         parm {
             name    "xn__inputsglitter_texture_B_jeb"
-            label   "Glitter Texture B"
+            label   "Texture B"
             type    file
             default { "" }
             help    "filename that points to a texture .exr or .tx file (must be mip-mapped and tiled with maketx)."
@@ -896,7 +896,7 @@
         }
         parm {
             name    "xn__inputsglitter_texture_orientation_randomness_qdc"
-            label   "Glitter Texture Orientation Randomness"
+            label   "Texture Orientation Randomness"
             type    float
             default { "0.15" }
             help    "randomly orient each texture"
@@ -921,7 +921,7 @@
         }
         parm {
             name    "xn__inputsglitter_color_hue_variation_tub"
-            label   "Glitter Color Hue Variation"
+            label   "Color Hue Variation"
             type    float
             default { "0" }
             help    "introduce hue variation in flake color centered at the base flake color's hue on the hue wheel"
@@ -946,7 +946,7 @@
         }
         parm {
             name    "xn__inputsglitter_color_saturation_variation_75b"
-            label   "Glitter Color Saturation Variation"
+            label   "Color Saturation Variation"
             type    float
             default { "0" }
             help    "introduce saturation variation in flake color centered at the base flake color's saturation"
@@ -971,7 +971,7 @@
         }
         parm {
             name    "xn__inputsglitter_color_value_variation_2xb"
-            label   "Glitter Color Value Variation"
+            label   "Color Value Variation"
             type    float
             default { "0" }
             help    "introduce value variation in flake color centered at the base flake color's value"
@@ -996,7 +996,7 @@
         }
         parm {
             name    "xn__inputsglitter_jitter_n8a"
-            label   "Glitter Jitter"
+            label   "Jitter"
             type    float
             default { "1" }
             help    "Controls how much the flakes are randomly offset from a regular grid"
@@ -1019,7 +1019,7 @@
         }
         parm {
             name    "xn__inputsglitter_compensate_reference_space_deformation_rqc"
-            label   "Glitter Compensate Reference Space Deformation"
+            label   "Compensate Reference Space Deformation"
             type    toggle
             default { "1" }
             help    "(In ReferenceSpace) Compensates for stretch/compression/shear in glitter shapes resulting from animation etc"
@@ -1041,7 +1041,7 @@
         }
         parm {
             name    "xn__inputsglitter_approximate_for_secondary_rays_qdc"
-            label   "Glitter Approximate For Secondary Rays"
+            label   "Approximate For Secondary Rays"
             type    toggle
             default { "1" }
             help    "use an approximation to shade glitter for non-mirror secondary rays"
@@ -1065,7 +1065,7 @@
         }
         parm {
             name    "xn__inputsglitter_LOD_quality_shb"
-            label   "Glitter LOD Quality"
+            label   "LOD Quality"
             type    float
             default { "0.5" }
             help    "controls quality of glitter at distances where individual flakes cannot be perceived; at lower values, approximation kicks in earlier"
@@ -1090,7 +1090,7 @@
         }
         parm {
             name    "xn__inputsglitter_debug_mode_5fb"
-            label   "Glitter Debug Mode"
+            label   "Debug Mode"
             type    string
             default { "off" }
             help    "developer debug visualization modes"
@@ -1150,7 +1150,7 @@
         }
         parm {
             name    "xn__inputsspecular_model_n8a"
-            label   "Specular Model"
+            label   "Model"
             type    string
             default { "GGX" }
             help    "sets the normal distribution function for specular.  GGX is currently isotropic only"
@@ -1337,7 +1337,7 @@
         }
         parm {
             name    "xn__inputsiridescence_apply_to_fjb"
-            label   "Iridescence Apply To"
+            label   "Apply To"
             type    string
             default { "primary specular" }
             help    "Apply iridescence to primary specular lobe or clearcoat/moisture lobe"
@@ -1365,7 +1365,7 @@
         }
         parm {
             name    "xn__inputsiridescence_color_control_krb"
-            label   "Iridescence Color Control"
+            label   "Color Control"
             type    string
             default { "use hue interpolation" }
             help    "use hue interpolation: automatically cycles through hue wheel, use ramp: user specified color ramp"
@@ -1393,7 +1393,7 @@
         }
         parm {
             name    "xn__inputsiridescence_primary_color_krb"
-            label   "Iridescence Primary Color"
+            label   "Primary Color"
             type    color
             size    3
             default { "1" "0" "0" }
@@ -1419,7 +1419,7 @@
         }
         parm {
             name    "xn__inputsiridescence_secondary_color_tub"
-            label   "Iridescence Secondary Color"
+            label   "Secondary Color"
             type    color
             size    3
             default { "1" "0" "0" }
@@ -1443,7 +1443,7 @@
         }
         parm {
             name    "xn__inputsiridescence_flip_hue_direction_pzb"
-            label   "Iridescence Flip Hue Direction"
+            label   "Flip Hue Direction"
             type    toggle
             default { "0" }
             help    "flip interpolation around the hue wheel to counter-clockwise direction"
@@ -1467,7 +1467,7 @@
         }
         parm {
             name    "xn__inputsiridescence_ramp_interpolation_mode_u7b"
-            label   "Iridescence Ramp Interpolation Mode"
+            label   "Ramp Interpolation Mode"
             type    string
             default { "RGB" }
             help    "RGB: lerp in RGB space which matches UI preview but can lose saturation, HSV: lerp in HSV space which preserves saturation"
@@ -1495,7 +1495,7 @@
         }
         parm {
             name    "iridescence_ramp"
-            label   "Iridescence Ramp"
+            label   "Ramp"
             type    ramp_rgb
             default { "7" }
             disablewhen "{ xn__inputsiridescence_colors_control_6sb == block } { xn__inputsiridescence_colors_control_6sb == none }"
@@ -1519,7 +1519,7 @@
         }
         parm {
             name    "xn__inputsiridescence_thickness_1kb"
-            label   "Iridescence Thickness"
+            label   "Thickness"
             type    float
             default { "1" }
             help    "Controls how much the color spectrum is repeated"
@@ -1544,7 +1544,7 @@
         }
         parm {
             name    "xn__inputsiridescence_exponent_fjb"
-            label   "Iridescence Exponent"
+            label   "Exponent"
             type    float
             default { "1" }
             help    "Tightens or broadens the distribution of colors"
@@ -1569,7 +1569,7 @@
         }
         parm {
             name    "xn__inputsiridescence_at_0_incidence_6sb"
-            label   "Iridescence At 0 Incidence"
+            label   "At 0 Incidence"
             type    float
             default { "1" }
             help    "Iridescence effect at 0 degree viewing angle"
@@ -1594,7 +1594,7 @@
         }
         parm {
             name    "xn__inputsiridescence_at_90_incidence_tub"
-            label   "Iridescence At 90 Incidence"
+            label   "At 90 Incidence"
             type    float
             default { "1" }
             help    "Iridescence effect at 90 degree viewing angle"

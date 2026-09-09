@@ -110,6 +110,88 @@
             parmtag { "usdvaluetype" "token" }
         }
         parm {
+            name    "xn__moonraycolor_control_o8a"
+            label   "moonray:color"
+            type    string
+            default { "none" }
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxPortalLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__moonraycolor_nva"
+            label   "Color"
+            type    color
+            size    3
+            default { "1" "1" "1" }
+            help    "The light's RGB values.\nThese are combined multiplicatively with the intensity and other attributes in determining the light's 3-channel radiance."
+            disablewhen "{ xn__moonraycolor_control_o8a == block } { xn__moonraycolor_control_o8a == none }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxPortalLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "color3f" }
+        }
+        parm {
+            name    "xn__moonrayintensity_control_6fb"
+            label   "moonray:intensity"
+            type    string
+            default { "none" }
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxPortalLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__moonrayintensity_51a"
+            label   "Intensity"
+            type    float
+            default { "1" }
+            help    "The light's intensity.\nThis is combined multiplicatively with the color and other attributes in determining the light's 3-channel radiance."
+            disablewhen "{ xn__moonrayintensity_control_6fb == block } { xn__moonrayintensity_control_6fb == none }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxPortalLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+        parm {
+            name    "xn__moonrayexposure_control_keb"
+            label   "moonray:exposure"
+            type    string
+            default { "none" }
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxPortalLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__moonrayexposure_j0a"
+            label   "Exposure"
+            type    float
+            default { "0" }
+            help    "The light's exposure value.\nThis value provides an alternative to the intensity value as a mechanism for controlling the light's overall brightness, and is inspired by the corresponding photographic term but is generalised to apply independently to each light. To calculate its effect, pow(2, exposure) is combined multiplicatively with the color and other attributes in determining the light's 3-channel radiance."
+            disablewhen "{ xn__moonrayexposure_control_keb == block } { xn__moonrayexposure_control_keb == none }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxPortalLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+        parm {
             name    "xn__moonraymax_shadow_distance_control_hwb"
             label   "moonray:max_shadow_distance"
             type    string
@@ -275,6 +357,30 @@
             parmtag { "usdvaluetype" "string" }
         }
         parm {
+            name    "xn__moonraynormalized_control_thb"
+            label   "moonray:normalized"
+            type    string
+            default { "none" }
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxGeometryLight primtype != UsdLuxPortalLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__moonraynormalized_s3a"
+            label   "Normalized"
+            type    toggle
+            default { "1" }
+            help    "When set to true, the size of the light can be changed without altering the amount of total energy cast into the scene. This is achieved via scaling the light's radiance by the reciprocal of its surface area. When set to false, the radiance is used as-is, regardless of surface area."
+            disablewhen "{ xn__moonraynormalized_control_thb == block } { xn__moonraynormalized_control_thb == none }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxGeometryLight primtype != UsdLuxPortalLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            parmtag { "usdvaluetype" "bool" }
+        }
+        parm {
             name    "xn__moonrayapply_scene_scale_control_7sb"
             label   "moonray:apply_scene_scale"
             type    string
@@ -297,6 +403,60 @@
             disablewhen "{ xn__moonrayapply_scene_scale_control_7sb == block } { xn__moonrayapply_scene_scale_control_7sb == none }"
             hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxGeometryLight primtype != UsdLuxPortalLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
             parmtag { "usdvaluetype" "bool" }
+        }
+        parm {
+            name    "xn__moonrayradius_control_bbb"
+            label   "moonray:radius"
+            type    string
+            default { "none" }
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxSphereLight createprims == on }"
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__moonrayradius_9wa"
+            label   "Radius"
+            type    float
+            default { "1" }
+            help    "The radius of the cylinder."
+            disablewhen "{ xn__moonrayradius_control_bbb == block } { xn__moonrayradius_control_bbb == none }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxSphereLight createprims == on }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+        parm {
+            name    "xn__moonrayheight_control_bbb"
+            label   "moonray:height"
+            type    string
+            default { "none" }
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxPortalLight primtype != UsdLuxRectLight createprims == on }"
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__moonrayheight_9wa"
+            label   "Height"
+            type    float
+            default { "1" }
+            help    "The height of the cylinder as measured along its axis."
+            disablewhen "{ xn__moonrayheight_control_bbb == block } { xn__moonrayheight_control_bbb == none }"
+            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxPortalLight primtype != UsdLuxRectLight createprims == on }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
         }
         parm {
             name    "xn__moonraysidedness_control_6fb"
@@ -442,11 +602,38 @@
             parmtag { "usdvaluetype" "float" }
         }
         parm {
-            name    "xn__moonraynormalized_control_thb"
-            label   "moonray:normalized"
+            name    "xn__moonrayangular_extent_control_cob"
+            label   "moonray:angular_extent"
             type    string
             default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxGeometryLight primtype != UsdLuxPortalLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
+            hidewhen "{ primtype != UsdLuxDistantLight createprims == on }"
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__moonrayangular_extent_bbb"
+            label   "Angular Extent"
+            type    float
+            default { "0.53" }
+            help    "The angle in degrees subtended by the DistantLight's diameter."
+            disablewhen "{ xn__moonrayangular_extent_control_cob == block } { xn__moonrayangular_extent_control_cob == none }"
+            hidewhen "{ primtype != UsdLuxDistantLight createprims == on }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+        parm {
+            name    "xn__moonraygeometry_control_keb"
+            label   "moonray:geometry"
+            type    string
+            default { "none" }
+            hidewhen "{ primtype != UsdLuxGeometryLight createprims == on }"
             menujoin {
                 "set"           "![BUTTONS_set_or_create]Set or Create"
                 "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
@@ -456,14 +643,15 @@
             parmtag { "sidefx::look" "icon" }
         }
         parm {
-            name    "xn__moonraynormalized_s3a"
-            label   "Normalized"
-            type    toggle
-            default { "1" }
-            help    "When set to true, the size of the light can be changed without altering the amount of total energy cast into the scene. This is achieved via scaling the light's radiance by the reciprocal of its surface area. When set to false, the radiance is used as-is, regardless of surface area."
-            disablewhen "{ xn__moonraynormalized_control_thb == block } { xn__moonraynormalized_control_thb == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxGeometryLight primtype != UsdLuxPortalLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
-            parmtag { "usdvaluetype" "bool" }
+            name    "xn__moonraygeometry_j0a"
+            label   "Geometry"
+            type    oppath
+            default { "" }
+            help    "The SceneObject holding the mesh data to use as the MeshLight's surface."
+            disablewhen "{ xn__moonraygeometry_control_keb == block } { xn__moonraygeometry_control_keb == none }"
+            hidewhen "{ primtype != UsdLuxGeometryLight createprims == on }"
+            parmtag { "oprelative" "." }
+            parmtag { "usdvaluetype" "<class 'pxr.Usd.Relationship'>" }
         }
         parm {
             name    "xn__moonrayparts_control_o8a"
@@ -515,88 +703,6 @@
             parmtag { "usdvaluetype" "<class 'pxr.Usd.Relationship'>" }
         }
         parm {
-            name    "xn__moonraycolor_control_o8a"
-            label   "moonray:color"
-            type    string
-            default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxPortalLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
-            menujoin {
-                "set"           "![BUTTONS_set_or_create]Set or Create"
-                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
-                "add"           "![BUTTONS_set_add]Add if Exists"
-                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
-                "block"         "![BUTTONS_set_block]Block"
-                "none"          "![BUTTONS_set_nothing]Do Nothing"
-            }
-            parmtag { "sidefx::look" "icon" }
-        }
-        parm {
-            name    "xn__moonraycolor_nva"
-            label   "Color"
-            type    color
-            size    3
-            default { "1" "1" "1" }
-            help    "The light's RGB values.\nThese are combined multiplicatively with the intensity and other attributes in determining the light's 3-channel radiance."
-            disablewhen "{ xn__moonraycolor_control_o8a == block } { xn__moonraycolor_control_o8a == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxPortalLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
-            range   { 0 10 }
-            parmtag { "usdvaluetype" "color3f" }
-        }
-        parm {
-            name    "xn__moonrayintensity_control_6fb"
-            label   "moonray:intensity"
-            type    string
-            default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxPortalLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
-            menujoin {
-                "set"           "![BUTTONS_set_or_create]Set or Create"
-                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
-                "add"           "![BUTTONS_set_add]Add if Exists"
-                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
-                "block"         "![BUTTONS_set_block]Block"
-                "none"          "![BUTTONS_set_nothing]Do Nothing"
-            }
-            parmtag { "sidefx::look" "icon" }
-        }
-        parm {
-            name    "xn__moonrayintensity_51a"
-            label   "Intensity"
-            type    float
-            default { "1" }
-            help    "The light's intensity.\nThis is combined multiplicatively with the color and other attributes in determining the light's 3-channel radiance."
-            disablewhen "{ xn__moonrayintensity_control_6fb == block } { xn__moonrayintensity_control_6fb == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxPortalLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
-            range   { 0 10 }
-            parmtag { "usdvaluetype" "float" }
-        }
-        parm {
-            name    "xn__moonrayexposure_control_keb"
-            label   "moonray:exposure"
-            type    string
-            default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxPortalLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
-            menujoin {
-                "set"           "![BUTTONS_set_or_create]Set or Create"
-                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
-                "add"           "![BUTTONS_set_add]Add if Exists"
-                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
-                "block"         "![BUTTONS_set_block]Block"
-                "none"          "![BUTTONS_set_nothing]Do Nothing"
-            }
-            parmtag { "sidefx::look" "icon" }
-        }
-        parm {
-            name    "xn__moonrayexposure_j0a"
-            label   "Exposure"
-            type    float
-            default { "0" }
-            help    "The light's exposure value.\nThis value provides an alternative to the intensity value as a mechanism for controlling the light's overall brightness, and is inspired by the corresponding photographic term but is generalised to apply independently to each light. To calculate its effect, pow(2, exposure) is combined multiplicatively with the color and other attributes in determining the light's 3-channel radiance."
-            disablewhen "{ xn__moonrayexposure_control_keb == block } { xn__moonrayexposure_control_keb == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxDiskLight primtype != UsdLuxDistantLight primtype != UsdLuxDomeLight primtype != UsdLuxGeometryLight primtype != UsdLuxPortalLight primtype != UsdLuxRectLight primtype != UsdLuxSphereLight primtype != UsdLuxDiskLight createprims == on }"
-            range   { 0 10 }
-            parmtag { "usdvaluetype" "float" }
-        }
-        parm {
             name    "xn__moonraylight_control_o8a"
             label   "moonray:light"
             type    string
@@ -645,33 +751,6 @@
             help    "The width of the rectangle, i.e. the size measured in the light's local x-direction."
             disablewhen "{ xn__moonraywidth_control_o8a == block } { xn__moonraywidth_control_o8a == none }"
             hidewhen "{ primtype != UsdLuxPortalLight primtype != UsdLuxRectLight createprims == on }"
-            range   { 0 10 }
-            parmtag { "usdvaluetype" "float" }
-        }
-        parm {
-            name    "xn__moonrayheight_control_bbb"
-            label   "moonray:height"
-            type    string
-            default { "none" }
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxPortalLight primtype != UsdLuxRectLight createprims == on }"
-            menujoin {
-                "set"           "![BUTTONS_set_or_create]Set or Create"
-                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
-                "add"           "![BUTTONS_set_add]Add if Exists"
-                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
-                "block"         "![BUTTONS_set_block]Block"
-                "none"          "![BUTTONS_set_nothing]Do Nothing"
-            }
-            parmtag { "sidefx::look" "icon" }
-        }
-        parm {
-            name    "xn__moonrayheight_9wa"
-            label   "Height"
-            type    float
-            default { "1" }
-            help    "The height of the rectangle, i.e. the size measured in the light's local y-direction."
-            disablewhen "{ xn__moonrayheight_control_bbb == block } { xn__moonrayheight_control_bbb == none }"
-            hidewhen "{ primtype != UsdLuxCylinderLight primtype != UsdLuxPortalLight primtype != UsdLuxRectLight createprims == on }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "float" }
         }
@@ -1303,6 +1382,33 @@
         hidewhen "{ primtype != UsdLuxDiskLight createprims == on }"
 
         parm {
+            name    "xn__moonraylens_radius_control_gjb"
+            label   "moonray:lens_radius"
+            type    string
+            default { "none" }
+            hidewhen "{ primtype != UsdLuxDiskLight createprims == on }"
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__moonraylens_radius_f5a"
+            label   "Lens Radius"
+            type    float
+            default { "1" }
+            help    "The radius of the SpotLight's lens (when the aspect ratio is 1.0, so that the lens is circular)."
+            disablewhen "{ xn__moonraylens_radius_control_gjb == block } { xn__moonraylens_radius_control_gjb == none }"
+            hidewhen "{ primtype != UsdLuxDiskLight createprims == on }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+        parm {
             name    "xn__moonrayaspect_ratio_control_2kb"
             label   "moonray:aspect_ratio"
             type    string
@@ -1352,6 +1458,33 @@
             default { "1e+10" }
             help    "The distance from the SpotLight's position, measured in the direction the light is pointing, at which the projected image will be in focus."
             disablewhen "{ xn__moonrayfocal_plane_distance_control_3xb == block } { xn__moonrayfocal_plane_distance_control_3xb == none }"
+            hidewhen "{ primtype != UsdLuxDiskLight createprims == on }"
+            range   { 0 10 }
+            parmtag { "usdvaluetype" "float" }
+        }
+        parm {
+            name    "xn__moonrayouter_cone_angle_control_lrb"
+            label   "moonray:outer_cone_angle"
+            type    string
+            default { "none" }
+            hidewhen "{ primtype != UsdLuxDiskLight createprims == on }"
+            menujoin {
+                "set"           "![BUTTONS_set_or_create]Set or Create"
+                "setexisting"   "![BUTTONS_set_if_exists]Set if Exists"
+                "add"           "![BUTTONS_set_add]Add if Exists"
+                "multiply"      "![BUTTONS_set_multiply]Multiply if Exists"
+                "block"         "![BUTTONS_set_block]Block"
+                "none"          "![BUTTONS_set_nothing]Do Nothing"
+            }
+            parmtag { "sidefx::look" "icon" }
+        }
+        parm {
+            name    "xn__moonrayouter_cone_angle_keb"
+            label   "Outer Cone Angle"
+            type    float
+            default { "60" }
+            help    "The apex angle of the bounding cone of the light emitted by the SpotLight. No illumination takes placeoutside this angle. This is a full angle, measured from one side to the other. There is a falloff function applied between the outer and inner cones - see the angle_falloff_type attribute."
+            disablewhen "{ xn__moonrayouter_cone_angle_control_lrb == block } { xn__moonrayouter_cone_angle_control_lrb == none }"
             hidewhen "{ primtype != UsdLuxDiskLight createprims == on }"
             range   { 0 10 }
             parmtag { "usdvaluetype" "float" }

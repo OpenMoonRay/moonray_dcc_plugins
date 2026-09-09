@@ -158,7 +158,7 @@
         }
         parm {
             name    "xn__inputsfresnel_type_e5a"
-            label   "Fresnel Type"
+            label   "Type"
             type    string
             default { "dielectric cylinder" }
             disablewhen "{ xn__inputsfresnel_type_control_fjb == block } { xn__inputsfresnel_type_control_fjb == none }"
@@ -238,7 +238,7 @@
         }
         parm {
             name    "xn__inputsprimary_specular_offset_bob"
-            label   "Primary Specular Offset"
+            label   "Offset"
             type    float
             default { "-3" }
             help    "offset specular highlight along hair direction (in degrees) [-10,+10], around -3 for human hair"
@@ -263,7 +263,7 @@
         }
         parm {
             name    "xn__inputsprimary_specular_roughness_6sb"
-            label   "Primary Specular Roughness"
+            label   "Roughness"
             type    float
             default { "0.5" }
             help    "roughness of the primary specular highlight, also sets the transmission roughness to 0.5x and secondary specular roughness to 2x by default unless independent roughnesses are being used for both"
@@ -288,7 +288,7 @@
         }
         parm {
             name    "xn__inputsprimary_specular_tint_1kb"
-            label   "Primary Specular Tint"
+            label   "Tint"
             type    color
             size    3
             default { "1" "1" "1" }
@@ -342,7 +342,7 @@
         }
         parm {
             name    "xn__inputssecondary_specular_offset_krb"
-            label   "Secondary Specular Offset"
+            label   "Offset"
             type    float
             default { "-4.5" }
             help    "offset secondary specular highlight along hair direction (in degrees) [-10,+10], around -4.5 for human hair"
@@ -414,7 +414,7 @@
         }
         parm {
             name    "xn__inputssecondary_specular_tint_bob"
-            label   "Secondary Specular Tint"
+            label   "Tint"
             type    color
             size    3
             default { "1" "1" "1" }
@@ -615,7 +615,7 @@
         }
         parm {
             name    "xn__inputstransmission_offset_shb"
-            label   "Transmission Offset"
+            label   "Offset"
             type    float
             default { "-1.5" }
             help    "offset transmission highlight along hair direction (in degrees) [-10,+10], around -1.5 for human hair"
@@ -687,7 +687,7 @@
         }
         parm {
             name    "xn__inputstransmission_azimuthal_roughness_y2b"
-            label   "Transmission Azimuthal Roughness"
+            label   "Azimuthal Roughness"
             type    float
             default { "1" }
             help    "higher values create a softer look"
@@ -712,7 +712,7 @@
         }
         parm {
             name    "xn__inputstransmission_tint_jeb"
-            label   "Transmission Tint"
+            label   "Tint"
             type    color
             size    3
             default { "1" "1" "1" }
