@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shelfDocument>
+  <tool name="moonraymaterialbuilder" label="MoonRay Material Builder" icon="VOP_raytrace">
+    <helpText><![CDATA[Create an editable MoonRay-native material subnet with DwaBaseMaterial connected to the MoonRay surface output and NormalDisplacement connected to displacement.]]></helpText>
+    <toolMenuContext name="network">
+      <contextOpType>Vop/materialbuilder</contextOpType>
+    </toolMenuContext>
+    <toolSubmenu>MoonRay</toolSubmenu>
+    <script scriptType="python"><![CDATA[
+import moonray_material_builder
+moonray_material_builder.create_moonray_material_builder(kwargs)
+]]></script>
+    <keywordList>
+      <keyword>MoonRay</keyword>
+      <keyword>DwaBaseMaterial</keyword>
+      <keyword>material builder</keyword>
+    </keywordList>
+  </tool>
+</shelfDocument>
